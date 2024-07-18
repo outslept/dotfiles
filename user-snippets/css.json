@@ -1,0 +1,254 @@
+{
+  "Flexbox Container": {
+    "prefix": "flex",
+    "body": [
+      ".flex {",
+      "  display: flex;",
+      "  flex-direction: ${1|row,column,row-reverse,column-reverse|};",
+      "  justify-content: ${2|flex-start,flex-end,center,space-between,space-around|};",
+      "  align-items: ${3|stretch,flex-start,flex-end,center|};",
+      "}"
+    ],
+    "description": "Create a flexbox container"
+  },
+  "Grid Container": {
+    "prefix": "grid",
+    "body": [
+      ".grid {",
+      "  display: grid;",
+      "  grid-template-columns: repeat(${1:3}, 1fr);",
+      "  gap: ${2:1rem};",
+      "}"
+    ],
+    "description": "Create a grid container"
+  },
+  "Responsive Image": {
+    "prefix": "respimg",
+    "body": [
+      ".responsive-image {",
+      "  max-width: 100%;",
+      "  height: auto;",
+      "}"
+    ],
+    "description": "Create a responsive image style"
+  },
+  "Center Element": {
+    "prefix": "center",
+    "body": [
+      ".center {",
+      "  display: flex;",
+      "  justify-content: center;",
+      "  align-items: center;",
+      "}"
+    ],
+    "description": "Center an element using flexbox"
+  },
+  "Box Shadow": {
+    "prefix": "shadow",
+    "body": [
+      ".box-shadow {",
+      "  box-shadow: 0 ${1:4px} ${2:6px} rgba(0, 0, 0, ${3:0.1});",
+      "}"
+    ],
+    "description": "Add a box shadow"
+  },
+  "Truncate Text": {
+    "prefix": "truncate",
+    "body": [
+      ".truncate {",
+      "  white-space: nowrap;",
+      "  overflow: hidden;",
+      "  text-overflow: ellipsis;",
+      "}"
+    ],
+    "description": "Truncate text with ellipsis"
+  },
+  "Clearfix": {
+    "prefix": "clearfix",
+    "body": [
+      ".clearfix::after {",
+      "  content: '';",
+      "  display: table;",
+      "  clear: both;",
+      "}"
+    ],
+    "description": "Add a clearfix"
+  },
+  "Responsive Container": {
+    "prefix": "container",
+    "body": [
+      ".container {",
+      "  width: 100%;",
+      "  max-width: ${1:1200px};",
+      "  margin: 0 auto;",
+      "  padding: 0 ${2:15px};",
+      "}"
+    ],
+    "description": "Create a responsive container"
+  },
+  "Media Query": {
+    "prefix": "mq",
+    "body": ["@media (min-width: ${1:768px}) {", "  $2", "}"],
+    "description": "Add a media query"
+  },
+  "Transition": {
+    "prefix": "transition",
+    "body": [
+      "transition: ${1:all} ${2:0.3s} ${3|ease,ease-in,ease-out,ease-in-out,linear|};"
+    ],
+    "description": "Add a transition"
+  },
+  "Visually Hidden": {
+    "prefix": "vishidden",
+    "body": [
+      ".visually-hidden {",
+      "  position: absolute;",
+      "  width: 1px;",
+      "  height: 1px;",
+      "  margin: -1px;",
+      "  padding: 0;",
+      "  overflow: hidden;",
+      "  clip: rect(0, 0, 0, 0);",
+      "  white-space: nowrap;",
+      "  border: 0;",
+      "}"
+    ],
+    "description": "Hide content visually but keep it accessible for screen readers"
+  },
+  "Custom Scrollbar": {
+    "prefix": "scrollbar",
+    "body": [
+      ".custom-scrollbar {",
+      "  scrollbar-width: thin;",
+      "  scrollbar-color: ${1:#888} ${2:#f1f1f1};",
+      "}",
+      "",
+      ".custom-scrollbar::-webkit-scrollbar {",
+      "  width: ${3:10px};",
+      "}",
+      "",
+      ".custom-scrollbar::-webkit-scrollbar-track {",
+      "  background: ${2:#f1f1f1};",
+      "}",
+      "",
+      ".custom-scrollbar::-webkit-scrollbar-thumb {",
+      "  background: ${1:#888};",
+      "}"
+    ],
+    "description": "Create a custom scrollbar"
+  },
+  "Aspect Ratio": {
+    "prefix": "aspect",
+    "body": [".aspect-ratio {", "  aspect-ratio: ${1:16} / ${2:9};", "}"],
+    "description": "Set an aspect ratio for an element"
+  },
+  "Text Gradient": {
+    "prefix": "textgradient",
+    "body": [
+      ".text-gradient {",
+      "  background: linear-gradient(${1:45deg}, ${2:#ff0000}, ${3:#0000ff});",
+      "  -webkit-background-clip: text;",
+      "  -webkit-text-fill-color: transparent;",
+      "}"
+    ],
+    "description": "Create a text gradient effect"
+  },
+  "Sticky Element": {
+    "prefix": "sticky",
+    "body": [".sticky {", "  position: sticky;", "  top: ${1:0};", "}"],
+    "description": "Make an element sticky"
+  },
+  "Custom Property (CSS Variable)": {
+    "prefix": "cssvar",
+    "body": [
+      ":root {",
+      "  --${1:variable-name}: ${2:value};",
+      "}",
+      "",
+      ".selector {",
+      "  property: var(--${1:variable-name});",
+      "}"
+    ],
+    "description": "Define and use a CSS custom property"
+  },
+  "Responsive Font Size": {
+    "prefix": "respfont",
+    "body": ["font-size: clamp(${1:1rem}, ${2:5vw}, ${3:2rem});"],
+    "description": "Create a responsive font size using clamp()"
+  },
+  "Hover Effect": {
+    "prefix": "hover",
+    "body": [
+      ".hover-effect {",
+      "  transition: all 0.3s ease;",
+      "}",
+      "",
+      ".hover-effect:hover {",
+      "  ${1:transform: scale(1.1);}",
+      "}"
+    ],
+    "description": "Add a hover effect"
+  },
+  "Keyframe Animation": {
+    "prefix": "keyframes",
+    "body": [
+      "@keyframes ${1:animationName} {",
+      "  0% {",
+      "    ${2:opacity: 0;}",
+      "  }",
+      "  100% {",
+      "    ${3:opacity: 1;}",
+      "  }",
+      "}",
+      "",
+      ".animated-element {",
+      "  animation: ${1:animationName} ${4:1s} ${5|ease,linear,ease-in,ease-out,ease-in-out|} ${6|infinite,1|};",
+      "}"
+    ],
+    "description": "Create a keyframe animation"
+  },
+  "CSS Reset": {
+    "prefix": "cssreset",
+    "body": [
+      "* {",
+      "  margin: 0;",
+      "  padding: 0;",
+      "  box-sizing: border-box;",
+      "}",
+      "",
+      "body {",
+      "  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',",
+      "    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',",
+      "    sans-serif;",
+      "  -webkit-font-smoothing: antialiased;",
+      "  -moz-osx-font-smoothing: grayscale;",
+      "}"
+    ],
+    "description": "Basic CSS reset"
+  },
+  "Responsive Grid": {
+    "prefix": "respgrid",
+    "body": [
+      ".responsive-grid {",
+      "  display: grid;",
+      "  grid-template-columns: repeat(auto-fit, minmax(${1:250px}, 1fr));",
+      "  gap: ${2:1rem};",
+      "}"
+    ],
+    "description": "Create a responsive grid layout"
+  },
+  "Overlay": {
+    "prefix": "overlay",
+    "body": [
+      ".overlay {",
+      "  position: absolute;",
+      "  top: 0;",
+      "  left: 0;",
+      "  width: 100%;",
+      "  height: 100%;",
+      "  background-color: rgba(0, 0, 0, ${1:0.5});",
+      "}"
+    ],
+    "description": "Create an overlay effect"
+  }
+}
