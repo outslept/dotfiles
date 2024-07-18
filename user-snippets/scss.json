@@ -1,0 +1,105 @@
+{
+  "SCSS Mixin": {
+    "prefix": "scssmixin",
+    "body": [
+      "@mixin ${1:mixinName}(${2:$parameter}) {",
+      "  $3",
+      "}",
+      "",
+      "// Usage",
+      ".selector {",
+      "  @include ${1:mixinName}(${4:argument});",
+      "}"
+    ],
+    "description": "Create a SCSS mixin with parameters"
+  },
+  "SCSS Function": {
+    "prefix": "scssfunc",
+    "body": [
+      "@function ${1:functionName}(${2:$parameter}) {",
+      "  @return ${3:result};",
+      "}",
+      "",
+      "// Usage",
+      "$result: ${1:functionName}(${4:argument});"
+    ],
+    "description": "Create a SCSS function"
+  },
+  "SCSS Loop": {
+    "prefix": "scssloop",
+    "body": [
+      "@for $i from 1 through ${1:5} {",
+      "  .item-#{$i} {",
+      "    width: #{$i * 10}px;",
+      "  }",
+      "}"
+    ],
+    "description": "Create a SCSS loop"
+  },
+  "SCSS Map": {
+    "prefix": "scssmap",
+    "body": [
+      "$${1:mapName}: (",
+      "  ${2:key1}: ${3:value1},",
+      "  ${4:key2}: ${5:value2}",
+      ");",
+      "",
+      "// Usage",
+      ".selector {",
+      "  property: map-get($${1:mapName}, ${2:key1});",
+      "}"
+    ],
+    "description": "Create and use a SCSS map"
+  },
+  "SCSS Placeholder Selector": {
+    "prefix": "scssplaceholder",
+    "body": [
+      "%${1:placeholderName} {",
+      "  $2",
+      "}",
+      "",
+      "// Usage",
+      ".selector {",
+      "  @extend %${1:placeholderName};",
+      "}"
+    ],
+    "description": "Create and use a SCSS placeholder selector"
+  },
+  "SCSS Media Query Mixin": {
+    "prefix": "scssmq",
+    "body": [
+      "@mixin media-${1|xs,sm,md,lg,xl|}() {",
+      "  @media (min-width: ${2:breakpoint}) {",
+      "    @content;",
+      "  }",
+      "}",
+      "",
+      "// Usage",
+      "@include media-${1|xs,sm,md,lg,xl|}() {",
+      "  $3",
+      "}"
+    ],
+    "description": "Create a media query mixin"
+  },
+  "SCSS Color Function": {
+    "prefix": "scsscolor",
+    "body": [
+      "$base-color: #${1:3366ff};",
+      "$darker-color: darken($base-color, ${2:10%});",
+      "$lighter-color: lighten($base-color, ${3:10%});",
+      "$saturated-color: saturate($base-color, ${4:20%});",
+      "$desaturated-color: desaturate($base-color, ${5:20%});"
+    ],
+    "description": "Use SCSS color functions"
+  },
+  "SCSS List Operations": {
+    "prefix": "scsslist",
+    "body": [
+      "$list: ${1:item1, item2, item3};",
+      "$first-item: nth($list, 1);",
+      "$list-length: length($list);",
+      "$new-list: append($list, ${2:item4});"
+    ],
+    "description": "Perform operations on SCSS lists"
+  }
+}
