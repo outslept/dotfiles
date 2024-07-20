@@ -1,6 +1,6 @@
 {
   "Basic EditorConfig": {
-    "prefix": "editorconfig-basic",
+    "prefix": "basic",
     "body": [
       "root = true",
       "",
@@ -15,7 +15,7 @@
     "description": "Basic EditorConfig setup"
   },
   "EditorConfig for Web Projects": {
-    "prefix": "editorconfig-web",
+    "prefix": "web",
     "body": [
       "root = true",
       "",
@@ -45,7 +45,7 @@
     "description": "EditorConfig setup for web projects"
   },
   "EditorConfig for Mixed Languages": {
-    "prefix": "editorconfig-mixed",
+    "prefix": "mixed",
     "body": [
       "root = true",
       "",

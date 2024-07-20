@@ -1,6 +1,6 @@
 {
   "TypeScript Interface": {
-    "prefix": "tsinterface",
+    "prefix": "interface",
     "body": [
       "interface ${1:InterfaceName} {",
       "  ${2:propertyName}: ${3:string | number | boolean | Date | Array<T>};",
@@ -10,7 +10,7 @@
     "description": "Create a TypeScript interface"
   },
   "TypeScript Enum": {
-    "prefix": "tsenum",
+    "prefix": "enum",
     "body": [
       "enum ${1:EnumName} {",
       "  ${2:Value1} = '${2:Value1}',",
@@ -20,7 +20,7 @@
     "description": "Create a TypeScript enum"
   },
   "TypeScript Function": {
-    "prefix": "tsfunc",
+    "prefix": "func",
     "body": [
       "function ${1:functionName}(${2:params}: ${3:ParamType}): ${4:void | ReturnType} {",
       "  ${5:// TODO: implement}",
@@ -29,7 +29,7 @@
     "description": "Create a TypeScript function"
   },
   "TypeScript Generic Function": {
-    "prefix": "tsgenfunc",
+    "prefix": "genfunc",
     "body": [
       "function ${1:functionName}<T>(arg: T): T {",
       "  return arg;",
@@ -38,7 +38,7 @@
     "description": "Create a TypeScript generic function"
   },
   "TypeScript Async Function": {
-    "prefix": "tsasync",
+    "prefix": "async",
     "body": [
       "async function ${1:functionName}(${2:params}: ${3:ParamType}): Promise<${4:ReturnType}> {",
       "  ${5:// TODO: implement}",
@@ -47,7 +47,7 @@
     "description": "Create a TypeScript async function"
   },
   "TypeScript Arrow Function": {
-    "prefix": "tsarrow",
+    "prefix": "arrow",
     "body": [
       "const ${1:functionName} = (${2:params}: ${3:ParamType}): ${4:returnType} => {",
       "  ${5:// TODO: implement}",
@@ -56,7 +56,7 @@
     "description": "Create a TypeScript arrow function"
   },
   "TypeScript Class": {
-    "prefix": "tsclass",
+    "prefix": "class",
     "body": [
       "class ${1:ClassName} {",
       "  private ${2:propertyName}: ${3:string | number};",
@@ -73,7 +73,7 @@
     "description": "Create a TypeScript class"
   },
   "TypeScript Interface with Generics": {
-    "prefix": "tsigeneric",
+    "prefix": "igen",
     "body": [
       "interface ${1:InterfaceName}<T> {",
       "  data: T;",
@@ -83,7 +83,7 @@
     "description": "Create a TypeScript interface with generics"
   },
   "TypeScript Type Alias": {
-    "prefix": "tstype",
+    "prefix": "atype",
     "body": [
       "type ${1:TypeName} = {",
       "  ${2:propertyName}: ${3:string | number | boolean};",
@@ -93,17 +93,17 @@
     "description": "Create a TypeScript type alias"
   },
   "TypeScript Union Type": {
-    "prefix": "tsunion",
+    "prefix": "union",
     "body": ["type ${1:UnionType} = ${2:type1} | ${3:type2};"],
     "description": "Create a TypeScript union type"
   },
   "TypeScript Intersection Type": {
-    "prefix": "tsintersection",
+    "prefix": "intersect",
     "body": ["type ${1:IntersectionType} = ${2:type1} & ${3:type2};"],
     "description": "Create a TypeScript intersection type"
   },
   "TypeScript Function Overloading": {
-    "prefix": "tsover",
+    "prefix": "over",
     "body": [
       "function ${1:functionName}:",
       "  (${2:params}: ${3:ParamType}): ${4:returnType};",
@@ -115,7 +115,7 @@
     "description": "Create a TypeScript function with overloading"
   },
   "TypeScript Promise": {
-    "prefix": "tsprom",
+    "prefix": "prom",
     "body": [
       "return new Promise<${1:ReturnType}>((resolve, reject) => {",
       "  ${2:// TODO: implement}",
@@ -124,17 +124,17 @@
     "description": "Create a new Promise"
   },
   "TypeScript Destructuring": {
-    "prefix": "tsdes",
+    "prefix": "des",
     "body": ["const { ${1:propertyName} } = ${2:object};"],
     "description": "Destructure a property from an object"
   },
   "TypeScript Array Destructuring": {
-    "prefix": "tsdesarr",
+    "prefix": "desarr",
     "body": ["const [${1:first}, ${2:second}] = ${3:array};"],
     "description": "Destructure values from an array"
   },
   "TypeScript Type Guard": {
-    "prefix": "tsguard",
+    "prefix": "guard",
     "body": [
       "function is${1:TypeName}(arg: any): arg is ${1:TypeName} {",
       "  return (arg as ${1:TypeName}).${2:property} !== undefined;",
@@ -143,32 +143,32 @@
     "description": "Create a TypeScript type guard"
   },
   "TypeScript Generic Interface": {
-    "prefix": "tsgenint",
+    "prefix": "genint",
     "body": ["interface ${1:Wrapper}<T> {", "  value: T;", "}"],
     "description": "Create a TypeScript generic interface"
   },
   "TypeScript Readonly Type": {
-    "prefix": "tsreadonly",
+    "prefix": "readonly",
     "body": ["type ${1:TypeName} = Readonly<${2:OriginalType}>;"],
     "description": "Create a TypeScript readonly type"
   },
   "TypeScript Optional Chaining": {
-    "prefix": "tsoptchain",
+    "prefix": "optchain",
     "body": ["${1:variableName}?.${2:propertyName};"],
     "description": "Use optional chaining"
   },
   "TypeScript Nullish Coalescing": {
-    "prefix": "tsnullish",
+    "prefix": "nullish",
     "body": ["${1:variable} ?? ${2:defaultValue};"],
     "description": "Use nullish coalescing operator"
   },
   "TypeScript Template Literal Type": {
-    "prefix": "tstemplate",
+    "prefix": "template",
     "body": ["type ${1:TemplateName} = `${2:prefix}${3:Suffix}`;"],
     "description": "Create a TypeScript template literal type"
   },
   "TypeScript Namespace": {
-    "prefix": "tsnamespace",
+    "prefix": "namespace",
     "body": [
       "namespace ${1:NamespaceName} {",
       "  export interface ${2:InterfaceName} {",
