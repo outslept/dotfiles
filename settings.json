@@ -1,8 +1,9 @@
 {
   "window.zoomLevel": 1,
-  "editor.fontFamily": "Geist Mono",
-  "editor.fontSize": 14,
-  "editor.lineHeight": 1.6,
+  "editor.fontFamily": "Monaspace Neon",
+  "editor.fontSize": 13.0,
+  "editor.lineHeight": 1.5,
+  "editor.letterSpacing": 0.1,
   "workbench.startupEditor": "terminal",
   "editor.renderLineHighlight": "gutter",
   "editor.fontLigatures": true,
@@ -10,7 +11,7 @@
   "explorer.compactFolders": true,
   "editor.semanticHighlighting.enabled": false,
   "breadcrumbs.enabled": false,
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "default",
   "editor.minimap.enabled": false,
   "apc.header": {
     "height": 30
@@ -138,5 +139,8 @@
   "update.mode": "manual",
   "editor.formatOnSave": true,
 
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "material-icon-theme.folders.theme": "classic",
+  "workbench.iconTheme": "city-lights-icons-vsc",
+  "workbench.colorTheme": "Minimal Kiwi"
 }
