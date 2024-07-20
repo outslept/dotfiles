@@ -1,6 +1,6 @@
 {
   "Batch File Header": {
-    "prefix": "batheader",
+    "prefix": "header",
     "body": [
       "@echo off",
       "setlocal enabledelayedexpansion",
@@ -12,7 +12,7 @@
     "description": "Create a basic batch file header"
   },
   "For Loop": {
-    "prefix": "batfor",
+    "prefix": "for",
     "body": [
       "for %%${1:i} in (${2:item1 item2 item3}) do (",
       "    echo %%${1:i}",
@@ -22,27 +22,27 @@
     "description": "Create a for loop in batch"
   },
   "If Statement": {
-    "prefix": "batif",
+    "prefix": "if",
     "body": ["if ${1:condition} (", "    $0", ") else (", "    ", ")"],
     "description": "Create an if-else statement in batch"
   },
   "Function": {
-    "prefix": "batfunc",
+    "prefix": "func",
     "body": [":${1:functionName}", "$0", "goto :eof"],
     "description": "Create a function in batch"
   },
   "Set Variable": {
-    "prefix": "batset",
+    "prefix": "set",
     "body": ["set \"${1:variableName}=${2:value}\""],
     "description": "Set a variable in batch"
   },
   "Read User Input": {
-    "prefix": "batinput",
+    "prefix": "input",
     "body": ["set /p \"${1:variableName}=${2:Enter a value: }\""],
     "description": "Read user input in batch"
   },
   "Error Handling": {
-    "prefix": "baterror",
+    "prefix": "error",
     "body": [
       "if errorlevel 1 (",
       "    echo An error occurred",
@@ -52,7 +52,7 @@
     "description": "Basic error handling in batch"
   },
   "File Existence Check": {
-    "prefix": "batexists",
+    "prefix": "exists",
     "body": [
       "if exist \"${1:filename}\" (",
       "    echo File exists",
@@ -63,14 +63,14 @@
     "description": "Check if a file exists in batch"
   },
   "Directory Creation": {
-    "prefix": "batmkdir",
+    "prefix": "mkdir",
     "body": [
       "if not exist \"${1:directoryPath}\" mkdir \"${1:directoryPath}\""
     ],
     "description": "Create a directory if it doesn't exist"
   },
   "Command Line Arguments": {
-    "prefix": "batargs",
+    "prefix": "args",
     "body": [
       "if \"%1\"==\"\" (",
       "    echo Usage: %0 <argument>",
