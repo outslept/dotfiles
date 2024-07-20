@@ -1,0 +1,83 @@
+{
+  "Batch File Header": {
+    "prefix": "batheader",
+    "body": [
+      "@echo off",
+      "setlocal enabledelayedexpansion",
+      "",
+      "rem ${1:Script description}",
+      "",
+      "$0"
+    ],
+    "description": "Create a basic batch file header"
+  },
+  "For Loop": {
+    "prefix": "batfor",
+    "body": [
+      "for %%${1:i} in (${2:item1 item2 item3}) do (",
+      "    echo %%${1:i}",
+      "    $0",
+      ")"
+    ],
+    "description": "Create a for loop in batch"
+  },
+  "If Statement": {
+    "prefix": "batif",
+    "body": ["if ${1:condition} (", "    $0", ") else (", "    ", ")"],
+    "description": "Create an if-else statement in batch"
+  },
+  "Function": {
+    "prefix": "batfunc",
+    "body": [":${1:functionName}", "$0", "goto :eof"],
+    "description": "Create a function in batch"
+  },
+  "Set Variable": {
+    "prefix": "batset",
+    "body": ["set \"${1:variableName}=${2:value}\""],
+    "description": "Set a variable in batch"
+  },
+  "Read User Input": {
+    "prefix": "batinput",
+    "body": ["set /p \"${1:variableName}=${2:Enter a value: }\""],
+    "description": "Read user input in batch"
+  },
+  "Error Handling": {
+    "prefix": "baterror",
+    "body": [
+      "if errorlevel 1 (",
+      "    echo An error occurred",
+      "    exit /b 1",
+      ")"
+    ],
+    "description": "Basic error handling in batch"
+  },
+  "File Existence Check": {
+    "prefix": "batexists",
+    "body": [
+      "if exist \"${1:filename}\" (",
+      "    echo File exists",
+      ") else (",
+      "    echo File does not exist",
+      ")"
+    ],
+    "description": "Check if a file exists in batch"
+  },
+  "Directory Creation": {
+    "prefix": "batmkdir",
+    "body": [
+      "if not exist \"${1:directoryPath}\" mkdir \"${1:directoryPath}\""
+    ],
+    "description": "Create a directory if it doesn't exist"
+  },
+  "Command Line Arguments": {
+    "prefix": "batargs",
+    "body": [
+      "if \"%1\"==\"\" (",
+      "    echo Usage: %0 <argument>",
+      "    exit /b 1",
+      ")",
+      "set \"arg1=%1\""
+    ],
+    "description": "Handle command line arguments in batch"
+  }
+}
