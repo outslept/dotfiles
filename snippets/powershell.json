@@ -1,0 +1,105 @@
+{
+  "Function": {
+    "prefix": "function",
+    "body": [
+      "function ${1:FunctionName} {",
+      "    [CmdletBinding()]",
+      "    param (",
+      "        [Parameter(Mandatory=\\$true)]",
+      "        [${2:type}]\\$${3:paramName}",
+      "    )",
+      "    ",
+      "    ${0:# Function body}",
+      "}"
+    ],
+    "description": "Create a new function"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": ["if (${1:condition}) {", "    ${0:# Code}", "}"],
+    "description": "If statement"
+  },
+  "If-Else Statement": {
+    "prefix": "ifelse",
+    "body": [
+      "if (${1:condition}) {",
+      "    ${2:# Code}",
+      "} else {",
+      "    ${0:# Code}",
+      "}"
+    ],
+    "description": "If-Else statement"
+  },
+  "Foreach Loop": {
+    "prefix": "foreach",
+    "body": [
+      "foreach (\\$${1:item} in \\$${2:collection}) {",
+      "    ${0:# Code}",
+      "}"
+    ],
+    "description": "Foreach loop"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (\\$${1:i} = 0; \\$${1:i} -lt ${2:count}; \\$${1:i}++) {",
+      "    ${0:# Code}",
+      "}"
+    ],
+    "description": "For loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": ["while (${1:condition}) {", "    ${0:# Code}", "}"],
+    "description": "While loop"
+  },
+  "Switch Statement": {
+    "prefix": "switch",
+    "body": [
+      "switch (\\$${1:variable}) {",
+      "    ${2:value1} { ${3:# Code} }",
+      "    ${4:value2} { ${5:# Code} }",
+      "    default { ${0:# Code} }",
+      "}"
+    ],
+    "description": "Switch statement"
+  },
+  "Try-Catch": {
+    "prefix": "trycatch",
+    "body": [
+      "try {",
+      "    ${1:# Code that may throw an exception}",
+      "} catch {",
+      "    ${0:# Error handling}",
+      "}"
+    ],
+    "description": "Try-Catch block"
+  },
+  "Param Block": {
+    "prefix": "param",
+    "body": [
+      "param (",
+      "    [Parameter(Mandatory=\\$true)]",
+      "    [${1:type}]\\$${2:paramName}",
+      ")"
+    ],
+    "description": "Parameter block for functions or scripts"
+  },
+  "Write-Host": {
+    "prefix": "write",
+    "body": [
+      "Write-Host \"${1:Message}\" -ForegroundColor ${2|Red,Green,Yellow,Blue,Magenta,Cyan,White|}"
+    ],
+    "description": "Write colored output to the console"
+  },
+  "Get-Content": {
+    "prefix": "gc",
+    "body": ["\\$${1:content} = Get-Content -Path \"${2:filePath}\""],
+    "description": "Read content from a file"
+  },
+  "Set-Content": {
+    "prefix": "sc",
+    "body": ["Set-Content -Path \"${1:filePath}\" -Value \"${2:content}\""],
+    "description": "Write content to a file"
+  }
+}
