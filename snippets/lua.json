@@ -1,0 +1,203 @@
+{
+  "Function": {
+    "prefix": "func",
+    "body": [
+      "function ${1:functionName}(${2:args})",
+      "\t${0:-- function body}",
+      "end"
+    ],
+    "description": "Define a function"
+  },
+  "Local Function": {
+    "prefix": "lfunc",
+    "body": [
+      "local function ${1:functionName}(${2:args})",
+      "\t${0:-- function body}",
+      "end"
+    ],
+    "description": "Define a local function"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": ["if ${1:condition} then", "\t${0:-- body}", "end"],
+    "description": "If statement"
+  },
+  "If-Else Statement": {
+    "prefix": "ife",
+    "body": [
+      "if ${1:condition} then",
+      "\t${2:-- body}",
+      "else",
+      "\t${0:-- else body}",
+      "end"
+    ],
+    "description": "If-Else statement"
+  },
+  "Elseif Statement": {
+    "prefix": "elseif",
+    "body": ["elseif ${1:condition} then", "\t${0:-- body}"],
+    "description": "Elseif statement"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": ["for ${1:i} = ${2:1}, ${3:10} do", "\t${0:-- body}", "end"],
+    "description": "Numeric for loop"
+  },
+  "For-In Loop": {
+    "prefix": "fori",
+    "body": [
+      "for ${1:key}, ${2:value} in pairs(${3:table}) do",
+      "\t${0:-- body}",
+      "end"
+    ],
+    "description": "For-in loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": ["while ${1:condition} do", "\t${0:-- body}", "end"],
+    "description": "While loop"
+  },
+  "Repeat-Until Loop": {
+    "prefix": "repeat",
+    "body": ["repeat", "\t${1:-- body}", "until ${0:condition}"],
+    "description": "Repeat-Until loop"
+  },
+  "Table": {
+    "prefix": "table",
+    "body": ["local ${1:tableName} = {", "\t${0:-- table contents}", "}"],
+    "description": "Create a table"
+  },
+  "Local Variable": {
+    "prefix": "local",
+    "body": ["local ${1:variableName} = ${0:value}"],
+    "description": "Declare a local variable"
+  },
+  "Print": {
+    "prefix": "print",
+    "body": ["print(${0:expression})"],
+    "description": "Print to console"
+  },
+  "Require": {
+    "prefix": "req",
+    "body": ["local ${1:moduleName} = require \"${2:module}\""],
+    "description": "Require a module"
+  },
+  "Module": {
+    "prefix": "module",
+    "body": [
+      "local ${1:moduleName} = {}",
+      "",
+      "${0:-- module body}",
+      "",
+      "return ${1:moduleName}"
+    ],
+    "description": "Create a module"
+  },
+  "Metatable": {
+    "prefix": "meta",
+    "body": [
+      "local ${1:mt} = {",
+      "\t__index = ${1:mt},",
+      "\t${0:-- other metatable fields}",
+      "}",
+      "",
+      "setmetatable(${2:table}, ${1:mt})"
+    ],
+    "description": "Create and set a metatable"
+  },
+  "Class": {
+    "prefix": "class",
+    "body": [
+      "local ${1:ClassName} = {}",
+      "${1:ClassName}.__index = ${1:ClassName}",
+      "",
+      "function ${1:ClassName}:new(${2:args})",
+      "\tlocal self = setmetatable({}, ${1:ClassName})",
+      "\t${0:-- initialization}",
+      "\treturn self",
+      "end",
+      "",
+      "return ${1:ClassName}"
+    ],
+    "description": "Create a simple class"
+  },
+  "Method": {
+    "prefix": "method",
+    "body": [
+      "function ${1:ClassName}:${2:methodName}(${3:args})",
+      "\t${0:-- method body}",
+      "end"
+    ],
+    "description": "Define a method for a class"
+  },
+  "Coroutine Create": {
+    "prefix": "cocreate",
+    "body": [
+      "local ${1:coName} = coroutine.create(function()",
+      "\t${0:-- coroutine body}",
+      "end)"
+    ],
+    "description": "Create a coroutine"
+  },
+  "Coroutine Resume": {
+    "prefix": "coresume",
+    "body": ["coroutine.resume(${1:coName})"],
+    "description": "Resume a coroutine"
+  },
+  "Coroutine Yield": {
+    "prefix": "coyield",
+    "body": ["coroutine.yield(${1:value})"],
+    "description": "Yield from a coroutine"
+  },
+  "Error Handling": {
+    "prefix": "pcall",
+    "body": [
+      "local success, result = pcall(function()",
+      "\t${1:-- protected call body}",
+      "end)",
+      "",
+      "if not success then",
+      "\tprint(\"Error: \" .. result)",
+      "end"
+    ],
+    "description": "Protected call for error handling"
+  },
+  "Assert": {
+    "prefix": "assert",
+    "body": ["assert(${1:condition}, \"${2:error message}\")"],
+    "description": "Assert a condition"
+  },
+  "File Open": {
+    "prefix": "fopen",
+    "body": [
+      "local file = io.open(\"${1:filename}\", \"${2:r}\")",
+      "if file then",
+      "\t${0:-- file operations}",
+      "\tfile:close()",
+      "else",
+      "\tprint(\"Unable to open file\")",
+      "end"
+    ],
+    "description": "Open and handle a file"
+  },
+  "String Format": {
+    "prefix": "strfmt",
+    "body": ["local ${1:result} = string.format(\"${2:format}\", ${3:args})"],
+    "description": "Format a string"
+  },
+  "Table Insert": {
+    "prefix": "tinsert",
+    "body": ["table.insert(${1:tableName}, ${2:value})"],
+    "description": "Insert a value into a table"
+  },
+  "Table Remove": {
+    "prefix": "tremove",
+    "body": ["table.remove(${1:tableName}, ${2:index})"],
+    "description": "Remove a value from a table"
+  },
+  "Table Concat": {
+    "prefix": "tconcat",
+    "body": ["table.concat(${1:tableName}, ${2:separator})"],
+    "description": "Concatenate a table"
+  }
+}
