@@ -1,0 +1,286 @@
+{
+  "Select All": {
+    "prefix": "sel",
+    "body": ["SELECT * FROM ${1:table_name};"],
+    "description": "Select all columns from a table"
+  },
+  "Select Specific Columns": {
+    "prefix": "selc",
+    "body": ["SELECT ${1:column1}, ${2:column2} FROM ${3:table_name};"],
+    "description": "Select specific columns from a table"
+  },
+  "Insert Into": {
+    "prefix": "ins",
+    "body": [
+      "INSERT INTO ${1:table_name} (${2:column1}, ${3:column2})",
+      "VALUES (${4:value1}, ${5:value2});"
+    ],
+    "description": "Insert a new row into a table"
+  },
+  "Update": {
+    "prefix": "upd",
+    "body": [
+      "UPDATE ${1:table_name}",
+      "SET ${2:column1} = ${3:value1}, ${4:column2} = ${5:value2}",
+      "WHERE ${6:condition};"
+    ],
+    "description": "Update existing rows in a table"
+  },
+  "Delete": {
+    "prefix": "del",
+    "body": ["DELETE FROM ${1:table_name}", "WHERE ${2:condition};"],
+    "description": "Delete rows from a table"
+  },
+  "Create Table": {
+    "prefix": "crt",
+    "body": [
+      "CREATE TABLE ${1:table_name} (",
+      "    ${2:column1} ${3:datatype},",
+      "    ${4:column2} ${5:datatype},",
+      "    PRIMARY KEY (${6:primary_key_column})",
+      ");"
+    ],
+    "description": "Create a new table"
+  },
+  "Alter Table": {
+    "prefix": "alt",
+    "body": [
+      "ALTER TABLE ${1:table_name}",
+      "ADD ${2:column_name} ${3:datatype};"
+    ],
+    "description": "Alter an existing table"
+  },
+  "Drop Table": {
+    "prefix": "drp",
+    "body": ["DROP TABLE IF EXISTS ${1:table_name};"],
+    "description": "Drop a table if it exists"
+  },
+  "Inner Join": {
+    "prefix": "join",
+    "body": [
+      "SELECT *",
+      "FROM ${1:table1} t1",
+      "INNER JOIN ${2:table2} t2 ON t1.${3:column} = t2.${4:column};"
+    ],
+    "description": "Perform an inner join between two tables"
+  },
+  "Left Join": {
+    "prefix": "ljoin",
+    "body": [
+      "SELECT *",
+      "FROM ${1:table1} t1",
+      "LEFT JOIN ${2:table2} t2 ON t1.${3:column} = t2.${4:column};"
+    ],
+    "description": "Perform a left join between two tables"
+  },
+  "Group By": {
+    "prefix": "grp",
+    "body": [
+      "SELECT ${1:column}, COUNT(*) as count",
+      "FROM ${2:table_name}",
+      "GROUP BY ${1:column};"
+    ],
+    "description": "Group results by a column"
+  },
+  "Having Clause": {
+    "prefix": "hav",
+    "body": [
+      "SELECT ${1:column}, COUNT(*) as count",
+      "FROM ${2:table_name}",
+      "GROUP BY ${1:column}",
+      "HAVING COUNT(*) > ${3:value};"
+    ],
+    "description": "Use HAVING clause with GROUP BY"
+  },
+  "Order By": {
+    "prefix": "ord",
+    "body": [
+      "SELECT ${1:column1}, ${2:column2}",
+      "FROM ${3:table_name}",
+      "ORDER BY ${4:column} ${5|ASC,DESC|};"
+    ],
+    "description": "Order results by a column"
+  },
+  "Limit Results": {
+    "prefix": "lim",
+    "body": [
+      "SELECT ${1:column1}, ${2:column2}",
+      "FROM ${3:table_name}",
+      "LIMIT ${4:number};"
+    ],
+    "description": "Limit the number of results returned"
+  },
+  "Create Index": {
+    "prefix": "idx",
+    "body": [
+      "CREATE INDEX ${1:index_name}",
+      "ON ${2:table_name} (${3:column_name});"
+    ],
+    "description": "Create an index on a table"
+  },
+  "Create View": {
+    "prefix": "view",
+    "body": [
+      "CREATE VIEW ${1:view_name} AS",
+      "SELECT ${2:column1}, ${3:column2}",
+      "FROM ${4:table_name}",
+      "WHERE ${5:condition};"
+    ],
+    "description": "Create a view"
+  },
+  "Subquery": {
+    "prefix": "sub",
+    "body": [
+      "SELECT *",
+      "FROM ${1:table_name}",
+      "WHERE ${2:column} IN (",
+      "    SELECT ${3:column}",
+      "    FROM ${4:another_table}",
+      "    WHERE ${5:condition}",
+      ");"
+    ],
+    "description": "Use a subquery"
+  },
+  "Case Statement": {
+    "prefix": "case",
+    "body": [
+      "SELECT",
+      "    CASE",
+      "        WHEN ${1:condition1} THEN ${2:result1}",
+      "        WHEN ${3:condition2} THEN ${4:result2}",
+      "        ELSE ${5:else_result}",
+      "    END AS ${6:column_alias}",
+      "FROM ${7:table_name};"
+    ],
+    "description": "Use a CASE statement"
+  },
+  "Create Procedure": {
+    "prefix": "proc",
+    "body": [
+      "CREATE PROCEDURE ${1:procedure_name}",
+      "    @${2:param1} ${3:datatype},",
+      "    @${4:param2} ${5:datatype}",
+      "AS",
+      "BEGIN",
+      "    ${6:-- Procedure body}",
+      "END;"
+    ],
+    "description": "Create a stored procedure"
+  },
+  "Transaction": {
+    "prefix": "tran",
+    "body": [
+      "BEGIN TRANSACTION;",
+      "",
+      "    ${1:-- Transaction statements}",
+      "",
+      "COMMIT;"
+    ],
+    "description": "Create a transaction"
+  },
+  "Try-Catch": {
+    "prefix": "try",
+    "body": [
+      "BEGIN TRY",
+      "    ${1:-- Code to try}",
+      "END TRY",
+      "BEGIN CATCH",
+      "    ${2:-- Error handling}",
+      "END CATCH;"
+    ],
+    "description": "Use a try-catch block (SQL Server)"
+  },
+  "Declare Variable": {
+    "prefix": "decl",
+    "body": ["DECLARE @${1:variable_name} ${2:datatype};"],
+    "description": "Declare a variable"
+  },
+  "Common Table Expression (CTE)": {
+    "prefix": "cte",
+    "body": [
+      "WITH ${1:cte_name} AS (",
+      "    SELECT ${2:columns}",
+      "    FROM ${3:table_name}",
+      "    WHERE ${4:condition}",
+      ")",
+      "SELECT *",
+      "FROM ${1:cte_name};"
+    ],
+    "description": "Create a Common Table Expression"
+  },
+  "Union": {
+    "prefix": "union",
+    "body": [
+      "SELECT ${1:columns} FROM ${2:table1}",
+      "UNION",
+      "SELECT ${1:columns} FROM ${3:table2};"
+    ],
+    "description": "Combine result sets with UNION"
+  },
+  "Create Function": {
+    "prefix": "func",
+    "body": [
+      "CREATE FUNCTION ${1:function_name} (@${2:param1} ${3:datatype})",
+      "RETURNS ${4:return_type}",
+      "AS",
+      "BEGIN",
+      "    RETURN ${5:-- Function body}",
+      "END;"
+    ],
+    "description": "Create a user-defined function"
+  },
+  "Merge Statement": {
+    "prefix": "merge",
+    "body": [
+      "MERGE INTO ${1:target_table} AS target",
+      "USING ${2:source_table} AS source",
+      "ON ${3:merge_condition}",
+      "WHEN MATCHED THEN",
+      "    UPDATE SET ${4:update_statement}",
+      "WHEN NOT MATCHED THEN",
+      "    INSERT (${5:columns}) VALUES (${6:values});"
+    ],
+    "description": "Perform MERGE operation (SQL Server)"
+  },
+  "Pivot": {
+    "prefix": "pivot",
+    "body": [
+      "SELECT *",
+      "FROM (",
+      "    SELECT ${1:columns}",
+      "    FROM ${2:table_name}",
+      ") AS SourceTable",
+      "PIVOT (",
+      "    ${3:aggregate_function}(${4:value_column})",
+      "    FOR ${5:pivot_column} IN (${6:pivot_values})",
+      ") AS PivotTable;"
+    ],
+    "description": "Create a PIVOT query"
+  },
+  "Window Function": {
+    "prefix": "window",
+    "body": [
+      "SELECT",
+      "    ${1:column},",
+      "    ${2:window_function} OVER (",
+      "        PARTITION BY ${3:partition_column}",
+      "        ORDER BY ${4:order_column}",
+      "    ) AS ${5:result_column}",
+      "FROM ${6:table_name};"
+    ],
+    "description": "Use a window function"
+  },
+  "Create Trigger": {
+    "prefix": "trig",
+    "body": [
+      "CREATE TRIGGER ${1:trigger_name}",
+      "ON ${2:table_name}",
+      "AFTER ${3|INSERT,UPDATE,DELETE|}",
+      "AS",
+      "BEGIN",
+      "    ${4:-- Trigger logic}",
+      "END;"
+    ],
+    "description": "Create a trigger"
+  }
+}
