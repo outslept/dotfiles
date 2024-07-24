@@ -1,0 +1,191 @@
+{
+  "var statement": {
+    "prefix": "v",
+    "body": ["var ${0}"],
+    "description": "var statement"
+  },
+  "var assignment": {
+    "prefix": "v=",
+    "body": ["var ${1:name} = ${2:value}"],
+    "description": "var assignment"
+  },
+  "let statement": {
+    "prefix": "l",
+    "body": ["let ${0}"],
+    "description": "let statement"
+  },
+  "let assignment": {
+    "prefix": "l=",
+    "body": ["let ${1:name} = ${2:value}"],
+    "description": "let assignment"
+  },
+  "destructuring let assignment": {
+    "prefix": "dl=",
+    "body": ["let {${1:name}} = ${2:value}"],
+    "description": "destructuring let assignment"
+  },
+  "const statement": {
+    "prefix": "co",
+    "body": ["const ${0}"],
+    "description": "const statement"
+  },
+  "const assignment": {
+    "prefix": "co=",
+    "body": ["const ${1:name} = ${2:value}"],
+    "description": "const assignment"
+  },
+  "destructuring const assignment": {
+    "prefix": "dco=",
+    "body": ["const {${1:name}} = ${2:value}"],
+    "description": "destructuring const assignment"
+  },
+  "if statement": {
+    "prefix": "if",
+    "body": ["if (${1:condition}) {", "  ${0}", "}"],
+    "description": "if statement"
+  },
+  "else statement": {
+    "prefix": "el",
+    "body": ["else {", "  ${0}", "}"],
+    "description": "else statement"
+  },
+  "if/else statement": {
+    "prefix": "ife",
+    "body": ["if (${1:condition}) {", "  ${0}", "} else {", "  ", "}"],
+    "description": "if/else statement"
+  },
+  "else if statement": {
+    "prefix": "ei",
+    "body": ["else if (${1:condition}) {", "  ${0}", "}"],
+    "description": "else if statement"
+  },
+  "ternary operator": {
+    "prefix": "ter",
+    "body": ["${1:condition} ? ${2:expression} : ${3:expression}"],
+    "description": "ternary operator"
+  },
+  "for loop": {
+    "prefix": "fl",
+    "body": [
+      "for (let ${1:i} = 0, ${2:len} = ${3:iterable}.length; ${1:i} < ${2:len}; ${1:i}++) {",
+      "  ${0}",
+      "}"
+    ],
+    "description": "for loop"
+  },
+  "reverse for loop": {
+    "prefix": "rfl",
+    "body": [
+      "for (let ${1:i} = ${2:iterable}.length - 1; ${1:i} >= 0; ${1:i}--) {",
+      "  ${0}",
+      "}"
+    ],
+    "description": "reverse for loop"
+  },
+  "for in loop": {
+    "prefix": "fi",
+    "body": [
+      "for (let ${1:key} in ${2:array}) {",
+      "  if (${2:array}.hasOwnProperty(${1:key})) {",
+      "    ${0}",
+      "  }",
+      "}"
+    ],
+    "description": "for in loop"
+  },
+  "for of loop": {
+    "prefix": "fo",
+    "body": ["for (let ${1:key} of ${2:array}) {", "  ${0}", "}"],
+    "description": "for of loop (ES6)"
+  },
+  "while loop": {
+    "prefix": "wl",
+    "body": ["while (${1:condition}) {", "  ${0}", "}"],
+    "description": "while loop"
+  },
+  "try/catch": {
+    "prefix": "tc",
+    "body": ["try {", "  ${0}", "} catch (${1:err}) {", "  ", "}"],
+    "description": "try/catch"
+  },
+  "try/finally": {
+    "prefix": "tf",
+    "body": ["try {", "  ${0}", "} finally {", "  ", "}"],
+    "description": "try/finally"
+  },
+  "try/catch/finally": {
+    "prefix": "tcf",
+    "body": [
+      "try {",
+      "  ${0}",
+      "} catch (${1:err}) {",
+      "  ",
+      "} finally {",
+      "  ",
+      "}"
+    ],
+    "description": "try/catch/finally"
+  },
+  "switch case": {
+    "prefix": "sw",
+    "body": [
+      "switch (${1:expr}) {",
+      "  case ${2:value}:",
+      "    return $0",
+      "  default:",
+      "    return",
+      "}"
+    ],
+    "description": "switch case"
+  },
+  "anonymous function": {
+    "prefix": "f",
+    "body": ["function (${1:arguments}) {", "  ${0}", "}"],
+    "description": "anonymous function"
+  },
+  "named function": {
+    "prefix": "fn",
+    "body": ["function ${1:name}(${2:arguments}) {", "  ${0}", "}"],
+    "description": "named function"
+  },
+  "immediately-invoked function expression": {
+    "prefix": "iife",
+    "body": ["((${1:arguments}) => {", "  ${0}", "})(${2})"],
+    "description": "immediately-invoked function expression (IIFE)"
+  },
+  "function apply": {
+    "prefix": "fa",
+    "body": ["${1:fn}.apply(${2:this}, ${3:arguments})"],
+    "description": "function apply"
+  },
+  "function call": {
+    "prefix": "fc",
+    "body": ["${1:fn}.call(${2:this}, ${3:arguments})"],
+    "description": "function call"
+  },
+  "function bind": {
+    "prefix": "fb",
+    "body": ["${1:fn}.bind(${2:this}, ${3:arguments})"],
+    "description": "function bind"
+  },
+  "arrow function": {
+    "prefix": "af",
+    "body": ["(${1:arguments}) => ${2:statement}"],
+    "description": "arrow function (ES6)"
+  },
+  "arrow function with body": {
+    "prefix": "afb",
+    "body": ["(${1:arguments}) => {", "  ${0}", "}"],
+    "description": "arrow function with body (ES6)"
+  },
+  "generator function": {
+    "prefix": "gf",
+    "body": ["function* (${1:arguments}) {", "  ${0}", "}"],
+    "description": "generator function (ES6)"
+  },
+  "named generator function": {
+    "prefix": "gfn",
+    "body": ["function* ${1:name}(${2:arguments}) {", "  ${0}", "}"],
+    "description": "named generator function (ES6)"
+  }
+}
