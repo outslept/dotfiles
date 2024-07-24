@@ -267,44 +267,6 @@
       ],
       "description": "Redux reducer template"
     },
-    "rxaction": {
-      "prefix": "rxaction",
-      "body": [
-        "export const ${1:actionName} = () => ({",
-        "  type: '${2:ACTION_TYPE}',",
-        "  payload: ${3:payload},",
-        "});"
-      ],
-      "description": "Redux action template"
-    },
-    "rxconst": {
-      "prefix": "rxconst",
-      "body": ["export const ${1:ACTION_TYPE} = '${1:ACTION_TYPE}';"],
-      "description": "Redux action type constant"
-    },
-    "rxreducer": {
-      "prefix": "rxreducer",
-      "body": [
-        "const initialState = {",
-        "  ${1:stateKey}: ${2:initialValue},",
-        "};",
-        "",
-        "const ${3:reducerName} = (state = initialState, action) => {",
-        "  switch (action.type) {",
-        "    case '${4:ACTION_TYPE}':",
-        "      return {",
-        "        ...state,",
-        "        ${5:stateKey}: action.payload,",
-        "      };",
-        "    default:",
-        "      return state;",
-        "  }",
-        "};",
-        "",
-        "export default ${3:reducerName};"
-      ],
-      "description": "Redux reducer template"
-    },
     "rxselect": {
       "prefix": "rxselect",
       "body": [

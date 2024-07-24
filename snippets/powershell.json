@@ -1,6 +1,6 @@
 {
   "Function": {
-    "prefix": "function",
+    "prefix": "fn",
     "body": [
       "function ${1:FunctionName} {",
       "    [CmdletBinding()]",
@@ -15,12 +15,12 @@
     "description": "Create a new function"
   },
   "If Statement": {
-    "prefix": "if",
+    "prefix": "ifs",
     "body": ["if (${1:condition}) {", "    ${0:# Code}", "}"],
     "description": "If statement"
   },
   "If-Else Statement": {
-    "prefix": "ifelse",
+    "prefix": "ife",
     "body": [
       "if (${1:condition}) {",
       "    ${2:# Code}",
@@ -31,7 +31,7 @@
     "description": "If-Else statement"
   },
   "Foreach Loop": {
-    "prefix": "foreach",
+    "prefix": "fe",
     "body": [
       "foreach (\\$${1:item} in \\$${2:collection}) {",
       "    ${0:# Code}",
@@ -40,7 +40,7 @@
     "description": "Foreach loop"
   },
   "For Loop": {
-    "prefix": "for",
+    "prefix": "fl",
     "body": [
       "for (\\$${1:i} = 0; \\$${1:i} -lt ${2:count}; \\$${1:i}++) {",
       "    ${0:# Code}",
@@ -49,12 +49,12 @@
     "description": "For loop"
   },
   "While Loop": {
-    "prefix": "while",
+    "prefix": "wl",
     "body": ["while (${1:condition}) {", "    ${0:# Code}", "}"],
     "description": "While loop"
   },
   "Switch Statement": {
-    "prefix": "switch",
+    "prefix": "sw",
     "body": [
       "switch (\\$${1:variable}) {",
       "    ${2:value1} { ${3:# Code} }",
@@ -65,7 +65,7 @@
     "description": "Switch statement"
   },
   "Try-Catch": {
-    "prefix": "trycatch",
+    "prefix": "tc",
     "body": [
       "try {",
       "    ${1:# Code that may throw an exception}",
@@ -76,7 +76,7 @@
     "description": "Try-Catch block"
   },
   "Param Block": {
-    "prefix": "param",
+    "prefix": "pb",
     "body": [
       "param (",
       "    [Parameter(Mandatory=\\$true)]",
@@ -86,7 +86,7 @@
     "description": "Parameter block for functions or scripts"
   },
   "Write-Host": {
-    "prefix": "write",
+    "prefix": "wh",
     "body": [
       "Write-Host \"${1:Message}\" -ForegroundColor ${2|Red,Green,Yellow,Blue,Magenta,Cyan,White|}"
     ],
