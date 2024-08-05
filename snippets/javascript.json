@@ -1,120 +1,237 @@
 {
-  "var statement": {
-    "prefix": "v",
-    "body": ["var ${0}"],
-    "description": "var statement"
+  "anonymous function": {
+    "prefix": "jsaf",
+    "description": "anonymous function",
+    "body": [
+      "function (${1:arguments}) {",
+      "  ${0}",
+      "}"
+    ]
   },
-  "var assignment": {
-    "prefix": "v=",
-    "body": ["var ${1:name} = ${2:value}"],
-    "description": "var assignment"
+  "arrow function": {
+    "prefix": "jsarr",
+    "description": "arrow function (ES6)",
+    "body": [
+      "(${1:arguments}) => ${2:statement}"
+    ]
   },
-  "let statement": {
-    "prefix": "l",
-    "body": ["let ${0}"],
-    "description": "let statement"
-  },
-  "let assignment": {
-    "prefix": "l=",
-    "body": ["let ${1:name} = ${2:value}"],
-    "description": "let assignment"
-  },
-  "destructuring let assignment": {
-    "prefix": "dl=",
-    "body": ["let {${1:name}} = ${2:value}"],
-    "description": "destructuring let assignment"
-  },
-  "const statement": {
-    "prefix": "co",
-    "body": ["const ${0}"],
-    "description": "const statement"
+  "arrow function with body": {
+    "prefix": "jsarrb",
+    "description": "arrow function with body (ES6)",
+    "body": [
+      "(${1:arguments}) => {",
+      "  ${0}",
+      "}"
+    ]
   },
   "const assignment": {
-    "prefix": "co=",
-    "body": ["const ${1:name} = ${2:value}"],
-    "description": "const assignment"
+    "prefix": "jsca",
+    "description": "const assignment",
+    "body": [
+      "const ${1:name} = ${2:value}"
+    ]
+  },
+  "const statement": {
+    "prefix": "jsc",
+    "description": "const statement",
+    "body": [
+      "const ${0}"
+    ]
   },
   "destructuring const assignment": {
-    "prefix": "dco=",
-    "body": ["const {${1:name}} = ${2:value}"],
-    "description": "destructuring const assignment"
+    "prefix": "jsdca",
+    "description": "destructuring const assignment",
+    "body": [
+      "const {${1:name}} = ${2:value}"
+    ]
   },
-  "if statement": {
-    "prefix": "if",
-    "body": ["if (${1:condition}) {", "  ${0}", "}"],
-    "description": "if statement"
-  },
-  "else statement": {
-    "prefix": "el",
-    "body": ["else {", "  ${0}", "}"],
-    "description": "else statement"
-  },
-  "if/else statement": {
-    "prefix": "ife",
-    "body": ["if (${1:condition}) {", "  ${0}", "} else {", "  ", "}"],
-    "description": "if/else statement"
+  "destructuring let assignment": {
+    "prefix": "jsdla",
+    "description": "destructuring let assignment",
+    "body": [
+      "let {${1:name}} = ${2:value}"
+    ]
   },
   "else if statement": {
-    "prefix": "ei",
-    "body": ["else if (${1:condition}) {", "  ${0}", "}"],
-    "description": "else if statement"
-  },
-  "ternary operator": {
-    "prefix": "ter",
-    "body": ["${1:condition} ? ${2:expression} : ${3:expression}"],
-    "description": "ternary operator"
-  },
-  "for loop": {
-    "prefix": "fl",
+    "prefix": "jsei",
+    "description": "else if statement",
     "body": [
-      "for (let ${1:i} = 0, ${2:len} = ${3:iterable}.length; ${1:i} < ${2:len}; ${1:i}++) {",
+      "else if (${1:condition}) {",
       "  ${0}",
       "}"
-    ],
-    "description": "for loop"
+    ]
   },
-  "reverse for loop": {
-    "prefix": "rfl",
+  "else statement": {
+    "prefix": "jse",
+    "description": "else statement",
     "body": [
-      "for (let ${1:i} = ${2:iterable}.length - 1; ${1:i} >= 0; ${1:i}--) {",
+      "else {",
       "  ${0}",
       "}"
-    ],
-    "description": "reverse for loop"
+    ]
   },
   "for in loop": {
-    "prefix": "fi",
+    "prefix": "jsfi",
+    "description": "for in loop",
     "body": [
       "for (let ${1:key} in ${2:array}) {",
       "  if (${2:array}.hasOwnProperty(${1:key})) {",
       "    ${0}",
       "  }",
       "}"
-    ],
-    "description": "for in loop"
+    ]
+  },
+  "for loop": {
+    "prefix": "jsfl",
+    "description": "for loop",
+    "body": [
+      "for (let ${1:i} = 0, ${2:len} = ${3:iterable}.length; ${1:i} < ${2:len}; ${1:i}++) {",
+      "  ${0}",
+      "}"
+    ]
   },
   "for of loop": {
-    "prefix": "fo",
-    "body": ["for (let ${1:key} of ${2:array}) {", "  ${0}", "}"],
-    "description": "for of loop (ES6)"
+    "prefix": "jsfo",
+    "description": "for of loop (ES6)",
+    "body": [
+      "for (let ${1:key} of ${2:array}) {",
+      "  ${0}",
+      "}"
+    ]
   },
-  "while loop": {
-    "prefix": "wl",
-    "body": ["while (${1:condition}) {", "  ${0}", "}"],
-    "description": "while loop"
+  "function apply": {
+    "prefix": "jsfa",
+    "description": "function apply",
+    "body": [
+      "${1:fn}.apply(${2:this}, ${3:arguments})"
+    ]
+  },
+  "function bind": {
+    "prefix": "jsfb",
+    "description": "function bind",
+    "body": [
+      "${1:fn}.bind(${2:this}, ${3:arguments})"
+    ]
+  },
+  "function call": {
+    "prefix": "jsfc",
+    "description": "function call",
+    "body": [
+      "${1:fn}.call(${2:this}, ${3:arguments})"
+    ]
+  },
+  "generator function": {
+    "prefix": "jsgf",
+    "description": "generator function (ES6)",
+    "body": [
+      "function* (${1:arguments}) {",
+      "  ${0}",
+      "}"
+    ]
+  },
+  "if statement": {
+    "prefix": "jsif",
+    "description": "if statement",
+    "body": [
+      "if (${1:condition}) {",
+      "  ${0}",
+      "}"
+    ]
+  },
+  "if/else statement": {
+    "prefix": "jsife",
+    "description": "if/else statement",
+    "body": [
+      "if (${1:condition}) {",
+      "  ${0}",
+      "} else {",
+      "  ",
+      "}"
+    ]
+  },
+  "immediately-invoked function expression": {
+    "prefix": "jsiife",
+    "description": "immediately-invoked function expression (IIFE)",
+    "body": [
+      "((${1:arguments}) => {",
+      "  ${0}",
+      "})(${2})"
+    ]
+  },
+  "let assignment": {
+    "prefix": "jsla",
+    "description": "let assignment",
+    "body": [
+      "let ${1:name} = ${2:value}"
+    ]
+  },
+  "let statement": {
+    "prefix": "jsl",
+    "description": "let statement",
+    "body": [
+      "let ${0}"
+    ]
+  },
+  "named function": {
+    "prefix": "jsnf",
+    "description": "named function",
+    "body": [
+      "function ${1:name}(${2:arguments}) {",
+      "  ${0}",
+      "}"
+    ]
+  },
+  "named generator function": {
+    "prefix": "jsngf",
+    "description": "named generator function (ES6)",
+    "body": [
+      "function* ${1:name}(${2:arguments}) {",
+      "  ${0}",
+      "}"
+    ]
+  },
+  "reverse for loop": {
+    "prefix": "jsrfl",
+    "description": "reverse for loop",
+    "body": [
+      "for (let ${1:i} = ${2:iterable}.length - 1; ${1:i} >= 0; ${1:i}--) {",
+      "  ${0}",
+      "}"
+    ]
+  },
+  "switch case": {
+    "prefix": "jssw",
+    "description": "switch case",
+    "body": [
+      "switch (${1:expr}) {",
+      "  case ${2:value}:",
+      "    return $0",
+      "  default:",
+      "    return",
+      "}"
+    ]
+  },
+  "ternary operator": {
+    "prefix": "jster",
+    "description": "ternary operator",
+    "body": [
+      "${1:condition} ? ${2:expression} : ${3:expression}"
+    ]
   },
   "try/catch": {
-    "prefix": "tc",
-    "body": ["try {", "  ${0}", "} catch (${1:err}) {", "  ", "}"],
-    "description": "try/catch"
-  },
-  "try/finally": {
-    "prefix": "tf",
-    "body": ["try {", "  ${0}", "} finally {", "  ", "}"],
-    "description": "try/finally"
+    "prefix": "jstc",
+    "description": "try/catch",
+    "body": [
+      "try {",
+      "  ${0}",
+      "} catch (${1:err}) {",
+      "  ",
+      "}"
+    ]
   },
   "try/catch/finally": {
-    "prefix": "tcf",
+    "prefix": "jstcf",
+    "description": "try/catch/finally",
     "body": [
       "try {",
       "  ${0}",
@@ -123,69 +240,40 @@
       "} finally {",
       "  ",
       "}"
-    ],
-    "description": "try/catch/finally"
+    ]
   },
-  "switch case": {
-    "prefix": "sw",
+  "try/finally": {
+    "prefix": "jstf",
+    "description": "try/finally",
     "body": [
-      "switch (${1:expr}) {",
-      "  case ${2:value}:",
-      "    return $0",
-      "  default:",
-      "    return",
+      "try {",
+      "  ${0}",
+      "} finally {",
+      "  ",
       "}"
-    ],
-    "description": "switch case"
+    ]
   },
-  "anonymous function": {
-    "prefix": "f",
-    "body": ["function (${1:arguments}) {", "  ${0}", "}"],
-    "description": "anonymous function"
+  "var assignment": {
+    "prefix": "jsva",
+    "description": "var assignment",
+    "body": [
+      "var ${1:name} = ${2:value}"
+    ]
   },
-  "named function": {
-    "prefix": "fn",
-    "body": ["function ${1:name}(${2:arguments}) {", "  ${0}", "}"],
-    "description": "named function"
+  "var statement": {
+    "prefix": "jsv",
+    "description": "var statement",
+    "body": [
+      "var ${0}"
+    ]
   },
-  "immediately-invoked function expression": {
-    "prefix": "iife",
-    "body": ["((${1:arguments}) => {", "  ${0}", "})(${2})"],
-    "description": "immediately-invoked function expression (IIFE)"
-  },
-  "function apply": {
-    "prefix": "fa",
-    "body": ["${1:fn}.apply(${2:this}, ${3:arguments})"],
-    "description": "function apply"
-  },
-  "function call": {
-    "prefix": "fc",
-    "body": ["${1:fn}.call(${2:this}, ${3:arguments})"],
-    "description": "function call"
-  },
-  "function bind": {
-    "prefix": "fb",
-    "body": ["${1:fn}.bind(${2:this}, ${3:arguments})"],
-    "description": "function bind"
-  },
-  "arrow function": {
-    "prefix": "af",
-    "body": ["(${1:arguments}) => ${2:statement}"],
-    "description": "arrow function (ES6)"
-  },
-  "arrow function with body": {
-    "prefix": "afb",
-    "body": ["(${1:arguments}) => {", "  ${0}", "}"],
-    "description": "arrow function with body (ES6)"
-  },
-  "generator function": {
-    "prefix": "gf",
-    "body": ["function* (${1:arguments}) {", "  ${0}", "}"],
-    "description": "generator function (ES6)"
-  },
-  "named generator function": {
-    "prefix": "gfn",
-    "body": ["function* ${1:name}(${2:arguments}) {", "  ${0}", "}"],
-    "description": "named generator function (ES6)"
+  "while loop": {
+    "prefix": "jswl",
+    "description": "while loop",
+    "body": [
+      "while (${1:condition}) {",
+      "  ${0}",
+      "}"
+    ]
   }
 }
