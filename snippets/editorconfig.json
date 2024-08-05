@@ -43,35 +43,5 @@
       "indent_size = 2"
     ],
     "description": "EditorConfig setup for web projects"
-  },
-  "EditorConfig for Mixed Languages": {
-    "prefix": "mixed",
-    "body": [
-      "root = true",
-      "",
-      "[*]",
-      "charset = utf-8",
-      "end_of_line = lf",
-      "insert_final_newline = true",
-      "trim_trailing_whitespace = true",
-      "indent_style = space",
-      "",
-      "[*.{js,jsx,ts,tsx,vue,css,scss,html,json}]",
-      "indent_size = 2",
-      "",
-      "[*.{py,rb}]",
-      "indent_size = 4",
-      "",
-      "[*.go]",
-      "indent_style = tab",
-      "indent_size = 4",
-      "",
-      "[Makefile]",
-      "indent_style = tab",
-      "",
-      "[*.md]",
-      "trim_trailing_whitespace = false"
-    ],
-    "description": "EditorConfig setup for projects with mixed languages"
   }
 }
