@@ -37,10 +37,6 @@
   "chat.editor.fontFamily": "JetBrains Mono",
   "debug.console.fontFamily": "Jetbrains Mono",
   "diffEditor.ignoreTrimWhitespace": false,
-  // "editor.codeActionsOnSave": {
-  //   "source.addMissingImports": "explicit",
-  //   "source.organizeImports": "explicit"
-  // },
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "Jetbrains Mono",
@@ -259,63 +255,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "manual",
   "update.showReleaseNotes": false,
-  "vim.foldfix": true,
-  "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
-  "vim.highlightedyank.enable": true,
-  "vim.highlightedyank.textColor": "white",
-  "vim.hlsearch": true,
-  "vim.leader": "<space>",
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["leader", "r"],
-      "commands": ["editor.action.rename"]
-    },
-    {
-      "before": ["leader", "w"],
-      "commands": [":w!"]
-    },
-    {
-      "before": ["leader", "q"],
-      "commands": [":q!"]
-    },
-    {
-      "before": ["leader", "x"],
-      "commands": [":x!"]
-    },
-    {
-      "after": ["g", "g", "V", "G"],
-      "before": ["<c-a>"]
-    },
-    {
-      "before": ["<leader>", "k"],
-      "commands": ["editor.action.showHover"]
-    },
-    {
-      "before": ["[", "d"],
-      "commands": ["editor.action.marker.prev"]
-    },
-    {
-      "before": ["]", "d"],
-      "commands": ["editor.action.marker.next"]
-    },
-    {
-      "before": ["<leader>", "c", "a"],
-      "commands": ["editor.action.quickFix"]
-    },
-    {
-      "after": ["^"],
-      "before": ["H"]
-    },
-    {
-      "after": ["$"],
-      "before": ["L"]
-    },
-    {
-      "before": ["leader", "i"],
-      "commands": ["extension.toggleBool"]
-    }
-  ],
-  "vim.useSystemClipboard": true,
   "window.zoomLevel": 1,
   "workbench.activityBar.location": "default",
   "workbench.editor.labelFormat": "short",
