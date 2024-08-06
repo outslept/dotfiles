@@ -1,105 +1,382 @@
 {
-  "SCSS Mixin": {
-    "prefix": "mixin",
+  "Flexbox Container": {
+    "prefix": "fbox",
+    "description": "Create a flexbox container with SCSS",
     "body": [
-      "@mixin ${1:mixinName}(${2:$parameter}) {",
-      "  $3",
-      "}",
+      "display: flex;",
+      "flex-direction: ${1|row,column,row-reverse,column-reverse|};",
+      "justify-content: ${2|flex-start,flex-end,center,space-between,space-around|};",
+      "align-items: ${3|stretch,flex-start,flex-end,center|};",
       "",
-      "// Usage",
-      ".selector {",
-      "  @include ${1:mixinName}(${4:argument});",
+      "& > * {",
+      "  flex: ${4:1};",
       "}"
-    ],
-    "description": "Create a SCSS mixin with parameters"
+    ]
   },
-  "SCSS Function": {
-    "prefix": "func",
+  "Grid Container": {
+    "prefix": "gbox",
+    "description": "Create a grid container with SCSS",
     "body": [
-      "@function ${1:functionName}(${2:$parameter}) {",
-      "  @return ${3:result};",
-      "}",
+      "display: grid;",
+      "grid-template-columns: repeat(${1:auto-fit}, minmax(${2:250px}, 1fr));",
+      "gap: ${3:1rem};",
       "",
-      "// Usage",
-      "$result: ${1:functionName}(${4:argument});"
-    ],
-    "description": "Create a SCSS function"
+      "& > * {",
+      "  // Grid item styles",
+      "}"
+    ]
   },
-  "SCSS Loop": {
-    "prefix": "loop",
+  "Responsive Breakpoint": {
+    "prefix": "break",
+    "description": "Create a responsive breakpoint mixin",
     "body": [
-      "@for $i from 1 through ${1:5} {",
-      "  .item-#{$i} {",
-      "    width: #{$i * 10}px;",
+      "@mixin breakpoint(${1|small,medium,large|}) {",
+      "  @if $1 == small {",
+      "    @media (min-width: 576px) { @content; }",
+      "  } @else if $1 == medium {",
+      "    @media (min-width: 768px) { @content; }",
+      "  } @else if $1 == large {",
+      "    @media (min-width: 992px) { @content; }",
       "  }",
       "}"
-    ],
-    "description": "Create a SCSS loop"
+    ]
   },
-  "SCSS Map": {
-    "prefix": "map",
+  "SCSS Aspect Ratio": {
+    "prefix": "aspect",
+    "description": "Create an aspect ratio mixin",
     "body": [
-      "$${1:mapName}: (",
-      "  ${2:key1}: ${3:value1},",
-      "  ${4:key2}: ${5:value2}",
-      ");",
-      "",
-      "// Usage",
-      ".selector {",
-      "  property: map-get($${1:mapName}, ${2:key1});",
-      "}"
-    ],
-    "description": "Create and use a SCSS map"
-  },
-  "SCSS Placeholder Selector": {
-    "prefix": "placeholder",
-    "body": [
-      "%${1:placeholderName} {",
-      "  $2",
-      "}",
-      "",
-      "// Usage",
-      ".selector {",
-      "  @extend %${1:placeholderName};",
-      "}"
-    ],
-    "description": "Create and use a SCSS placeholder selector"
-  },
-  "SCSS Media Query Mixin": {
-    "prefix": "mq",
-    "body": [
-      "@mixin media-${1|xs,sm,md,lg,xl|}() {",
-      "  @media (min-width: ${2:breakpoint}) {",
-      "    @content;",
+      "@mixin aspect-ratio($width, $height) {",
+      "  position: relative;",
+      "  &:before {",
+      "    display: block;",
+      "    content: \"\";",
+      "    width: 100%;",
+      "    padding-top: ($height / $width) * 100%;",
       "  }",
-      "}",
-      "",
-      "// Usage",
-      "@include media-${1|xs,sm,md,lg,xl|}() {",
-      "  $3",
+      "  > * {",
+      "    position: absolute;",
+      "    top: 0;",
+      "    left: 0;",
+      "    right: 0;",
+      "    bottom: 0;",
+      "  }",
       "}"
-    ],
-    "description": "Create a media query mixin"
+    ]
+  },
+  "SCSS BEM Mixin": {
+    "prefix": "bem",
+    "description": "Create a BEM mixin for SCSS",
+    "body": [
+      "@mixin bem($block, $element: null, $modifier: null) {",
+      "  @if $element != null and $modifier != null {",
+      "    &__#{$element}--#{$modifier} { @content; }",
+      "  } @else if $element != null {",
+      "    &__#{$element} { @content; }",
+      "  } @else if $modifier != null {",
+      "    &--#{$modifier} { @content; }",
+      "  } @else {",
+      "    #{$block} { @content; }",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS Box Shadow Mixin": {
+    "prefix": "shadow",
+    "description": "Create a customizable box shadow mixin",
+    "body": [
+      "@mixin box-shadow($x: 0, $y: 4px, $blur: 10px, $spread: 0, $color: rgba(0,0,0,0.1)) {",
+      "  box-shadow: $x $y $blur $spread $color;",
+      "}"
+    ]
+  },
+  "SCSS Clearfix": {
+    "prefix": "clearfix",
+    "description": "Add clearfix mixin",
+    "body": [
+      "@mixin clearfix {",
+      "  &::after {",
+      "    content: '';",
+      "    display: table;",
+      "    clear: both;",
+      "  }",
+      "}"
+    ]
   },
   "SCSS Color Function": {
     "prefix": "color",
+    "description": "Use a SCSS color function",
     "body": [
-      "$base-color: #${1:3366ff};",
-      "$darker-color: darken($base-color, ${2:10%});",
-      "$lighter-color: lighten($base-color, ${3:10%});",
-      "$saturated-color: saturate($base-color, ${4:20%});",
-      "$desaturated-color: desaturate($base-color, ${5:20%});"
-    ],
-    "description": "Use SCSS color functions"
+      "${1|lighten,darken,saturate,desaturate,adjust-hue|}(${2:$color}, ${3:10%})"
+    ]
   },
-  "SCSS List Operations": {
-    "prefix": "list",
+  "SCSS Custom Property": {
+    "prefix": "prop",
+    "description": "Create a CSS custom property with SCSS",
     "body": [
-      "$list: ${1:item1, item2, item3};",
-      "$first-item: nth($list, 1);",
-      "$list-length: length($list);",
-      "$new-list: append($list, ${2:item4});"
-    ],
-    "description": "Perform operations on SCSS lists"
+      "--${1:property-name}: #{$${2:scss-variable}};"
+    ]
+  },
+  "SCSS Each": {
+    "prefix": "each",
+    "description": "Create a SCSS @each loop",
+    "body": [
+      "@each ${1:$item} in ${2:$list} {",
+      "  .#{$1} {",
+      "    $3",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS Extend": {
+    "prefix": "ext",
+    "description": "Extend a SCSS placeholder or class",
+    "body": [
+      "@extend %${1:placeholderName};"
+    ]
+  },
+  "SCSS Flexbox Center": {
+    "prefix": "fcenter",
+    "description": "Center content using flexbox",
+    "body": [
+      "display: flex;",
+      "justify-content: center;",
+      "align-items: center;"
+    ]
+  },
+  "SCSS Function": {
+    "prefix": "func",
+    "description": "Create a SCSS function",
+    "body": [
+      "@function ${1:functionName}(${2:$parameter}) {",
+      "  @return $3;",
+      "}"
+    ]
+  },
+  "SCSS Gradient": {
+    "prefix": "grad",
+    "description": "Create a linear gradient",
+    "body": [
+      "background: linear-gradient(${1:45deg}, ${2:#first-color} ${3:0%}, ${4:#second-color} ${5:100%});"
+    ]
+  },
+  "SCSS If Statement": {
+    "prefix": "if",
+    "description": "Create an @if statement in SCSS",
+    "body": [
+      "@if ${1:condition} {",
+      "  $2",
+      "} @else {",
+      "  $3",
+      "}"
+    ]
+  },
+  "SCSS Import": {
+    "prefix": "imp",
+    "description": "Import a SCSS partial",
+    "body": [
+      "@import '${1:partial}';"
+    ]
+  },
+  "SCSS Keyframes": {
+    "prefix": "keyframes",
+    "description": "Create a keyframes animation",
+    "body": [
+      "@keyframes ${1:animationName} {",
+      "  0% {",
+      "    $2",
+      "  }",
+      "  100% {",
+      "    $3",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS List Function": {
+    "prefix": "list",
+    "description": "Use a SCSS list function",
+    "body": [
+      "${1|nth,length,append,join|}(${2:$list}, ${3:$value})"
+    ]
+  },
+  "SCSS Loop": {
+    "prefix": "loop",
+    "description": "Create a SCSS @for loop",
+    "body": [
+      "@for $i from 1 through ${1:5} {",
+      "  .item-#{$i} {",
+      "    $2",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS Map": {
+    "prefix": "map",
+    "description": "Create a SCSS map",
+    "body": [
+      "$$1: (",
+      "  ${2:key1}: ${3:value1},",
+      "  ${4:key2}: ${5:value2},",
+      ");"
+    ]
+  },
+  "SCSS Math Function": {
+    "prefix": "math",
+    "description": "Use a SCSS math function",
+    "body": [
+      "${1|percentage,round,ceil,floor,abs|}(${2:$number})"
+    ]
+  },
+  "SCSS Media Query Mixin": {
+    "prefix": "mq",
+    "description": "Create a media query mixin",
+    "body": [
+      "@mixin mq($breakpoint) {",
+      "  @if $breakpoint == small {",
+      "    @media (min-width: 576px) { @content; }",
+      "  } @else if $breakpoint == medium {",
+      "    @media (min-width: 768px) { @content; }",
+      "  } @else if $breakpoint == large {",
+      "    @media (min-width: 992px) { @content; }",
+      "  } @else if $breakpoint == xlarge {",
+      "    @media (min-width: 1200px) { @content; }",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS Mixin": {
+    "prefix": "mixin",
+    "description": "Create a SCSS mixin",
+    "body": [
+      "@mixin ${1:mixinName}(${2:$parameter}) {",
+      "  $3",
+      "}"
+    ]
+  },
+  "SCSS Nesting": {
+    "prefix": "nest",
+    "description": "Create a nested SCSS structure",
+    "body": [
+      "&__${1:element} {",
+      "  $2",
+      "  ",
+      "  &--${3:modifier} {",
+      "    $4",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS Placeholder": {
+    "prefix": "place",
+    "description": "Create a SCSS placeholder selector",
+    "body": [
+      "%${1:placeholderName} {",
+      "  $2",
+      "}"
+    ]
+  },
+  "SCSS Placeholder Input Styles": {
+    "prefix": "placeholder",
+    "description": "Style input placeholders",
+    "body": [
+      "@mixin placeholder {",
+      "  &::-webkit-input-placeholder { @content; }",
+      "  &:-moz-placeholder { @content; }",
+      "  &::-moz-placeholder { @content; }",
+      "  &:-ms-input-placeholder { @content; }",
+      "}"
+    ]
+  },
+  "SCSS REM Converter": {
+    "prefix": "rem",
+    "description": "Convert pixels to rem",
+    "body": [
+      "@function rem($pixels, $context: 16) {",
+      "  @return ($pixels / $context) * 1rem;",
+      "}"
+    ]
+  },
+  "SCSS Responsive Grid": {
+    "prefix": "rgrid",
+    "description": "Create a responsive grid using SCSS",
+    "body": [
+      "@mixin grid($columns: 12, $gutter: 20px) {",
+      "  display: grid;",
+      "  grid-template-columns: repeat($columns, 1fr);",
+      "  gap: $gutter;",
+      "",
+      "  @for $i from 1 through $columns {",
+      "    .col-#{$i} {",
+      "      grid-column: span $i;",
+      "    }",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS Responsive Typography": {
+    "prefix": "rtypo",
+    "description": "Create responsive typography using clamp()",
+    "body": [
+      "@function fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {",
+      "  $u1: unit($min-vw);",
+      "  $u2: unit($max-vw);",
+      "  $u3: unit($min-font-size);",
+      "  $u4: unit($max-font-size);",
+      "  ",
+      "  @return clamp(#{$min-font-size}, #{($min-font-size - $max-font-size) / ($min-vw - $max-vw) * 100vw + ($max-vw * $min-font-size - $min-vw * $max-font-size) / ($max-vw - $min-vw)}, #{$max-font-size});",
+      "}",
+      "",
+      "font-size: fluid-type(320px, 1200px, 16px, 24px);"
+    ]
+  },
+  "SCSS String Function": {
+    "prefix": "str",
+    "description": "Use a SCSS string function",
+    "body": [
+      "${1|to-upper-case,to-lower-case,str-length,str-index,str-insert|}(${2:$string})"
+    ]
+  },
+  "SCSS Truncate Text": {
+    "prefix": "trunc",
+    "description": "Truncate text with ellipsis",
+    "body": [
+      "@mixin truncate($lines: 1) {",
+      "  @if $lines == 1 {",
+      "    white-space: nowrap;",
+      "    overflow: hidden;",
+      "    text-overflow: ellipsis;",
+      "  } @else {",
+      "    display: -webkit-box;",
+      "    -webkit-line-clamp: $lines;",
+      "    -webkit-box-orient: vertical;  ",
+      "    overflow: hidden;",
+      "  }",
+      "}"
+    ]
+  },
+  "SCSS Variable": {
+    "prefix": "var",
+    "description": "Create a SCSS variable",
+    "body": [
+      "$$1: ${2:value};"
+    ]
+  },
+  "SCSS Z-Index Management": {
+    "prefix": "zindex",
+    "description": "Create a z-index management system",
+    "body": [
+      "$z-indexes: (",
+      "  modal: 1000,",
+      "  overlay: 900,",
+      "  dropdown: 800,",
+      "  header: 700,",
+      "  footer: 600",
+      ");",
+      "",
+      "@function z($key) {",
+      "  @return map-get($z-indexes, $key);",
+      "}",
+      "",
+      "// Usage: z-index: z(modal);"
+    ]
   }
 }
