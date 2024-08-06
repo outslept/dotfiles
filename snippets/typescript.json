@@ -11,46 +11,32 @@
   "arrow function": {
     "prefix": "tsarf",
     "description": "arrow function",
-    "body": [
-      "(${1:args}: ${2:Type}): ${3:ReturnType} => ${4:expression}"
-    ]
+    "body": ["(${1:args}: ${2:Type}): ${3:ReturnType} => ${4:expression}"]
   },
   "arrow function with body": {
     "prefix": "tsafb",
     "description": "arrow function with body",
-    "body": [
-      "(${1:args}: ${2:Type}): ${3:ReturnType} => {",
-      "  ${0}",
-      "}"
-    ]
+    "body": ["(${1:args}: ${2:Type}): ${3:ReturnType} => {", "  ${0}", "}"]
   },
   "assertion": {
     "prefix": "tsas",
     "description": "type assertion",
-    "body": [
-      "${1:value} as ${2:Type}"
-    ]
+    "body": ["${1:value} as ${2:Type}"]
   },
   "const assignment": {
     "prefix": "tsca",
     "description": "const assignment",
-    "body": [
-      "const ${1:name}: ${2:Type} = ${3:value}"
-    ]
+    "body": ["const ${1:name}: ${2:Type} = ${3:value}"]
   },
   "destructuring const assignment": {
     "prefix": "tsdca",
     "description": "destructuring const assignment",
-    "body": [
-      "const { ${1:prop1}, ${2:prop2} }: ${3:Type} = ${4:value}"
-    ]
+    "body": ["const { ${1:prop1}, ${2:prop2} }: ${3:Type} = ${4:value}"]
   },
   "destructuring let assignment": {
     "prefix": "tsdla",
     "description": "destructuring let assignment",
-    "body": [
-      "let { ${1:prop1}, ${2:prop2} }: ${3:Type} = ${4:value}"
-    ]
+    "body": ["let { ${1:prop1}, ${2:prop2} }: ${3:Type} = ${4:value}"]
   },
   "enum": {
     "prefix": "tsen",
@@ -87,11 +73,7 @@
   "for of loop": {
     "prefix": "tsfol",
     "description": "for-of loop",
-    "body": [
-      "for (const ${1:element} of ${2:array}) {",
-      "  ${0}",
-      "}"
-    ]
+    "body": ["for (const ${1:element} of ${2:array}) {", "  ${0}", "}"]
   },
   "function apply": {
     "prefix": "tsfa",
@@ -103,9 +85,7 @@
   "function bind": {
     "prefix": "tsfb",
     "description": "function bind",
-    "body": [
-      "${1:function}.bind<${2:ThisType}>(${3:thisArg}, ${4:argsList})"
-    ]
+    "body": ["${1:function}.bind<${2:ThisType}>(${3:thisArg}, ${4:argsList})"]
   },
   "function call": {
     "prefix": "tsfc",
@@ -126,41 +106,25 @@
   "generic type": {
     "prefix": "tsgt",
     "description": "generic type",
-    "body": [
-      "${1:Type}<${2:T}>"
-    ]
+    "body": ["${1:Type}<${2:T}>"]
   },
   "IIFE": {
     "prefix": "tsiife",
     "description": "Immediately Invoked Function Expression (IIFE)",
-    "body": [
-      "(() => {",
-      "  ${0}",
-      "})()"
-    ]
+    "body": ["(() => {", "  ${0}", "})()"]
   },
   "if else statement": {
     "prefix": "tsife",
     "description": "if-else statement",
-    "body": [
-      "if (${1:condition}) {",
-      "  ${2}",
-      "} else {",
-      "  ${0}",
-      "}"
-    ]
+    "body": ["if (${1:condition}) {", "  ${2}", "} else {", "  ${0}", "}"]
   },
   "if statement": {
     "prefix": "tsif",
     "description": "if statement",
-    "body": [
-      "if (${1:condition}) {",
-      "  ${0}",
-      "}"
-    ]
+    "body": ["if (${1:condition}) {", "  ${0}", "}"]
   },
   "interface": {
-    "prefix": "tsif",
+    "prefix": "tsifc",
     "description": "interface",
     "body": [
       "interface ${1:InterfaceName} {",
@@ -172,16 +136,12 @@
   "intersection type": {
     "prefix": "tsit",
     "description": "intersection type",
-    "body": [
-      "${1:Type1} & ${2:Type2}"
-    ]
+    "body": ["${1:Type1} & ${2:Type2}"]
   },
   "let assignment": {
     "prefix": "tsla",
     "description": "let assignment",
-    "body": [
-      "let ${1:name}: ${2:Type} = ${3:value}"
-    ]
+    "body": ["let ${1:name}: ${2:Type} = ${3:value}"]
   },
   "named function": {
     "prefix": "tsnf",
@@ -204,16 +164,12 @@
   "nullish coalescing": {
     "prefix": "tsnc",
     "description": "nullish coalescing",
-    "body": [
-      "${1:value} ?? ${2:defaultValue}"
-    ]
+    "body": ["${1:value} ?? ${2:defaultValue}"]
   },
   "optional chaining": {
     "prefix": "tsoc",
     "description": "optional chaining",
-    "body": [
-      "${1:object}?.${2:property}"
-    ]
+    "body": ["${1:object}?.${2:property}"]
   },
   "reverse for loop": {
     "prefix": "tsrfl",
@@ -241,20 +197,12 @@
   "ternary operator": {
     "prefix": "tsto",
     "description": "ternary operator",
-    "body": [
-      "${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"
-    ]
+    "body": ["${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse}"]
   },
   "try catch": {
     "prefix": "tstc",
     "description": "try-catch",
-    "body": [
-      "try {",
-      "  ${1}",
-      "} catch (error: unknown) {",
-      "  ${2}",
-      "}"
-    ]
+    "body": ["try {", "  ${1}", "} catch (error: unknown) {", "  ${2}", "}"]
   },
   "try catch finally": {
     "prefix": "tstcf",
@@ -272,35 +220,21 @@
   "try finally": {
     "prefix": "tstf",
     "description": "try-finally",
-    "body": [
-      "try {",
-      "  ${1}",
-      "} finally {",
-      "  ${2}",
-      "}"
-    ]
+    "body": ["try {", "  ${1}", "} finally {", "  ${2}", "}"]
   },
   "type alias": {
     "prefix": "tsta",
     "description": "type alias",
-    "body": [
-      "type ${1:TypeName} = ${2:Type};"
-    ]
+    "body": ["type ${1:TypeName} = ${2:Type};"]
   },
   "union type": {
     "prefix": "tsut",
     "description": "union type",
-    "body": [
-      "${1:Type1} | ${2:Type2}"
-    ]
+    "body": ["${1:Type1} | ${2:Type2}"]
   },
-  "whilel loop": {
+  "whileloop": {
     "prefix": "tswl",
     "description": "while loop",
-    "body": [
-      "while (${1:condition}) {",
-      "  ${2}",
-      "}"
-    ]
+    "body": ["while (${1:condition}) {", "  ${2}", "}"]
   }
 }
