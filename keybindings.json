@@ -1,76 +1,144 @@
 [
   {
-    "key": "ctrl+=",
+    "command": "projectManager.listGitProjects#sideBarGit",
+    "key": "cmd+o"
+  },
+  {
     "command": "expand_region",
+    "key": "ctrl+=",
     "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+-",
     "command": "undo_expand_region",
+    "key": "ctrl+-",
     "when": "editorTextFocus && editorHasSelection"
   },
   {
-    "key": "ctrl+shift+i",
-    "command": "editor.action.organizeImports",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'typescript'"
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+e"
   },
   {
-    "key": "ctrl+shift+r",
-    "command": "editor.action.refactor",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "alt+shift+f",
-    "command": "editor.action.formatDocument",
-    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+shift+d",
-    "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus"
-  },
-  {
-    "key": "ctrl+k ctrl+i",
-    "command": "editor.action.showHover",
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
     "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+shift+.",
-    "command": "editor.action.quickFix",
+    "command": "explorer.newFile",
+    "key": "a",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "renameFile",
+    "key": "r",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.copy",
+    "key": "c",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.paste",
+    "key": "p",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "deleteFile",
+    "key": "d",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "key": "ctrl+n",
+    "when": "editorFocus"
+  },
+  {
+    "command": "saveAll",
+    "key": "cmd+s"
+  },
+  {
+    "command": "workbench.action.splitEditor",
+    "key": "cmd+d"
+  },
+  {
+    "command": "turboConsoleLog.displayLogMessage",
+    "key": "cmd+i"
+  },
+  {
+    "command": "workbench.action.toggleZenMode",
+    "key": "cmd+z"
+  },
+  {
+    "command": "editor.action.selectAll",
+    "key": "cmd+a"
+  },
+  {
+    "command": "workbench.action.terminal.toggleTerminal",
+    "key": "ctrl+\\",
+    "when": "terminal.active"
+  },
+  {
+    "command": "editor.action.organizeImports",
+    "key": "ctrl+shift+i",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'typescript'"
+  },
+  {
+    "command": "editor.action.refactor",
+    "key": "ctrl+shift+r",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+shift+/",
+    "command": "editor.action.formatDocument",
+    "key": "alt+shift+f",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "key": "ctrl+shift+d",
+    "when": "editorFocus"
+  },
+  {
+    "command": "editor.action.showHover",
+    "key": "ctrl+k ctrl+i",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "editor.action.quickFix",
+    "key": "ctrl+shift+.",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
     "command": "editor.action.blockComment",
+    "key": "ctrl+shift+/",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+k ctrl+f",
     "command": "editor.action.formatSelection",
+    "key": "ctrl+k ctrl+f",
     "when": "editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+shift+b",
-    "command": "workbench.action.tasks.build"
+    "command": "workbench.action.tasks.build",
+    "key": "ctrl+shift+b"
   },
   {
-    "key": "ctrl+shift+e",
-    "command": "workbench.view.explorer"
+    "command": "workbench.view.explorer",
+    "key": "ctrl+shift+e"
   },
   {
-    "key": "ctrl+shift+g",
-    "command": "workbench.view.scm"
+    "command": "workbench.view.scm",
+    "key": "ctrl+shift+g"
   },
   {
-    "key": "ctrl+`",
-    "command": "workbench.action.terminal.toggleTerminal"
+    "command": "workbench.action.terminal.toggleTerminal",
+    "key": "ctrl+`"
   },
   {
-    "key": "ctrl+k ctrl+t",
-    "command": "workbench.action.selectTheme"
+    "command": "workbench.action.selectTheme",
+    "key": "ctrl+k ctrl+t"
   },
   {
-    "key": "ctrl+k z",
-    "command": "workbench.action.toggleZenMode"
+    "command": "workbench.action.toggleZenMode",
+    "key": "ctrl+k z"
   }
 ]
