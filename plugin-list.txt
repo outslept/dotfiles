@@ -18,6 +18,7 @@ dsznajder.es7-react-js-snippets
 eamodio.gitlens
 ecmel.vscode-html-css
 editorconfig.editorconfig
+emilast.logfilehighlighter
 esbenp.prettier-vscode
 fabiospampinato.vscode-highlight
 fabiospampinato.vscode-statusbar-debugger
@@ -28,19 +29,24 @@ formulahendry.code-runner
 github.github-vscode-theme
 github.vscode-pull-request-github
 hbenl.vscode-test-explorer
+ibm.output-colorizer
 idered.npm
 imgildev.vscode-auto-barrel
 jmkrivocapich.drawfolderstructure
+jock.svg
 joshmu.periscope
 jpcrs.binocular
 kamikillerto.vscode-colorize
 kevinrose.vsc-python-indent
 lehni.vscode-fix-checksums
 letrieu.expand-region
+lokalise.i18n-ally
 magdalenalipka.tokyo-night-frameless
 marcbruederlin.next-icons
+mechatroner.rainbow-csv
 meganrogge.template-string-converter
 mikestead.dotenv
+mkxml.vscode-filesize
 mrmlnc.vscode-scss
 ms-azuretools.vscode-docker
 ms-python.debugpy
@@ -64,6 +70,7 @@ ritwickdey.liveserver
 sirmspencer.vscode-autohide
 streetsidesoftware.code-spell-checker
 streetsidesoftware.code-spell-checker-russian
+stylelint.vscode-stylelint
 supermaven.supermaven
 tabnine.tabnine-vscode
 tobias-z.vscode-harpoon
@@ -84,3 +91,4 @@ ysemeniuk.emmet-live
 yummygum.city-lights-icon-vsc
 yzhang.markdown-all-in-one
 zhucy.project-tree
+zignd.html-css-class-completion
