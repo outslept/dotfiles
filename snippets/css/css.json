@@ -2,12 +2,16 @@
   "Align Items": {
     "prefix": "ai",
     "description": "Set align-items",
-    "body": ["align-items: ${1|flex-start,center,flex-end,stretch,baseline|};"]
+    "body": [
+      "align-items: ${1|flex-start,center,flex-end,stretch,baseline|};"
+    ]
   },
   "Align Self": {
     "prefix": "as",
     "description": "Set align-self",
-    "body": ["align-self: ${1|auto,flex-start,center,flex-end,stretch|};"]
+    "body": [
+      "align-self: ${1|auto,flex-start,center,flex-end,stretch|};"
+    ]
   },
   "Animation": {
     "prefix": "ani",
@@ -19,22 +23,30 @@
   "Animation Delay": {
     "prefix": "anidel",
     "description": "Set animation delay",
-    "body": ["animation-delay: ${1:0s};"]
+    "body": [
+      "animation-delay: ${1:0s};"
+    ]
   },
   "Animation Duration": {
     "prefix": "anid",
     "description": "Set animation duration",
-    "body": ["animation-duration: ${1:1s};"]
+    "body": [
+      "animation-duration: ${1:1s};"
+    ]
   },
   "Animation Fill Mode": {
     "prefix": "anifm",
     "description": "Set animation fill mode",
-    "body": ["animation-fill-mode: ${1|none,forwards,backwards,both|};"]
+    "body": [
+      "animation-fill-mode: ${1|none,forwards,backwards,both|};"
+    ]
   },
   "Animation Iteration Count": {
     "prefix": "aniic",
     "description": "Set animation iteration count",
-    "body": ["animation-iteration-count: ${1|infinite,1,2,3|};"]
+    "body": [
+      "animation-iteration-count: ${1|infinite,1,2,3|};"
+    ]
   },
   "Animation Timing Function": {
     "prefix": "anitf",
@@ -46,72 +58,100 @@
   "Background Attachment": {
     "prefix": "bga",
     "description": "Set background-attachment",
-    "body": ["background-attachment: ${1|scroll,fixed,local|};"]
+    "body": [
+      "background-attachment: ${1|scroll,fixed,local|};"
+    ]
   },
   "Background Color": {
     "prefix": "bgc",
     "description": "Set background-color",
-    "body": ["background-color: ${1:#fff};"]
+    "body": [
+      "background-color: ${1:#fff};"
+    ]
   },
   "Background Image": {
     "prefix": "bgi",
     "description": "Set background-image",
-    "body": ["background-image: url(${1:image.jpg});"]
+    "body": [
+      "background-image: url(${1:image.jpg});"
+    ]
   },
   "Background Position": {
     "prefix": "bgp",
     "description": "Set background-position",
-    "body": ["background-position: ${1|center,top,right,bottom,left|};"]
+    "body": [
+      "background-position: ${1|center,top,right,bottom,left|};"
+    ]
   },
   "Background Repeat": {
     "prefix": "bgr",
     "description": "Set background-repeat",
-    "body": ["background-repeat: ${1|no-repeat,repeat,repeat-x,repeat-y|};"]
+    "body": [
+      "background-repeat: ${1|no-repeat,repeat,repeat-x,repeat-y|};"
+    ]
   },
   "Background Size": {
     "prefix": "bgs",
     "description": "Set background-size",
-    "body": ["background-size: ${1|cover,contain|};"]
+    "body": [
+      "background-size: ${1|cover,contain|};"
+    ]
   },
   "Border": {
     "prefix": "bd",
     "description": "Set border",
-    "body": ["border: ${1:1px} ${2|solid,dashed,dotted|} ${3:#000};"]
+    "body": [
+      "border: ${1:1px} ${2|solid,dashed,dotted|} ${3:#000};"
+    ]
   },
   "Border Color": {
     "prefix": "bdc",
     "description": "Set border-color",
-    "body": ["border-color: ${1:#000};"]
+    "body": [
+      "border-color: ${1:#000};"
+    ]
   },
   "Border Radius": {
     "prefix": "bdr",
     "description": "Set border-radius",
-    "body": ["border-radius: ${1:4px};"]
+    "body": [
+      "border-radius: ${1:4px};"
+    ]
   },
   "Border Style": {
     "prefix": "bds",
     "description": "Set border-style",
-    "body": ["border-style: ${1|solid,dashed,dotted|};"]
+    "body": [
+      "border-style: ${1|solid,dashed,dotted|};"
+    ]
   },
   "Border Width": {
     "prefix": "bdw",
     "description": "Set border-width",
-    "body": ["border-width: ${1:1px};"]
+    "body": [
+      "border-width: ${1:1px};"
+    ]
   },
   "Bottom": {
     "prefix": "bot",
     "description": "Set bottom position",
-    "body": ["bottom: ${1:0};"]
+    "body": [
+      "bottom: ${1:0};"
+    ]
   },
   "Box Shadow": {
     "prefix": "bxs",
     "description": "Set box-shadow",
-    "body": ["box-shadow: ${1:0 4px 6px rgba(0, 0, 0, 0.1)};"]
+    "body": [
+      "box-shadow: ${1:0 4px 6px rgba(0, 0, 0, 0.1)};"
+    ]
   },
   "Box Sizing": {
     "prefix": "boxsz",
     "description": "Set box-sizing",
-    "body": ["box-sizing: ${1|border-box,content-box|};"]
+    "body": [
+      "box-sizing: ${1|border-box,content-box|};"
+    ]
   },
   "Center Absolute": {
     "prefix": "ctra",
@@ -135,32 +175,44 @@
   "Cursor": {
     "prefix": "cur",
     "description": "Set cursor",
-    "body": ["cursor: ${1|default,pointer,move,text,wait,not-allowed|};"]
+    "body": [
+      "cursor: ${1|default,pointer,move,text,wait,not-allowed|};"
+    ]
   },
   "Display Block": {
     "prefix": "db",
     "description": "Set display to block",
-    "body": ["display: block;"]
+    "body": [
+      "display: block;"
+    ]
   },
   "Display Flex": {
     "prefix": "df",
     "description": "Set display to flex",
-    "body": ["display: flex;"]
+    "body": [
+      "display: flex;"
+    ]
   },
   "Display Grid": {
     "prefix": "dg",
     "description": "Set display to grid",
-    "body": ["display: grid;"]
+    "body": [
+      "display: grid;"
+    ]
   },
   "Display None": {
     "prefix": "dn",
     "description": "Set display to none",
-    "body": ["display: none;"]
+    "body": [
+      "display: none;"
+    ]
   },
   "Flex Basis": {
     "prefix": "fb",
     "description": "Set flex-basis",
-    "body": ["flex-basis: ${1:auto};"]
+    "body": [
+      "flex-basis: ${1:auto};"
+    ]
   },
   "Flex Center": {
     "prefix": "flx-c",
@@ -174,37 +226,51 @@
   "Flex Direction": {
     "prefix": "fd",
     "description": "Set flex-direction",
-    "body": ["flex-direction: ${1|row,column,row-reverse,column-reverse|};"]
+    "body": [
+      "flex-direction: ${1|row,column,row-reverse,column-reverse|};"
+    ]
   },
   "Flex Grow": {
     "prefix": "fg",
     "description": "Set flex-grow",
-    "body": ["flex-grow: ${1:1};"]
+    "body": [
+      "flex-grow: ${1:1};"
+    ]
   },
   "Flex Shrink": {
     "prefix": "fs",
     "description": "Set flex-shrink",
-    "body": ["flex-shrink: ${1:1};"]
+    "body": [
+      "flex-shrink: ${1:1};"
+    ]
   },
   "Flex Wrap": {
     "prefix": "fw",
     "description": "Set flex-wrap",
-    "body": ["flex-wrap: ${1|nowrap,wrap,wrap-reverse|};"]
+    "body": [
+      "flex-wrap: ${1|nowrap,wrap,wrap-reverse|};"
+    ]
   },
   "Font Family": {
     "prefix": "ff",
     "description": "Set font-family",
-    "body": ["font-family: ${1:sans-serif};"]
+    "body": [
+      "font-family: ${1:sans-serif};"
+    ]
   },
   "Font Size": {
     "prefix": "fs",
     "description": "Set font-size",
-    "body": ["font-size: ${1:16px};"]
+    "body": [
+      "font-size: ${1:16px};"
+    ]
   },
   "Font Style": {
     "prefix": "fst",
     "description": "Set font-style",
-    "body": ["font-style: ${1|normal,italic,oblique|};"]
+    "body": [
+      "font-style: ${1|normal,italic,oblique|};"
+    ]
   },
   "Font Weight": {
     "prefix": "fw",
@@ -216,22 +282,30 @@
   "Grid Gap": {
     "prefix": "gg",
     "description": "Set grid gap",
-    "body": ["gap: ${1:1rem};"]
+    "body": [
+      "gap: ${1:1rem};"
+    ]
   },
   "Grid Template Columns": {
     "prefix": "gtc",
     "description": "Set grid-template-columns",
-    "body": ["grid-template-columns: repeat(${1:3}, 1fr);"]
+    "body": [
+      "grid-template-columns: repeat(${1:3}, 1fr);"
+    ]
   },
   "Grid Template Rows": {
     "prefix": "gtr",
     "description": "Set grid-template-rows",
-    "body": ["grid-template-rows: repeat(${1:3}, 1fr);"]
+    "body": [
+      "grid-template-rows: repeat(${1:3}, 1fr);"
+    ]
   },
   "Height": {
     "prefix": "hei",
     "description": "Set height",
-    "body": ["height: ${1:auto};"]
+    "body": [
+      "height: ${1:auto};"
+    ]
   },
   "Justify Content": {
     "prefix": "jc",
@@ -243,167 +317,241 @@
   "Left": {
     "prefix": "left",
     "description": "Set left position",
-    "body": ["left: ${1:0};"]
+    "body": [
+      "left: ${1:0};"
+    ]
   },
   "Letter Spacing": {
     "prefix": "ls",
     "description": "Set letter-spacing",
-    "body": ["letter-spacing: ${1:normal};"]
+    "body": [
+      "letter-spacing: ${1:normal};"
+    ]
   },
   "Line Height": {
     "prefix": "lh",
     "description": "Set line-height",
-    "body": ["line-height: ${1:1.5};"]
+    "body": [
+      "line-height: ${1:1.5};"
+    ]
   },
   "List Style": {
     "prefix": "list",
     "description": "Set list-style",
-    "body": ["list-style: ${1|none,disc,circle,square|};"]
+    "body": [
+      "list-style: ${1|none,disc,circle,square|};"
+    ]
   },
   "Margin": {
     "prefix": "mar",
     "description": "Set margin",
-    "body": ["margin: ${1:0};"]
+    "body": [
+      "margin: ${1:0};"
+    ]
   },
   "Margin Bottom": {
     "prefix": "marb",
     "description": "Set margin-bottom",
-    "body": ["margin-bottom: ${1:0};"]
+    "body": [
+      "margin-bottom: ${1:0};"
+    ]
   },
   "Margin Left": {
     "prefix": "marl",
     "description": "Set margin-left",
-    "body": ["margin-left: ${1:0};"]
+    "body": [
+      "margin-left: ${1:0};"
+    ]
   },
   "Margin Right": {
     "prefix": "marr",
     "description": "Set margin-right",
-    "body": ["margin-right: ${1:0};"]
+    "body": [
+      "margin-right: ${1:0};"
+    ]
   },
   "Margin Top": {
     "prefix": "mart",
     "description": "Set margin-top",
-    "body": ["margin-top: ${1:0};"]
+    "body": [
+      "margin-top: ${1:0};"
+    ]
   },
   "Max Height": {
     "prefix": "maxh",
     "description": "Set max-height",
-    "body": ["max-height: ${1:100%};"]
+    "body": [
+      "max-height: ${1:100%};"
+    ]
   },
   "Max Width": {
     "prefix": "maxw",
     "description": "Set max-width",
-    "body": ["max-width: ${1:100%};"]
+    "body": [
+      "max-width: ${1:100%};"
+    ]
   },
   "Media Query": {
     "prefix": "mq",
     "description": "Add a media query",
-    "body": ["@media (min-width: ${1:768px}) {", "  $2", "}"]
+    "body": [
+      "@media (min-width: ${1:768px}) {",
+      "  $2",
+      "}"
+    ]
   },
   "Media Query Large": {
     "prefix": "mq-lg",
     "description": "Add a media query for large screens",
-    "body": ["@media (min-width: 1025px) {", "  $1", "}"]
+    "body": [
+      "@media (min-width: 1025px) {",
+      "  $1",
+      "}"
+    ]
   },
   "Media Query Medium": {
     "prefix": "mq-md",
     "description": "Add a media query for medium screens",
-    "body": ["@media (min-width: 601px) and (max-width: 1024px) {", "  $1", "}"]
+    "body": [
+      "@media (min-width: 601px) and (max-width: 1024px) {",
+      "  $1",
+      "}"
+    ]
   },
   "Media Query Small": {
     "prefix": "mq-sm",
     "description": "Add a media query for small screens",
-    "body": ["@media (max-width: 600px) {", "  $1", "}"]
+    "body": [
+      "@media (max-width: 600px) {",
+      "  $1",
+      "}"
+    ]
   },
   "Min Height": {
     "prefix": "minh",
     "description": "Set min-height",
-    "body": ["min-height: ${1:auto};"]
+    "body": [
+      "min-height: ${1:auto};"
+    ]
   },
   "Min Width": {
     "prefix": "minw",
     "description": "Set min-width",
-    "body": ["min-width: ${1:auto};"]
+    "body": [
+      "min-width: ${1:auto};"
+    ]
   },
   "Opacity": {
     "prefix": "op",
     "description": "Set opacity",
-    "body": ["opacity: ${1:1};"]
+    "body": [
+      "opacity: ${1:1};"
+    ]
   },
   "Overflow": {
     "prefix": "ov",
     "description": "Set overflow",
-    "body": ["overflow: ${1|visible,hidden,scroll,auto|};"]
+    "body": [
+      "overflow: ${1|visible,hidden,scroll,auto|};"
+    ]
   },
   "Overflow Hidden": {
     "prefix": "ovh",
     "description": "Set overflow to hidden",
-    "body": ["overflow: hidden;"]
+    "body": [
+      "overflow: hidden;"
+    ]
   },
   "Overflow Scroll": {
     "prefix": "ovs",
     "description": "Set overflow to scroll",
-    "body": ["overflow: scroll;"]
+    "body": [
+      "overflow: scroll;"
+    ]
   },
   "Overflow X": {
     "prefix": "ovx",
     "description": "Set overflow-x",
-    "body": ["overflow-x: ${1|visible,hidden,scroll,auto|};"]
+    "body": [
+      "overflow-x: ${1|visible,hidden,scroll,auto|};"
+    ]
   },
   "Overflow Y": {
     "prefix": "ovy",
     "description": "Set overflow-y",
-    "body": ["overflow-y: ${1|visible,hidden,scroll,auto|};"]
+    "body": [
+      "overflow-y: ${1|visible,hidden,scroll,auto|};"
+    ]
   },
   "Padding": {
     "prefix": "pad",
     "description": "Set padding",
-    "body": ["padding: ${1:0};"]
+    "body": [
+      "padding: ${1:0};"
+    ]
   },
   "Padding Bottom": {
     "prefix": "padb",
     "description": "Set padding-bottom",
-    "body": ["padding-bottom: ${1:0};"]
+    "body": [
+      "padding-bottom: ${1:0};"
+    ]
   },
   "Padding Left": {
     "prefix": "padl",
     "description": "Set padding-left",
-    "body": ["padding-left: ${1:0};"]
+    "body": [
+      "padding-left: ${1:0};"
+    ]
   },
   "Padding Right": {
     "prefix": "padr",
     "description": "Set padding-right",
-    "body": ["padding-right: ${1:0};"]
+    "body": [
+      "padding-right: ${1:0};"
+    ]
   },
   "Padding Top": {
     "prefix": "padt",
     "description": "Set padding-top",
-    "body": ["padding-top: ${1:0};"]
+    "body": [
+      "padding-top: ${1:0};"
+    ]
   },
   "Place Items": {
     "prefix": "pi",
     "description": "Set place-items",
-    "body": ["place-items: ${1|center,start,end,stretch|};"]
+    "body": [
+      "place-items: ${1|center,start,end,stretch|};"
+    ]
   },
   "Position Absolute": {
     "prefix": "posa",
     "description": "Set position to absolute",
-    "body": ["position: absolute;"]
+    "body": [
+      "position: absolute;"
+    ]
   },
   "Position Fixed": {
     "prefix": "posf",
     "description": "Set position to fixed",
-    "body": ["position: fixed;"]
+    "body": [
+      "position: fixed;"
+    ]
   },
   "Position Relative": {
     "prefix": "posr",
     "description": "Set position to relative",
-    "body": ["position: relative;"]
+    "body": [
+      "position: relative;"
+    ]
   },
   "Position Sticky": {
     "prefix": "posst",
     "description": "Set position to sticky",
-    "body": ["position: sticky;"]
+    "body": [
+      "position: sticky;"
+    ]
   },
   "Responsive Container": {
     "prefix": "rcont",
@@ -418,62 +566,86 @@
   "Responsive Font Size": {
     "prefix": "rfont",
     "description": "Create a responsive font size using clamp()",
-    "body": ["font-size: clamp(${1:1rem}, ${2:5vw}, ${3:2rem});"]
+    "body": [
+      "font-size: clamp(${1:1rem}, ${2:5vw}, ${3:2rem});"
+    ]
   },
   "Right": {
     "prefix": "right",
     "description": "Set right position",
-    "body": ["right: ${1:0};"]
+    "body": [
+      "right: ${1:0};"
+    ]
   },
   "Text Align": {
     "prefix": "ta",
     "description": "Set text-align",
-    "body": ["text-align: ${1|left,center,right,justify|};"]
+    "body": [
+      "text-align: ${1|left,center,right,justify|};"
+    ]
   },
   "Text Decoration": {
     "prefix": "td",
     "description": "Set text-decoration",
-    "body": ["text-decoration: ${1|none,underline,overline,line-through|};"]
+    "body": [
+      "text-decoration: ${1|none,underline,overline,line-through|};"
+    ]
   },
   "Text Shadow": {
     "prefix": "ts",
     "description": "Set text-shadow",
-    "body": ["text-shadow: ${1:1px 1px 2px rgba(0, 0, 0, 0.1)};"]
+    "body": [
+      "text-shadow: ${1:1px 1px 2px rgba(0, 0, 0, 0.1)};"
+    ]
   },
   "Text Transform": {
     "prefix": "tt",
     "description": "Set text-transform",
-    "body": ["text-transform: ${1|none,capitalize,uppercase,lowercase|};"]
+    "body": [
+      "text-transform: ${1|none,capitalize,uppercase,lowercase|};"
+    ]
   },
   "Top": {
     "prefix": "top",
     "description": "Set top position",
-    "body": ["top: ${1:0};"]
+    "body": [
+      "top: ${1:0};"
+    ]
   },
   "Transform": {
     "prefix": "trf",
     "description": "Set transform",
-    "body": ["transform: ${1:scale(1)};"]
+    "body": [
+      "transform: ${1:scale(1)};"
+    ]
   },
   "Transform Rotate": {
     "prefix": "trfr",
     "description": "Set transform rotate",
-    "body": ["transform: rotate(${1:45deg});"]
+    "body": [
+      "transform: rotate(${1:45deg});"
+    ]
   },
   "Transform Scale": {
     "prefix": "trfs",
     "description": "Set transform scale",
-    "body": ["transform: scale(${1:1});"]
+    "body": [
+      "transform: scale(${1:1});"
+    ]
   },
   "Transform Skew": {
     "prefix": "trfk",
     "description": "Set transform skew",
-    "body": ["transform: skew(${1:0deg}, ${2:0deg});"]
+    "body": [
+      "transform: skew(${1:0deg}, ${2:0deg});"
+    ]
   },
   "Transform Translate": {
     "prefix": "trft",
     "description": "Set transform translate",
-    "body": ["transform: translate(${1:0}, ${2:0});"]
+    "body": [
+      "transform: translate(${1:0}, ${2:0});"
+    ]
   },
   "Transition": {
     "prefix": "tran",
@@ -485,17 +657,23 @@
   "Transition Delay": {
     "prefix": "trand",
     "description": "Set transition delay",
-    "body": ["transition-delay: ${1:0s};"]
+    "body": [
+      "transition-delay: ${1:0s};"
+    ]
   },
   "Transition Duration": {
     "prefix": "trandur",
     "description": "Set transition duration",
-    "body": ["transition-duration: ${1:0.3s};"]
+    "body": [
+      "transition-duration: ${1:0.3s};"
+    ]
   },
   "Transition Property": {
     "prefix": "tranp",
     "description": "Set transition property",
-    "body": ["transition-property: ${1:all};"]
+    "body": [
+      "transition-property: ${1:all};"
+    ]
   },
   "Transition Timing Function": {
     "prefix": "trantf",
@@ -516,7 +694,9 @@
   "Visibility": {
     "prefix": "vis",
     "description": "Set visibility",
-    "body": ["visibility: ${1|visible,hidden|};"]
+    "body": [
+      "visibility: ${1|visible,hidden|};"
+    ]
   },
   "Visually Hidden": {
     "prefix": "vh",
@@ -537,11 +717,15 @@
   "Width": {
     "prefix": "wid",
     "description": "Set width",
-    "body": ["width: ${1:100%};"]
+    "body": [
+      "width: ${1:100%};"
+    ]
   },
   "Z-Index": {
     "prefix": "zi",
     "description": "Set z-index",
-    "body": ["z-index: ${1:1};"]
+    "body": [
+      "z-index: ${1:1};"
+    ]
   }
 }
