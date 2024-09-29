@@ -16,5 +16,6 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.suggest.autoImports": true,
-  "typescript.suggest.autoImports": true
+  "typescript.suggest.autoImports": true,
+  "cSpell.enabled": false
 }
