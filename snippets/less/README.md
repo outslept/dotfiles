@@ -1,6 +1,6 @@
 # LESS User Snippets
 
-This collection of SCSS user snippets is categorized and prefixed.
+This collection of LESS user snippets is categorized and prefixed.
 
 ## Categories and Prefixes
 
@@ -135,23 +135,23 @@ This collection of SCSS user snippets is categorized and prefixed.
 - `mlist`: List Style
 - `mvh`: Visually Hidden
 
-### SCSS-specific (s)
-- `svar`: Variable Declaration
-- `smixin`: Mixin Declaration
-- `sinclude`: Include Mixin
-- `sextend`: Extend Selector
-- `sif`: If Statement
-- `sfor`: For Loop
-- `seach`: Each Loop
-- `swhile`: While Loop
-- `sfunc`: Function Declaration
-- `simp`: Import Partial
-- `suse`: Use Module
-- `sforward`: Forward Module
-- `snest`: Nesting Selector
-- `sinterp`: String Interpolation
-- `smap`: Map Declaration
-- `scolor`: Color Function
+### LESS-specific (s)
+- `lvar`: Variable Declaration
+- `lmixin`: Mixin Declaration
+- `linclude`: Include Mixin
+- `lextend`: Extend Selector
+- `lif`: If Statement
+- `lfor`: For Loop
+- `leach`: Each Loop
+- `lwhile`: While Loop
+- `lfunc`: Function Declaration
+- `limp`: Import Partial
+- `luse`: Use Module
+- `lforward`: Forward Module
+- `lnest`: Nesting Selector
+- `linterp`: String Interpolation
+- `lmap`: Map Declaration
+- `lcolor`: Color Function
 
 ## Usage
 
