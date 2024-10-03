@@ -1,19 +1,20 @@
-# CSS User Snippets
+# LESS User Snippets
 
-This collection of CSS user snippets is categorized and prefixed.
+This collection of SCSS user snippets is categorized and prefixed.
 
 ## Categories and Prefixes
 
-- Layout (l): `l`
-- Typography (t): `t`
-- Colors and Background (cb): `cb`
-- Flexbox and Grid (fg): `fg`
-- Animations and Transitions (at): `at`
-- Responsive Design (rd): `rd`
-- Box Model (bm): `bm`
-- Positioning (p): `p`
-- Transforms (tf): `tf`
-- Miscellaneous (m): `m`
+- Layout (l)
+- Typography (t)
+- Colors and Backgrounds (cb)
+- Flexbox and Grid (fg)
+- Animations and Transitions (at)
+- Responsive Design (rd)
+- Box Model (bm)
+- Positioning (p)
+- Transforms (tf)
+- Miscellaneous (m)
+- LESS-specific (l)
 
 ## Snippets by Category
 
@@ -37,7 +38,7 @@ This collection of CSS user snippets is categorized and prefixed.
 - `ttt`: Text Transform
 - `ttrunc`: Truncate Text
 
-### Colors and Background (cb)
+### Colors and Backgrounds (cb)
 - `cbbgc`: Background Color
 - `cbbgi`: Background Image
 - `cbbgp`: Background Position
@@ -59,7 +60,7 @@ This collection of CSS user snippets is categorized and prefixed.
 - `fggtc`: Grid Template Columns
 - `fggtr`: Grid Template Rows
 
-### Animations and Transition (at)
+### Animations and Transitions (at)
 - `atani`: Animation
 - `atanid`: Animation Duration
 - `atanidel`: Animation Delay
@@ -134,10 +135,28 @@ This collection of CSS user snippets is categorized and prefixed.
 - `mlist`: List Style
 - `mvh`: Visually Hidden
 
+### SCSS-specific (s)
+- `svar`: Variable Declaration
+- `smixin`: Mixin Declaration
+- `sinclude`: Include Mixin
+- `sextend`: Extend Selector
+- `sif`: If Statement
+- `sfor`: For Loop
+- `seach`: Each Loop
+- `swhile`: While Loop
+- `sfunc`: Function Declaration
+- `simp`: Import Partial
+- `suse`: Use Module
+- `sforward`: Forward Module
+- `snest`: Nesting Selector
+- `sinterp`: String Interpolation
+- `smap`: Map Declaration
+- `scolor`: Color Function
+
 ## Usage
 
-To use these snippets, type the prefix in your CSS file and select the snippet. For example, typing `ldf` will expand to:
+To use these snippets, type the prefix in your SCSS file and select the snippet. For example, typing `lvar` will expand to:
 
-```css
-display: flex;
+```less
+@variable-name: value;
 ```

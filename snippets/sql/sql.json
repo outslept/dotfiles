@@ -1,297 +1,258 @@
 {
   "Alter Table": {
-    "prefix": "sqlat",
+    "prefix": "at",
     "description": "Alter an existing table",
     "body": [
       "ALTER TABLE ${1:table_name}",
-      "ADD ${2:column_name} ${3:datatype};"
+      "${2|ADD,DROP,MODIFY|} ${3:column_name} ${4:datatype};"
     ]
   },
-  "Case Statement": {
-    "prefix": "sqlcs",
-    "description": "Use a CASE statement",
+  "Case When": {
+    "prefix": "case",
+    "description": "Create a CASE WHEN statement",
     "body": [
-      "SELECT",
-      "    CASE",
-      "        WHEN ${1:condition1} THEN ${2:result1}",
-      "        WHEN ${3:condition2} THEN ${4:result2}",
-      "        ELSE ${5:else_result}",
-      "    END AS ${6:column_alias}",
-      "FROM ${7:table_name};"
+      "CASE",
+      "\tWHEN ${1:condition1} THEN ${2:result1}",
+      "\tWHEN ${3:condition2} THEN ${4:result2}",
+      "\tELSE ${5:result3}",
+      "END AS ${6:alias}"
     ]
   },
-  "Common Table Expression (CTE)": {
-    "prefix": "sqlcte",
-    "description": "Create a Common Table Expression",
+  "Common Table Expression": {
+    "prefix": "cte",
+    "description": "Create a Common Table Expression (CTE)",
     "body": [
       "WITH ${1:cte_name} AS (",
-      "    SELECT ${2:columns}",
-      "    FROM ${3:table_name}",
-      "    WHERE ${4:condition}",
+      "\tSELECT ${2:columns}",
+      "\tFROM ${3:table_name}",
+      "\tWHERE ${4:condition}",
       ")",
-      "SELECT *",
-      "FROM ${1:cte_name};"
+      "SELECT ${5:columns}",
+      "FROM ${1:cte_name}",
+      "WHERE ${6:condition};"
     ]
   },
   "Create Function": {
-    "prefix": "sqlcf",
-    "description": "Create a user-defined function",
+    "prefix": "cf",
+    "description": "Create a SQL function",
     "body": [
-      "CREATE FUNCTION ${1:function_name} (@${2:param1} ${3:datatype})",
-      "RETURNS ${4:return_type}",
-      "AS",
+      "CREATE FUNCTION ${1:function_name} (${2:parameters})",
+      "RETURNS ${3:return_type} AS $$",
       "BEGIN",
-      "    RETURN ${5:-- Function body}",
-      "END;"
+      "\t${4:-- Function body}",
+      "\tRETURN ${5:result};",
+      "END;",
+      "$$ LANGUAGE plpgsql;"
     ]
   },
   "Create Index": {
-    "prefix": "sqlci",
+    "prefix": "ci",
     "description": "Create an index on a table",
+    "body": "CREATE ${1|INDEX,UNIQUE INDEX|} ${2:index_name} ON ${3:table_name} (${4:column_name});"
+  },
+  "Create Materialized View": {
+    "prefix": "cmv",
+    "description": "Create a materialized view",
     "body": [
-      "CREATE INDEX ${1:index_name}",
-      "ON ${2:table_name} (${3:column_name});"
+      "CREATE MATERIALIZED VIEW ${1:view_name}",
+      "AS",
+      "SELECT ${2:columns}",
+      "FROM ${3:table_name}",
+      "WHERE ${4:condition}",
+      "WITH DATA;"
     ]
   },
   "Create Procedure": {
-    "prefix": "sqlcp",
-    "description": "Create a stored procedure",
+    "prefix": "cp",
+    "description": "Create a SQL procedure",
     "body": [
-      "CREATE PROCEDURE ${1:procedure_name}",
-      "    @${2:param1} ${3:datatype},",
-      "    @${4:param2} ${5:datatype}",
-      "AS",
+      "CREATE PROCEDURE ${1:procedure_name} (${2:parameters})",
+      "LANGUAGE plpgsql",
+      "AS $$",
       "BEGIN",
-      "    ${6:-- Procedure body}",
-      "END;"
+      "\t${3:-- Procedure body}",
+      "END;",
+      "$$;"
     ]
   },
   "Create Table": {
-    "prefix": "sqlct",
+    "prefix": "ct",
     "description": "Create a new table",
     "body": [
       "CREATE TABLE ${1:table_name} (",
-      "    ${2:column1} ${3:datatype},",
-      "    ${4:column2} ${5:datatype},",
-      "    PRIMARY KEY (${6:primary_key_column})",
+      "\t${2:column1} ${3:datatype}${4: PRIMARY KEY},",
+      "\t${5:column2} ${6:datatype}",
       ");"
     ]
   },
   "Create Trigger": {
-    "prefix": "sqlctr",
+    "prefix": "ct",
     "description": "Create a trigger",
     "body": [
       "CREATE TRIGGER ${1:trigger_name}",
-      "ON ${2:table_name}",
-      "AFTER ${3|INSERT,UPDATE,DELETE|}",
-      "AS",
+      "${2|BEFORE,AFTER,INSTEAD OF|} ${3|INSERT,UPDATE,DELETE|}",
+      "ON ${4:table_name}",
+      "FOR EACH ROW",
       "BEGIN",
-      "    ${4:-- Trigger logic}",
+      "\t${5:-- Trigger logic}",
       "END;"
     ]
   },
   "Create View": {
-    "prefix": "sqlcv",
+    "prefix": "cv",
     "description": "Create a view",
     "body": [
       "CREATE VIEW ${1:view_name} AS",
-      "SELECT ${2:column1}, ${3:column2}",
-      "FROM ${4:table_name}",
-      "WHERE ${5:condition};"
-    ]
-  },
-  "Declare Variable": {
-    "prefix": "sqldv",
-    "description": "Declare a variable",
-    "body": [
-      "DECLARE @${1:variable_name} ${2:datatype};"
+      "SELECT ${2:columns}",
+      "FROM ${3:table_name}",
+      "WHERE ${4:condition};"
     ]
   },
   "Delete": {
-    "prefix": "sqldel",
+    "prefix": "del",
     "description": "Delete rows from a table",
-    "body": [
-      "DELETE FROM ${1:table_name}",
-      "WHERE ${2:condition};"
-    ]
+    "body": "DELETE FROM ${1:table_name} WHERE ${2:condition};"
   },
-  "Drop Table": {
-    "prefix": "sqldt",
-    "description": "Drop a table if it exists",
-    "body": [
-      "DROP TABLE IF EXISTS ${1:table_name};"
-    ]
+  "Explain Analyze": {
+    "prefix": "expa",
+    "description": "Explain and analyze a query execution plan",
+    "body": "EXPLAIN ANALYZE ${1:query};"
+  },
+  "Explain Query": {
+    "prefix": "exp",
+    "description": "Explain a query execution plan",
+    "body": "EXPLAIN ${1:query};"
   },
   "Group By": {
-    "prefix": "sqlgb",
-    "description": "Group results by a column",
+    "prefix": "gb",
+    "description": "Group By with optional HAVING clause",
     "body": [
-      "SELECT ${1:column}, COUNT(*) as count",
-      "FROM ${2:table_name}",
-      "GROUP BY ${1:column};"
-    ]
-  },
-  "Having Clause": {
-    "prefix": "sqlhc",
-    "description": "Use HAVING clause with GROUP BY",
-    "body": [
-      "SELECT ${1:column}, COUNT(*) as count",
-      "FROM ${2:table_name}",
-      "GROUP BY ${1:column}",
-      "HAVING COUNT(*) > ${3:value};"
-    ]
-  },
-  "Inner Join": {
-    "prefix": "sqlij",
-    "description": "Perform an inner join between two tables",
-    "body": [
-      "SELECT *",
-      "FROM ${1:table1} t1",
-      "INNER JOIN ${2:table2} t2 ON t1.${3:column} = t2.${4:column};"
-    ]
-  },
-  "Insert Into": {
-    "prefix": "sqlii",
-    "description": "Insert a new row into a table",
-    "body": [
-      "INSERT INTO ${1:table_name} (${2:column1}, ${3:column2})",
-      "VALUES (${4:value1}, ${5:value2});"
-    ]
-  },
-  "Left Join": {
-    "prefix": "sqllj",
-    "description": "Perform a left join between two tables",
-    "body": [
-      "SELECT *",
-      "FROM ${1:table1} t1",
-      "LEFT JOIN ${2:table2} t2 ON t1.${3:column} = t2.${4:column};"
-    ]
-  },
-  "Limit Results": {
-    "prefix": "sqllr",
-    "description": "Limit the number of results returned",
-    "body": [
-      "SELECT ${1:column1}, ${2:column2}",
+      "SELECT ${1:column1}${2:, COUNT(*) as count}",
       "FROM ${3:table_name}",
-      "LIMIT ${4:number};"
+      "GROUP BY ${1:column1}${4: HAVING ${5:condition}};"
     ]
   },
-  "Merge Statement": {
-    "prefix": "sqlms",
-    "description": "Perform MERGE operation (SQL Server)",
+  "Insert": {
+    "prefix": "ins",
+    "description": "Insert new row into a table",
     "body": [
-      "MERGE INTO ${1:target_table} AS target",
-      "USING ${2:source_table} AS source",
-      "ON ${3:merge_condition}",
+      "INSERT INTO ${1:table_name} (${2:column1}${3:, column2})",
+      "VALUES (${4:value1}${5:, value2});"
+    ]
+  },
+  "Join": {
+    "prefix": "jo",
+    "description": "Join two tables",
+    "body": [
+      "SELECT ${1:*}",
+      "FROM ${2:table1} ${3:t1}",
+      "${4|INNER JOIN,LEFT JOIN,RIGHT JOIN,FULL JOIN|} ${5:table2} ${6:t2} ON ${7:t1.column} = ${8:t2.column};"
+    ]
+  },
+  "Merge": {
+    "prefix": "merge",
+    "description": "Perform a MERGE operation",
+    "body": [
+      "MERGE INTO ${1:target_table} t",
+      "USING ${2:source_table} s",
+      "ON (t.${3:key_column} = s.${3:key_column})",
       "WHEN MATCHED THEN",
-      "    UPDATE SET ${4:update_statement}",
+      "\tUPDATE SET ${4:column1} = s.${4:column1}${5:, column2 = s.column2}",
       "WHEN NOT MATCHED THEN",
-      "    INSERT (${5:columns}) VALUES (${6:values});"
-    ]
-  },
-  "Order By": {
-    "prefix": "sqlob",
-    "description": "Order results by a column",
-    "body": [
-      "SELECT ${1:column1}, ${2:column2}",
-      "FROM ${3:table_name}",
-      "ORDER BY ${4:column} ${5|ASC,DESC|};"
+      "\tINSERT (${6:columns}) VALUES (${7:values});"
     ]
   },
   "Pivot": {
-    "prefix": "sqlpvt",
+    "prefix": "pivot",
     "description": "Create a PIVOT query",
     "body": [
       "SELECT *",
       "FROM (",
-      "    SELECT ${1:columns}",
-      "    FROM ${2:table_name}",
+      "\tSELECT ${1:column1}, ${2:column2}, ${3:value_column}",
+      "\tFROM ${4:table_name}",
       ") AS SourceTable",
       "PIVOT (",
-      "    ${3:aggregate_function}(${4:value_column})",
-      "    FOR ${5:pivot_column} IN (${6:pivot_values})",
+      "\t${5:aggregate_function}(${3:value_column})",
+      "\tFOR ${2:column2} IN (${6:pivot_values})",
       ") AS PivotTable;"
     ]
   },
-  "Select All": {
-    "prefix": "sqlsa",
-    "description": "Select all columns from a table",
+  "Recursive CTE": {
+    "prefix": "rcte",
+    "description": "Create a recursive Common Table Expression",
     "body": [
-      "SELECT * FROM ${1:table_name};"
+      "WITH RECURSIVE ${1:cte_name} AS (",
+      "\t-- Base case",
+      "\tSELECT ${2:columns}",
+      "\tFROM ${3:table_name}",
+      "\tWHERE ${4:condition}",
+      "\tUNION ALL",
+      "\t-- Recursive case",
+      "\tSELECT ${5:columns}",
+      "\tFROM ${3:table_name} t",
+      "\tJOIN ${1:cte_name} c ON ${6:join_condition}",
+      ")",
+      "SELECT * FROM ${1:cte_name};"
     ]
   },
-  "Select Specific Columns": {
-    "prefix": "sqlssc",
-    "description": "Select specific columns from a table",
-    "body": [
-      "SELECT ${1:column1}, ${2:column2} FROM ${3:table_name};"
-    ]
+  "Select All": {
+    "prefix": "sa",
+    "description": "Select all columns from a table with optional WHERE clause",
+    "body": "SELECT * FROM ${1:table_name}${2: WHERE ${3:condition}};"
+  },
+  "Select Columns": {
+    "prefix": "sc",
+    "description": "Select specific columns from a table with optional WHERE clause",
+    "body": "SELECT ${1:column1}${2:, column2} FROM ${3:table_name}${4: WHERE ${5:condition}};"
   },
   "Subquery": {
-    "prefix": "sqlsq",
-    "description": "Use a subquery",
+    "prefix": "sub",
+    "description": "Create a subquery",
     "body": [
-      "SELECT *",
-      "FROM ${1:table_name}",
-      "WHERE ${2:column} IN (",
-      "    SELECT ${3:column}",
-      "    FROM ${4:another_table}",
-      "    WHERE ${5:condition}",
+      "SELECT ${1:column1}",
+      "FROM ${2:table1}",
+      "WHERE ${3:column2} ${4|IN,NOT IN,>,<,=|} (",
+      "\tSELECT ${5:column3}",
+      "\tFROM ${6:table2}",
+      "\tWHERE ${7:condition}",
       ");"
     ]
   },
   "Transaction": {
-    "prefix": "sqltx",
-    "description": "Create a transaction",
-    "body": [
-      "BEGIN TRANSACTION;",
-      "",
-      "    ${1:-- Transaction statements}",
-      "",
-      "COMMIT;"
-    ]
-  },
-  "Try-Catch": {
-    "prefix": "sqltc",
-    "description": "Use a try-catch block (SQL Server)",
-    "body": [
-      "BEGIN TRY",
-      "    ${1:-- Code to try}",
-      "END TRY",
-      "BEGIN CATCH",
-      "    ${2:-- Error handling}",
-      "END CATCH;"
-    ]
-  },
-  "Union": {
-    "prefix": "sqlun",
-    "description": "Combine result sets with UNION",
-    "body": [
-      "SELECT ${1:columns} FROM ${2:table1}",
-      "UNION",
-      "SELECT ${1:columns} FROM ${3:table2};"
-    ]
+    "prefix": "tran",
+    "description": "Create a transaction block",
+    "body": ["BEGIN TRANSACTION;", "\t${1:-- SQL statements}", "COMMIT;"]
   },
   "Update": {
-    "prefix": "sqlup",
+    "prefix": "upd",
     "description": "Update existing rows in a table",
     "body": [
       "UPDATE ${1:table_name}",
-      "SET ${2:column1} = ${3:value1}, ${4:column2} = ${5:value2}",
-      "WHERE ${6:condition};"
+      "SET ${2:column1} = ${3:value1}${4:, column2 = value2}",
+      "WHERE ${5:condition};"
+    ]
+  },
+  "Upsert": {
+    "prefix": "upsert",
+    "description": "Perform an upsert operation",
+    "body": [
+      "INSERT INTO ${1:table_name} (${2:columns})",
+      "VALUES (${3:values})",
+      "ON CONFLICT (${4:conflict_column})",
+      "DO UPDATE SET",
+      "\t${5:column1} = EXCLUDED.${5:column1}${6:, column2 = EXCLUDED.column2};"
     ]
   },
   "Window Function": {
-    "prefix": "sqlwf",
-    "description": "Use a window function",
+    "prefix": "wf",
+    "description": "Create a window function",
     "body": [
-      "SELECT",
-      "    ${1:column},",
-      "    ${2:window_function} OVER (",
-      "        PARTITION BY ${3:partition_column}",
-      "        ORDER BY ${4:order_column}",
-      "    ) AS ${5:result_column}",
-      "FROM ${6:table_name};"
+      "SELECT ${1:column1},",
+      "\t${2:window_function}(${3:column2}) OVER (",
+      "\t\tPARTITION BY ${4:column3}",
+      "\t\tORDER BY ${5:column4}",
+      "\t) AS ${6:alias}",
+      "FROM ${7:table_name};"
     ]
   }
 }
