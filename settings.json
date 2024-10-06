@@ -1,5 +1,4 @@
 {
-  // Default formatter settings for various file types
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -63,8 +62,8 @@
     "frame": false,
     "titleBarStyle": "hidden"
   },
+  "apc.font.family": "CommitMono Nerd Font, JetBrains Mono",
   // Custom UI appearance settings
-  "apc.font.family": "JetBrainsMono Nerd Font Mono",
   "apc.header": {
     "height": 20
   },
@@ -73,6 +72,7 @@
     "lists": ["quick-input-list", "results"]
   },
   "apc.menubar.compact": true,
+  "apc.monospace.font.family": "CommitMono Nerd Font, JetBrains Mono",
   "apc.sidebar.titlebar": {
     "height": 37
   },
@@ -81,34 +81,38 @@
     ".monaco-workbench .part.sidebar .title-actions .actions-container": "justify-content: space-evenly !important",
     ".title-label": "display: none !important"
   },
+  "autoBarrel.files.disableRecursiveBarrelling": true,
+  "autoBarrel.formatting.endOfLine": "crlf",
   "breadcrumbs.enabled": false,
-  "chat.editor.fontFamily": "JetBrains Mono",
-  "debug.console.fontFamily": "Jetbrains Mono",
+  "chat.editor.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
+  "debug.console.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "debug.inlineValues": "on",
   "debug.onTaskErrors": "abort",
   "debug.openDebug": "neverOpen",
   "debug.terminal.clearBeforeReusing": true,
   "debug.toolBarLocation": "hidden",
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
+  "editor.codeLensFontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorSurroundingLines": 8,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "editor.definitionLinkOpensInPeek": true,
+  "editor.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "editor.guides.indentation": false,
   "editor.hover.sticky": true,
-  "editor.inlayHints.fontFamily": "Jetbrains Mono",
+  "editor.inlayHints.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "editor.inlineSuggest.enabled": true,
   "editor.letterSpacing": 0.5,
+  "editor.lightbulb.enabled": "off",
   "editor.lineHeight": 0,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
@@ -121,7 +125,7 @@
   "editor.stickyScroll.enabled": true,
   "editor.suggest.insertMode": "replace",
   "editor.suggestFontSize": 14,
-  "editor.tabSize": 4,
+  "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "errorLens.enabledDiagnosticLevels": ["error", "warning"],
   "errorLens.excludePatterns": [
@@ -299,7 +303,8 @@
     // Vue configuration file nesting
     "vue.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, capacitor.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, ionic.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*"
   },
-  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": false,
   "extensions.ignoreRecommendations": false,
   "files.autoSave": "afterDelay",
   "files.insertFinalNewline": true,
@@ -391,8 +396,9 @@
   "javascript.suggest.names": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "json.schemas": [],
-  "markdown.preview.fontFamily": "Jetbrains Mono",
-  "notebook.output.fontFamily": "Jetbrains Mono",
+  "license.extension": ".md",
+  "markdown.preview.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
+  "notebook.output.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "prettier.semi": false,
   "prettier.singleAttributePerLine": true,
   "prettier.singleQuote": true,
@@ -400,7 +406,7 @@
   "projectManager.git.baseFolders": ["$home/workspace"],
   "projectManager.sortList": "Recent",
   "redhat.telemetry.enabled": false,
-  "scm.inputFontFamily": "Jetbrains Mono",
+  "scm.inputFontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "security.workspace.trust.untrustedFiles": "open",
   "sortJSON.orderOverride": [
     "name",
@@ -440,22 +446,38 @@
     "$(debug-step-out)",
     "$(debug-step-back)"
   ],
-  "terminal.explorerKind": "integrated",
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "stylelint.packageManager": "pnpm",
+  "stylelint.reportDescriptionlessDisables": true,
+  "stylelint.reportInvalidScopeDisables": true,
+  "stylelint.reportNeedlessDisables": true,
+  "supermaven.allowGitignore": true,
+  "terminal.integrated.defaultProfile.windows": "Alacritty",
   "terminal.integrated.enableMultiLinePasteWarning": "auto",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "terminal.integrated.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.profiles.windows": {
+    "Alacritty": {
+      "icon": "terminal-cmd",
+      "overrideName": true,
+      "source": "PowerShell"
+    },
+    "PowerShell": {
+      "icon": "terminal-powershell",
+      "source": "PowerShell"
+    }
+  },
   "terminal.integrated.suggest.builtinCompletions": {
     "pwshCode": true,
     "pwshGit": true
   },
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "update.mode": "start",
+  "update.enableWindowsBackgroundUpdates": false,
+  //
+  "update.mode": "none",
   "update.showReleaseNotes": false,
   "vim.easymotion": true,
   "vim.foldfix": true,
@@ -825,15 +847,23 @@
       "before": ["S"]
     }
   ],
+  "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
+  "window.density.editorTabHeight": "compact",
   "window.menuBarVisibility": "compact",
   "window.title": "",
   "window.titleBarStyle": "native",
   "window.zoomLevel": 1,
-  "workbench.colorTheme": "Vesper",
+  "workbench.colorTheme": "Moegi Space",
+  "workbench.editorAssociations": {
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+  },
   "workbench.iconTheme": "next-icons-light",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
+  "workbench.preferredDarkColorTheme": "Moegi Dark",
+  "workbench.preferredLightColorTheme": "Moegi Light",
+  "workbench.productIconTheme": "icons-carbon",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "yaml.customTags": [
@@ -867,6 +897,5 @@
   ],
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false,
-  "tabnine.experimentalAutoImports": true
+  "zenMode.hideLineNumbers": false
 }

@@ -1,6 +1,9 @@
+aaron-bond.better-comments
 alefragnani.project-manager
 antfu.browse-lite
+antfu.icons-carbon
 antfu.theme-vitesse
+antfu.vite
 bradlc.vscode-tailwindcss
 cardinal90.multi-cursor-case-preserve
 chakrounanas.turbo-console-log
@@ -8,7 +11,11 @@ christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 chrmarti.regex
 cipchk.cssrem
+codezombiech.gitignore
+csstools.postcss
 cstuder.gitlab-ci-validator
+cweijan.vscode-office
+davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 ddiu8081.moegi-theme
 donjayamanne.githistory
@@ -27,13 +34,14 @@ formulahendry.auto-close-tag
 formulahendry.auto-complete-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
-github.github-vscode-theme
 github.vscode-pull-request-github
-grapecity.gc-excelviewer
+graphql.vscode-graphql
+graphql.vscode-graphql-syntax
 hbenl.vscode-test-explorer
 ibm.output-colorizer
 idered.npm
 imgildev.vscode-auto-barrel
+jannisx11.batch-rename-extension
 jmkrivocapich.drawfolderstructure
 jock.svg
 joshmu.periscope
@@ -82,6 +90,7 @@ redhat.vscode-xml
 redhat.vscode-yaml
 richie5um2.vscode-sort-json
 ritwickdey.liveserver
+shardulm94.trailing-spaces
 sirmspencer.vscode-autohide
 streetsidesoftware.code-spell-checker
 streetsidesoftware.code-spell-checker-russian
@@ -101,8 +110,8 @@ vitest.explorer
 vscodevim.vim
 wix.vscode-import-cost
 wmaurer.change-case
+wmontalvo.vsc-meta-snippet
 yoavbls.pretty-ts-errors
 ysemeniuk.emmet-live
-yummygum.city-lights-icon-vsc
 yzhang.markdown-all-in-one
 zignd.html-css-class-completion

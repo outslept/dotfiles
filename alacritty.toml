@@ -1,0 +1,96 @@
+# alacritty.toml
+
+[shell]
+program = "pwsh"
+args = ["-NoLogo", "-NoExit", "-Command", "& {Import-Module $PROFILE}"]
+
+[window]
+dimensions = { columns = 120, lines = 30 }
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+decorations = "None"
+startup_mode = "Maximized"
+opacity = 0.95
+
+[font]
+normal = { family = "CommitMono Nerd Font", style = "Regular" }
+bold = { family = "CommitMono Nerd Font", style = "Bold" }
+italic = { family = "CommitMono Nerd Font", style = "Italic" }
+bold_italic = { family = "CommitMono Nerd Font", style = "Bold Italic" }
+size = 11.0
+
+[colors.primary]
+background = "#1e1e1e"
+foreground = "#d4d4d4"
+
+[colors.normal]
+black = "#1e1e1e"
+red = "#f44747"
+green = "#608b4e"
+yellow = "#dcdcaa"
+blue = "#569cd6"
+magenta = "#c678dd"
+cyan = "#56b6c2"
+white = "#d4d4d4"
+
+[colors.bright]
+black = "#545454"
+red = "#f44747"
+green = "#608b4e"
+yellow = "#dcdcaa"
+blue = "#569cd6"
+magenta = "#c678dd"
+cyan = "#56b6c2"
+white = "#d4d4d4"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 750
+unfocused_hollow = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+    { key = "V", mods = "Control", action = "Paste" },
+    { key = "C", mods = "Control", action = "Copy" },
+    { key = "Insert", mods = "Shift", action = "PasteSelection" },
+    { key = "Key0", mods = "Control", action = "ResetFontSize" },
+    { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+    { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+    { key = "F11", action = "ToggleFullscreen" },
+]
+
+[hints]
+alphabet = "jfkdls;ahgurieowpq"
+
+[[hints.enabled]]
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\\s]+"
+hyperlinks = true
+command = "xdg-open"
+post_processing = true
+mouse = { enabled = true }
+binding = { key = "U", mods = "Control|Shift" }
+
+[env]
+TERM = "xterm-256color"
+
+[working_directory]
+windows = "%USERPROFILE%"
+
+[bell]
+duration = 0
+
+[debug]
+render_timer = false
+persistent_logging = false
+log_level = "Warn"
+print_events = false

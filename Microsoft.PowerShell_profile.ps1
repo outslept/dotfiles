@@ -78,7 +78,7 @@ function f { explorer . }
 
 function sudo { Start-Process powershell -Verb runAs }
 
-function find-file { 
+function find-file {
   param([string]$name)
   Get-ChildItem -Recurse -Filter "*${name}*" -ErrorAction SilentlyContinue | ForEach-Object FullName
 }
