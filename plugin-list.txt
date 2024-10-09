@@ -35,6 +35,7 @@ formulahendry.auto-complete-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
 github.vscode-pull-request-github
+golang.go
 graphql.vscode-graphql
 graphql.vscode-graphql-syntax
 hbenl.vscode-test-explorer
@@ -79,12 +80,13 @@ ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
+ms-vsliveshare.vsliveshare
 nautigsam.go-to-test
 orta.vscode-jest
 pranaygp.vscode-css-peek
 prisma.prisma
+quicktype.quicktype
 qwtel.sqlite-viewer
-rastikerdar.vscode-seedling-icon-theme
 raunofreiberg.vesper
 redhat.vscode-xml
 redhat.vscode-yaml
@@ -96,6 +98,7 @@ streetsidesoftware.code-spell-checker
 streetsidesoftware.code-spell-checker-russian
 stylelint.vscode-stylelint
 supermaven.supermaven
+tamasfe.even-better-toml
 tobias-z.vscode-harpoon
 tomoki1207.pdf
 tompollak.lazygit-vscode
@@ -108,6 +111,7 @@ visualstudioexptteam.vscodeintellicode
 visualstudioexptteam.vscodeintellicode-completions
 vitest.explorer
 vscodevim.vim
+vspacecode.whichkey
 wix.vscode-import-cost
 wmaurer.change-case
 wmontalvo.vsc-meta-snippet

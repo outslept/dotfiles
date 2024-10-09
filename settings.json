@@ -63,7 +63,6 @@
     "titleBarStyle": "hidden"
   },
   "apc.font.family": "CommitMono Nerd Font, JetBrains Mono",
-  // Custom UI appearance settings
   "apc.header": {
     "height": 20
   },
@@ -83,7 +82,7 @@
   },
   "autoBarrel.files.disableRecursiveBarrelling": true,
   "autoBarrel.formatting.endOfLine": "crlf",
-  "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": true,
   "chat.editor.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "debug.console.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "debug.inlineValues": "on",
@@ -477,7 +476,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.enableWindowsBackgroundUpdates": false,
   //
-  "update.mode": "none",
+  "update.mode": "default",
   "update.showReleaseNotes": false,
   "vim.easymotion": true,
   "vim.foldfix": true,
@@ -854,7 +853,9 @@
   "window.title": "",
   "window.titleBarStyle": "native",
   "window.zoomLevel": 1,
+  "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "Moegi Space",
+  "workbench.editor.showTabs": "single",
   "workbench.editorAssociations": {
     "{git,gitlens}:/**/*.{md,csv,svg}": "default"
   },
@@ -897,5 +898,6 @@
   ],
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false
+  "zenMode.hideLineNumbers": false,
+  "zenMode.showTabs": "single"
 }
