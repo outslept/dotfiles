@@ -8,9 +8,9 @@ This category covers snippets for variable manipulation in Batch scripting. The 
 
 ```batch
 set "VARIABLE_NAME=VALUE"
-````
+```
 
-Mnemonic: "bv" (Batch Variable) + "set" (set)
+**Mnemonic:** "bv" (Batch Variable) + "set" (set)
 
 ### bvsetd - Set Variable with Delayed Expansion
 
@@ -20,7 +20,7 @@ set "VARIABLE_NAME=VALUE"
 echo !VARIABLE_NAME!
 ```
 
-Mnemonic: "bv" (Batch Variable) + "setd" (set delayed)
+**Mnemonic:** "bv" (Batch Variable) + "setd" (set delayed)
 
 ### bvapp - Append to Variable
 
@@ -28,7 +28,7 @@ Mnemonic: "bv" (Batch Variable) + "setd" (set delayed)
 set "VARIABLE_NAME=%VARIABLE_NAME%%VALUE_TO_APPEND%"
 ```
 
-Mnemonic: "bv" (Batch Variable) + "app" (append)
+**Mnemonic:** "bv" (Batch Variable) + "app" (append)
 
 ### bvmath - Perform Math Operation
 
@@ -36,7 +36,7 @@ Mnemonic: "bv" (Batch Variable) + "app" (append)
 set /a "RESULT=EXPRESSION"
 ```
 
-Mnemonic: "bv" (Batch Variable) + "math" (math)
+**Mnemonic:** "bv" (Batch Variable) + "math" (math)
 
 ### bvenv - Get Environment Variable
 
@@ -44,7 +44,7 @@ Mnemonic: "bv" (Batch Variable) + "math" (math)
 set "VARIABLE_NAME=%ENVIRONMENT_VARIABLE%"
 ```
 
-Mnemonic: "bv" (Batch Variable) + "env" (environment)
+**Mnemonic:** "bv" (Batch Variable) + "env" (environment)
 
 ### bvfor - For Loop Variable
 
@@ -54,7 +54,7 @@ for %%i in (VALUES) do (
 )
 ```
 
-Mnemonic: "bv" (Batch Variable) + "for" (for loop)
+**Mnemonic:** "bv" (Batch Variable) + "for" (for loop)
 
 ### bvarg - Command Line Argument
 
@@ -63,7 +63,7 @@ set "ARG1=%1"
 set "ARG2=%2"
 ```
 
-Mnemonic: "bv" (Batch Variable) + "arg" (argument)
+**Mnemonic:** "bv" (Batch Variable) + "arg" (argument)
 
 ### bvif - Check If Variable Is Defined
 
@@ -75,7 +75,7 @@ if defined VARIABLE_NAME (
 )
 ```
 
-Mnemonic: "bv" (Batch Variable) + "if" (if check)
+**Mnemonic:** "bv" (Batch Variable) + "if" (if check)
 
 ## Best Practices
 

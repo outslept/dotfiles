@@ -8,9 +8,9 @@ This category covers snippets for system-level operations in Batch scripting. Th
 
 ```batch
 systeminfo
-````
+```
 
-Mnemonic: "by" (Batch sYstem) + "sysinfo" (system information)
+**Mnemonic:** "by" (Batch sYstem) + "sysinfo" (system information)
 
 ### byproc - List Processes
 
@@ -18,7 +18,7 @@ Mnemonic: "by" (Batch sYstem) + "sysinfo" (system information)
 tasklist
 ```
 
-Mnemonic: "by" (Batch sYstem) + "proc" (processes)
+**Mnemonic:** "by" (Batch sYstem) + "proc" (processes)
 
 ### bykill - Terminate Process
 
@@ -26,7 +26,7 @@ Mnemonic: "by" (Batch sYstem) + "proc" (processes)
 taskkill /F /IM %PROCESS_NAME%
 ```
 
-Mnemonic: "by" (Batch sYstem) + "kill" (terminate process)
+**Mnemonic:** "by" (Batch sYstem) + "kill" (terminate process)
 
 ### byservice - List Services
 
@@ -34,7 +34,7 @@ Mnemonic: "by" (Batch sYstem) + "kill" (terminate process)
 sc query
 ```
 
-Mnemonic: "by" (Batch sYstem) + "service" (services)
+**Mnemonic:** "by" (Batch sYstem) + "service" (services)
 
 ### bystart - Start Service
 
@@ -42,7 +42,7 @@ Mnemonic: "by" (Batch sYstem) + "service" (services)
 sc start %SERVICE_NAME%
 ```
 
-Mnemonic: "by" (Batch sYstem) + "start" (start service)
+**Mnemonic:** "by" (Batch sYstem) + "start" (start service)
 
 ### bystop - Stop Service
 
@@ -50,7 +50,7 @@ Mnemonic: "by" (Batch sYstem) + "start" (start service)
 sc stop %SERVICE_NAME%
 ```
 
-Mnemonic: "by" (Batch sYstem) + "stop" (stop service)
+**Mnemonic:** "by" (Batch sYstem) + "stop" (stop service)
 
 ### byreboot - Reboot System
 
@@ -58,7 +58,7 @@ Mnemonic: "by" (Batch sYstem) + "stop" (stop service)
 shutdown /r /t 0
 ```
 
-Mnemonic: "by" (Batch sYstem) + "reboot" (reboot system)
+**Mnemonic:** "by" (Batch sYstem) + "reboot" (reboot system)
 
 ### byshutdown - Shutdown System
 
@@ -66,7 +66,7 @@ Mnemonic: "by" (Batch sYstem) + "reboot" (reboot system)
 shutdown /s /t 0
 ```
 
-Mnemonic: "by" (Batch sYstem) + "shutdown" (shutdown system)
+**Mnemonic:** "by" (Batch sYstem) + "shutdown" (shutdown system)
 
 ### bydate - Current Date
 
@@ -74,7 +74,7 @@ Mnemonic: "by" (Batch sYstem) + "shutdown" (shutdown system)
 echo %date%
 ```
 
-Mnemonic: "by" (Batch sYstem) + "date" (current date)
+**Mnemonic:** "by" (Batch sYstem) + "date" (current date)
 
 ### bytime - Current Time
 
@@ -82,7 +82,7 @@ Mnemonic: "by" (Batch sYstem) + "date" (current date)
 echo %time%
 ```
 
-Mnemonic: "by" (Batch sYstem) + "time" (current time)
+**Mnemonic:** "by" (Batch sYstem) + "time" (current time)
 
 ### bydisk - Disk Information
 
@@ -90,7 +90,7 @@ Mnemonic: "by" (Batch sYstem) + "time" (current time)
 wmic logicaldisk get size,freespace,caption
 ```
 
-Mnemonic: "by" (Batch sYstem) + "disk" (disk information)
+**Mnemonic:** "by" (Batch sYstem) + "disk" (disk information)
 
 ### byenv - Environment Variables
 
@@ -98,7 +98,7 @@ Mnemonic: "by" (Batch sYstem) + "disk" (disk information)
 set
 ```
 
-Mnemonic: "by" (Batch sYstem) + "env" (environment variables)
+**Mnemonic:** "by" (Batch sYstem) + "env" (environment variables)
 
 ## Best Practices
 

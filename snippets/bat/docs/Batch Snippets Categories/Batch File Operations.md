@@ -8,9 +8,9 @@ This category covers snippets for common file operations in Batch scripting. The
 
 ```batch
 copy "%SOURCE_FILE%" "%DESTINATION_FILE%"
-````
+```
 
-Mnemonic: "bf" (Batch File) + "copy" (action)
+**Mnemonic:** "bf" (Batch File) + "copy" (action)
 
 ### bfmove - Move File
 
@@ -18,7 +18,7 @@ Mnemonic: "bf" (Batch File) + "copy" (action)
 move "%SOURCE_FILE%" "%DESTINATION_FILE%"
 ```
 
-Mnemonic: "bf" (Batch File) + "move" (action)
+**Mnemonic:** "bf" (Batch File) + "move" (action)
 
 ### bfdel - Delete File
 
@@ -26,7 +26,7 @@ Mnemonic: "bf" (Batch File) + "move" (action)
 del "%FILE_TO_DELETE%"
 ```
 
-Mnemonic: "bf" (Batch File) + "del" (abbreviated action)
+**Mnemonic:** "bf" (Batch File) + "del" (abbreviated action)
 
 ### bfren - Rename File
 
@@ -34,7 +34,7 @@ Mnemonic: "bf" (Batch File) + "del" (abbreviated action)
 ren "%OLD_FILENAME%" "%NEW_FILENAME%"
 ```
 
-Mnemonic: "bf" (Batch File) + "ren" (abbreviated action)
+**Mnemonic:** "bf" (Batch File) + "ren" (abbreviated action)
 
 ### bfdir - List Directory Contents
 
@@ -42,7 +42,7 @@ Mnemonic: "bf" (Batch File) + "ren" (abbreviated action)
 dir "%DIRECTORY_PATH%"
 ```
 
-Mnemonic: "bf" (Batch File) + "dir" (command name)
+**Mnemonic:** "bf" (Batch File) + "dir" (command name)
 
 ### bfmd - Make Directory
 
@@ -50,7 +50,7 @@ Mnemonic: "bf" (Batch File) + "dir" (command name)
 mkdir "%NEW_DIRECTORY%"
 ```
 
-Mnemonic: "bf" (Batch File) + "md" (abbreviated command)
+**Mnemonic:** "bf" (Batch File) + "md" (abbreviated command)
 
 ### bfrd - Remove Directory
 
@@ -58,7 +58,7 @@ Mnemonic: "bf" (Batch File) + "md" (abbreviated command)
 rmdir "%DIRECTORY_TO_REMOVE%"
 ```
 
-Mnemonic: "bf" (Batch File) + "rd" (abbreviated command)
+**Mnemonic:** "bf" (Batch File) + "rd" (abbreviated command)
 
 ### bftype - Display File Contents
 
@@ -66,7 +66,7 @@ Mnemonic: "bf" (Batch File) + "rd" (abbreviated command)
 type "%FILE_TO_DISPLAY%"
 ```
 
-Mnemonic: "bf" (Batch File) + "type" (command name)
+**Mnemonic:** "bf" (Batch File) + "type" (command name)
 
 ### bffc - File Comparison
 
@@ -74,7 +74,7 @@ Mnemonic: "bf" (Batch File) + "type" (command name)
 fc "%FILE1%" "%FILE2%"
 ```
 
-Mnemonic: "bf" (Batch File) + "fc" (File Compare)
+**Mnemonic:** "bf" (Batch File) + "fc" (File Compare)
 
 ### bfxcopy - Extended Copy
 
@@ -82,7 +82,7 @@ Mnemonic: "bf" (Batch File) + "fc" (File Compare)
 xcopy "%SOURCE%" "%DESTINATION%" /E /I /Y
 ```
 
-Mnemonic: "bf" (Batch File) + "xcopy" (extended copy command)
+**Mnemonic:** "bf" (Batch File) + "xcopy" (extended copy command)
 
 ## Best Practices
 

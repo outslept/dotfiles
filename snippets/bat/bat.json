@@ -1,5 +1,5 @@
 {
-  "batch_header": {
+  "Batch Header": {
     "prefix": "bh",
     "description": "Basic batch file header with UTF-8 and delayed expansion",
     "body": [
@@ -12,7 +12,7 @@
       "$0"
     ]
   },
-  "check_admin_privileges": {
+  "Check Admin Privileges": {
     "prefix": "sadmincheck",
     "description": "Check if the script is running with admin privileges",
     "body": [
@@ -22,7 +22,7 @@
       ")"
     ]
   },
-  "check_available_disk_space": {
+  "Check Available Disk Space": {
     "prefix": "sdiskchk",
     "description": "Check available disk space on a drive",
     "body": [
@@ -32,7 +32,7 @@
       "echo Available disk space: %free_space%"
     ]
   },
-  "check_errorlevel": {
+  "Check Error Level": {
     "prefix": "bechk",
     "description": "Check error level with comparison operators",
     "body": [
@@ -42,21 +42,7 @@
       ")"
     ]
   },
-  "check_if_file_locked": {
-    "prefix": "sfilelock",
-    "description": "Check if a file is locked",
-    "body": [
-      "(call >nul 2>nul >\"${1:file}\" && echo File is not locked) || echo File is locked"
-    ]
-  },
-  "check_network_connection": {
-    "prefix": "snetcheck",
-    "description": "Check network connection status",
-    "body": [
-      "ping -n 1 ${1:hostname} >nul && echo ${1:hostname} is reachable || echo ${1:hostname} is not reachable"
-    ]
-  },
-  "cmd_args": {
+  "Command Arguments": {
     "prefix": "bcargs",
     "description": "Handle command line arguments",
     "body": [
@@ -67,7 +53,7 @@
       "set \"arg1=%1\""
     ]
   },
-  "compare_strings": {
+  "Compare strings": {
     "prefix": "bcstr",
     "description": "Compare two strings",
     "body": [
@@ -76,41 +62,44 @@
       ")"
     ]
   },
-  "conditional_exec": {
+  "Conditional Execution": {
     "prefix": "bccond",
     "description": "Execute command based on previous command's success",
     "body": [
       "${1:first_command} && ${2:success_command} || ${3:failure_command}"
     ]
   },
-  "create_label": {
-    "prefix": "flabel",
-    "description": "Create a label in the script",
-    "body": [":${1:label}"]
-  },
-  "dir_create": {
+  "Create Directory": {
     "prefix": "bsdir",
     "description": "Create a directory if it doesn't exist",
-    "body": ["if not exist \"${1:directoryPath}\" mkdir \"${1:directoryPath}\""]
-  },
-  "download_file_using_powershell": {
-    "prefix": "sdownload",
-    "description": "Download a file using PowerShell",
     "body": [
-      "powershell -Command \"(New-Object Net.WebClient).DownloadFile('${1:url}', '${2:file_path}')\""
+      "if not exist \"${1:directoryPath}\" mkdir \"${1:directoryPath}\""
     ]
   },
-  "else_statement": {
+  "Create Label": {
+    "prefix": "flabel",
+    "description": "Create a label in the script",
+    "body": [
+      ":${1:label}"
+    ]
+  },
+  "Else Statement": {
     "prefix": "felse",
     "description": "Else statement for if-else construct",
-    "body": [") else (", "    $0", ")"]
+    "body": [
+      ") else (",
+      "    $0",
+      ")"
+    ]
   },
-  "enable_delayed_expansion": {
+  "Enable Delayed Expansion": {
     "prefix": "sedl",
     "description": "Enable delayed environment variable expansion",
-    "body": ["setlocal enabledelayedexpansion"]
+    "body": [
+      "setlocal enabledelayedexpansion"
+    ]
   },
-  "error_handling": {
+  "Error Handling": {
     "prefix": "behan",
     "description": "Basic error handling",
     "body": [
@@ -120,7 +109,7 @@
       ")"
     ]
   },
-  "file_exists_check": {
+  "File Exists Check": {
     "prefix": "sfchk",
     "description": "Check if a file exists",
     "body": [
@@ -131,7 +120,7 @@
       ")"
     ]
   },
-  "for_d_loop": {
+  "For /D Loop": {
     "prefix": "ffor_d",
     "description": "For /D loop",
     "body": [
@@ -141,7 +130,7 @@
       ")"
     ]
   },
-  "for_f_loop": {
+  "For /F Loop": {
     "prefix": "ffor_f",
     "description": "For /F loop",
     "body": [
@@ -151,7 +140,7 @@
       ")"
     ]
   },
-  "for_l_loop": {
+  "For /L Loop": {
     "prefix": "ffor_l",
     "description": "For /L loop",
     "body": [
@@ -161,7 +150,7 @@
       ")"
     ]
   },
-  "for_loop": {
+  "For Loop": {
     "prefix": "ffor",
     "description": "For loop",
     "body": [
@@ -171,22 +160,16 @@
       ")"
     ]
   },
-  "for_r_loop": {
-    "prefix": "ffor_r",
-    "description": "For /R loop",
-    "body": [
-      "for /R \"${1:rootPath}\" %%${2:f} in (${3:file_pattern}) do (",
-      "    echo %%${2:f}",
-      "    $0",
-      ")"
-    ]
-  },
-  "function": {
+  "Function": {
     "prefix": "ffn",
     "description": "Create a function in batch",
-    "body": [":${1:functionName}", "$0", "goto :eof"]
+    "body": [
+      ":${1:functionName}",
+      "$0",
+      "goto :eof"
+    ]
   },
-  "get_current_date": {
+  "Get Current Date": {
     "prefix": "vdate",
     "description": "Get the current date",
     "body": [
@@ -199,7 +182,7 @@
       "echo Current date: %currentDate%"
     ]
   },
-  "get_current_time": {
+  "Get Current Time": {
     "prefix": "vtime",
     "description": "Get the current time",
     "body": [
@@ -212,27 +195,39 @@
       "echo Current time: %currentTime%"
     ]
   },
-  "get_environment_variable": {
+  "Get Environment Variable": {
     "prefix": "vgetenv",
     "description": "Get an environment variable value",
-    "body": ["set ${1:variable_name}=%${1:variable_name}%"]
+    "body": [
+      "set ${1:variable_name}=%${1:variable_name}%"
+    ]
   },
-  "goto_end_of_script": {
+  "Goto End of Script": {
     "prefix": "fgotoe",
     "description": "Go to the end of the script",
-    "body": ["goto :eof"]
+    "body": [
+      "goto :eof"
+    ]
   },
-  "goto_label": {
+  "Goto Label": {
     "prefix": "fgoto",
     "description": "Jump to a specific label in the script",
-    "body": ["goto :${1:label}"]
+    "body": [
+      "goto :${1:label}"
+    ]
   },
-  "if_statement": {
+  "If Statement": {
     "prefix": "fif",
     "description": "If-else statement",
-    "body": ["if ${1:condition} (", "    $0", ") else (", "    $2", ")"]
+    "body": [
+      "if ${1:condition} (",
+      "    $0",
+      ") else (",
+      "    $2",
+      ")"
+    ]
   },
-  "logging_to_file": {
+  "Logging to File": {
     "prefix": "llog",
     "description": "Log script output to a file",
     "body": [
@@ -243,7 +238,7 @@
       "echo ${3:Log end message} >> %log_file%"
     ]
   },
-  "loop_over_files": {
+  "Loop over Files": {
     "prefix": "ffiles",
     "description": "Loop over files in directory",
     "body": [
@@ -253,22 +248,21 @@
       ")"
     ]
   },
-  "pause_script": {
+  "Pause Script": {
     "prefix": "fpause",
     "description": "Pause the script execution",
-    "body": ["pause"]
+    "body": [
+      "pause"
+    ]
   },
-  "push_directory": {
-    "prefix": "spushd",
-    "description": "Push directory onto stack and change to it",
-    "body": ["pushd \"${1:directory}\"", "$0", "popd"]
-  },
-  "read_user_input": {
+  "Read User Input": {
     "prefix": "vread",
     "description": "Read user input",
-    "body": ["set /p \"${1:variable}=${2:Enter value: }\""]
+    "body": [
+      "set /p \"${1:variable}=${2:Enter value: }\""
+    ]
   },
-  "retry_block": {
+  "Retry Block": {
     "prefix": "fretry",
     "description": "Retry block for command execution",
     "body": [
@@ -283,7 +277,7 @@
       ")"
     ]
   },
-  "run_command_with_retry": {
+  "Run Command with Retry": {
     "prefix": "fretrycmd",
     "description": "Run a command with a retry mechanism",
     "body": [
@@ -298,39 +292,95 @@
       ")"
     ]
   },
-  "set_environment_variable": {
+  "Set Environment Variable": {
     "prefix": "vsetenv",
     "description": "Set an environment variable",
-    "body": ["setx ${1:variable_name} \"${2:value}\""]
+    "body": [
+      "setx ${1:variable_name} \"${2:value}\""
+    ]
   },
-  "set_variable": {
+  "Set Variable": {
     "prefix": "vset",
     "description": "Set a variable",
-    "body": ["set \"${1:variable}=${2:value}\""]
+    "body": [
+      "set \"${1:variable}=${2:value}\""
+    ]
   },
-  "start_new_process": {
+  "Start New Process": {
     "prefix": "sstart",
     "description": "Start a new process",
-    "body": ["start \"\" ${1:command}"]
+    "body": [
+      "start \"\" ${1:command}"
+    ]
   },
-  "terminate_process": {
+  "Terminate Process": {
     "prefix": "sterm",
     "description": "Terminate a process by its name",
-    "body": ["taskkill /F /IM ${1:process_name}.exe /T"]
+    "body": [
+      "taskkill /F /IM ${1:process_name}.exe /T"
+    ]
   },
-  "timed_command": {
+  "Timed Command": {
     "prefix": "ftime",
     "description": "Execute a command after a delay",
-    "body": ["timeout /t ${1:seconds} /nobreak > nul", "${2:command}"]
+    "body": [
+      "timeout /t ${1:seconds} /nobreak > nul",
+      "${2:command}"
+    ]
   },
-  "turn_echo_off": {
+  "Turn Echo Off": {
     "prefix": "sechooff",
     "description": "Turn command-echoing off",
-    "body": ["@echo off"]
+    "body": [
+      "@echo off"
+    ]
   },
-  "wait_for_keypress": {
+  "Wait for Keypress": {
     "prefix": "fwaitkey",
     "description": "Wait for a keypress",
-    "body": ["echo Press any key to continue...", "pause >nul"]
+    "body": [
+      "echo Press any key to continue...",
+      "pause >nul"
+    ]
+  },
+  "Check if File Locked": {
+    "prefix": "sfilelock",
+    "description": "Check if a file is locked",
+    "body": [
+      "(call >nul 2>nul >\"${1:file}\" && echo File is not locked) || echo File is locked"
+    ]
+  },
+  "Check Network Connection": {
+    "prefix": "snetcheck",
+    "description": "Check network connection status",
+    "body": [
+      "ping -n 1 ${1:hostname} >nul && echo ${1:hostname} is reachable || echo ${1:hostname} is not reachable"
+    ]
+  },
+  "Download File": {
+    "prefix": "sdownload",
+    "description": "Download a file using PowerShell",
+    "body": [
+      "powershell -Command \"(New-Object Net.WebClient).DownloadFile('${1:url}', '${2:file_path}')\""
+    ]
+  },
+  "For /R Loop": {
+    "prefix": "ffor_r",
+    "description": "For /R loop",
+    "body": [
+      "for /R \"${1:rootPath}\" %%${2:f} in (${3:file_pattern}) do (",
+      "    echo %%${2:f}",
+      "    $0",
+      ")"
+    ]
+  },
+  "Push Directory": {
+    "prefix": "spushd",
+    "description": "Push directory onto stack and change to it",
+    "body": [
+      "pushd \"${1:directory}\"",
+      "$0",
+      "popd"
+    ]
   }
 }

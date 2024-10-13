@@ -16,9 +16,9 @@ if defined str (
     goto :loop
 )
 echo String length: %len%
-````
+```
 
-Mnemonic: "bs" (Batch String) + "len" (length)
+**Mnemonic:** "bs" (Batch String) + "len" (length)
 
 ### bssub - Extract Substring
 
@@ -26,7 +26,7 @@ Mnemonic: "bs" (Batch String) + "len" (length)
 set "result=%STRING:~START_INDEX,LENGTH%"
 ```
 
-Mnemonic: "bs" (Batch String) + "sub" (substring)
+**Mnemonic:** "bs" (Batch String) + "sub" (substring)
 
 ### bsrep - Replace String
 
@@ -34,7 +34,7 @@ Mnemonic: "bs" (Batch String) + "sub" (substring)
 set "result=%STRING:OLD_TEXT=NEW_TEXT%"
 ```
 
-Mnemonic: "bs" (Batch String) + "rep" (replace)
+**Mnemonic:** "bs" (Batch String) + "rep" (replace)
 
 ### bsupp - Convert to Uppercase
 
@@ -43,7 +43,7 @@ set "result=%STRING%"
 for %%i in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do call set "result=%%result:%%i=%%i%%"
 ```
 
-Mnemonic: "bs" (Batch String) + "upp" (uppercase)
+**Mnemonic:** "bs" (Batch String) + "upp" (uppercase)
 
 ### bslow - Convert to Lowercase
 
@@ -52,7 +52,7 @@ set "result=%STRING%"
 for %%i in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do call set "result=%%result:%%i=%%i%%"
 ```
 
-Mnemonic: "bs" (Batch String) + "low" (lowercase)
+**Mnemonic:** "bs" (Batch String) + "low" (lowercase)
 
 ### bstrim - Trim Whitespace
 
@@ -62,7 +62,7 @@ for /f "tokens=* delims= " %%a in ("%result%") do set "result=%%a"
 for /l %%a in (1,1,100) do if "!result:~-1!"==" " set "result=!result:~0,-1!"
 ```
 
-Mnemonic: "bs" (Batch String) + "trim" (trim)
+**Mnemonic:** "bs" (Batch String) + "trim" (trim)
 
 ### bssplit - Split String
 
@@ -72,7 +72,7 @@ for %%i in (%STRING%) do (
 )
 ```
 
-Mnemonic: "bs" (Batch String) + "split" (split)
+**Mnemonic:** "bs" (Batch String) + "split" (split)
 
 ### bsconcat - Concatenate Strings
 
@@ -80,11 +80,11 @@ Mnemonic: "bs" (Batch String) + "split" (split)
 set "result=%STRING1%%STRING2%"
 ```
 
-Mnemonic: "bs" (Batch String) + "concat" (concatenate)
+**Mnemonic:** "bs" (Batch String) + "concat" (concatenate)
 
 ## Best Practices
 
 1. Use delayed expansion when working with variables inside loops.
 2. Be cautious with special characters in strings; escape them when necessary.
 3. Remember that Batch is case-insensitive for commands but preserves case for string content.
-x
+   x

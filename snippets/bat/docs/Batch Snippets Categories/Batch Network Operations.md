@@ -8,9 +8,9 @@ This category covers snippets for network-related operations in Batch scripting.
 
 ```batch
 ping -n 4 %HOST%
-````
+```
 
-Mnemonic: "bn" (Batch Network) + "ping" (ping command)
+**Mnemonic:** "bn" (Batch Network) + "ping" (ping command)
 
 ### bnip - Get IP Configuration
 
@@ -18,7 +18,7 @@ Mnemonic: "bn" (Batch Network) + "ping" (ping command)
 ipconfig /all
 ```
 
-Mnemonic: "bn" (Batch Network) + "ip" (IP configuration)
+**Mnemonic:** "bn" (Batch Network) + "ip" (IP configuration)
 
 ### bnnslookup - DNS Lookup
 
@@ -26,7 +26,7 @@ Mnemonic: "bn" (Batch Network) + "ip" (IP configuration)
 nslookup %DOMAIN%
 ```
 
-Mnemonic: "bn" (Batch Network) + "nslookup" (DNS lookup command)
+**Mnemonic:** "bn" (Batch Network) + "nslookup" (DNS lookup command)
 
 ### bnnetstat - Network Statistics
 
@@ -34,7 +34,7 @@ Mnemonic: "bn" (Batch Network) + "nslookup" (DNS lookup command)
 netstat -an
 ```
 
-Mnemonic: "bn" (Batch Network) + "netstat" (network statistics command)
+**Mnemonic:** "bn" (Batch Network) + "netstat" (network statistics command)
 
 ### bndownload - Download File
 
@@ -42,7 +42,7 @@ Mnemonic: "bn" (Batch Network) + "netstat" (network statistics command)
 bitsadmin /transfer mydownloadjob /download /priority normal %URL% %DESTINATION%
 ```
 
-Mnemonic: "bn" (Batch Network) + "download" (download operation)
+**Mnemonic:** "bn" (Batch Network) + "download" (download operation)
 
 ### bnshare - List Network Shares
 
@@ -50,7 +50,7 @@ Mnemonic: "bn" (Batch Network) + "download" (download operation)
 net share
 ```
 
-Mnemonic: "bn" (Batch Network) + "share" (network shares)
+**Mnemonic:** "bn" (Batch Network) + "share" (network shares)
 
 ### bnuser - List Network Users
 
@@ -58,7 +58,7 @@ Mnemonic: "bn" (Batch Network) + "share" (network shares)
 net user
 ```
 
-Mnemonic: "bn" (Batch Network) + "user" (network users)
+**Mnemonic:** "bn" (Batch Network) + "user" (network users)
 
 ### bnroute - Display Routing Table
 
@@ -66,7 +66,7 @@ Mnemonic: "bn" (Batch Network) + "user" (network users)
 route print
 ```
 
-Mnemonic: "bn" (Batch Network) + "route" (routing table)
+**Mnemonic:** "bn" (Batch Network) + "route" (routing table)
 
 ### bnfirewall - Firewall Status
 
@@ -74,7 +74,7 @@ Mnemonic: "bn" (Batch Network) + "route" (routing table)
 netsh advfirewall show allprofiles
 ```
 
-Mnemonic: "bn" (Batch Network) + "firewall" (firewall status)
+**Mnemonic:** "bn" (Batch Network) + "firewall" (firewall status)
 
 ### bnwifi - List WiFi Networks
 
@@ -82,7 +82,7 @@ Mnemonic: "bn" (Batch Network) + "firewall" (firewall status)
 netsh wlan show networks
 ```
 
-Mnemonic: "bn" (Batch Network) + "wifi" (WiFi networks)
+**Mnemonic:** "bn" (Batch Network) + "wifi" (WiFi networks)
 
 ## Best Practices
 
