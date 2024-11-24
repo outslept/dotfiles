@@ -1,68 +1,19 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.0",
   "configurations": [
     {
-      "type": "node",
+      "name": "PowerShell: Launch Current File",
+      "type": "PowerShell",
       "request": "launch",
-      "name": "Debug Current TS File",
-      "program": "${workspaceFolder}/node_modules/ts-node/dist/bin.js",
-      "args": ["${relativeFile}"],
-      "cwd": "${workspaceFolder}",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "env": { "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig.json" },
-      "sourceMaps": true,
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
+      "script": "${file}",
+      "cwd": "${file}"
     },
     {
-      "type": "node",
+      "name": "PowerShell: Launch Profile",
+      "type": "PowerShell",
       "request": "launch",
-      "name": "Jest All",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "windows": {
-        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
-      }
+      "script": "${workspaceFolder}/Microsoft.PowerShell_profile.ps1",
+      "cwd": "${workspaceFolder}"
     },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Jest Current File",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.js"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "windows": {
-        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
-      }
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}",
-      "sourceMaps": true,
-      "sourceMapPathOverrides": {
-        "webpack:///src/*": "${webRoot}/src/*"
-      }
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/src/index.ts",
-      "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "sourceMaps": true
-    },
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Attach to Process",
-      "port": 9229
-    }
   ]
 }
