@@ -1,5 +1,127 @@
 [
   {
+    "command": "workbench.action.closeAllEditors",
+    "key": "ctrl+shift+w"
+  },
+  {
+    "command": "workbench.action.focusFirstEditorGroup",
+    "key": "ctrl+k ctrl+1"
+  },
+  {
+    "command": "workbench.action.focusSecondEditorGroup",
+    "key": "ctrl+k ctrl+2"
+  },
+  {
+    "command": "workbench.action.moveEditorToLeftGroup",
+    "key": "ctrl+k ctrl+left"
+  },
+  {
+    "command": "workbench.action.moveEditorToRightGroup",
+    "key": "ctrl+k ctrl+right"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex1",
+    "key": "alt+1"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex2",
+    "key": "alt+2"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex3",
+    "key": "alt+3"
+  },
+  {
+    "command": "workbench.action.toggleZenMode",
+    "key": "ctrl+k z"
+  },
+  {
+    "command": "workbench.action.toggleMaximizedPanel",
+    "key": "ctrl+k shift+enter"
+  },
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+k b"
+  },
+  {
+    "command": "workbench.action.terminal.focus",
+    "key": "ctrl+k ctrl+t"
+  },
+  {
+    "command": "editor.action.triggerParameterHints",
+    "key": "ctrl+shift+space",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  {
+    "command": "editor.action.peekDefinition",
+    "key": "alt+f12",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "command": "editor.action.showHover",
+    "key": "ctrl+k ctrl+i",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "workbench.action.focusFirstEditorGroup",
+    "key": "ctrl+k ctrl+1"
+  },
+  {
+    "command": "workbench.action.focusSecondEditorGroup",
+    "key": "ctrl+k ctrl+2"
+  },
+  {
+    "command": "workbench.action.moveEditorToLeftGroup",
+    "key": "ctrl+k ctrl+left"
+  },
+  {
+    "command": "workbench.action.moveEditorToRightGroup",
+    "key": "ctrl+k ctrl+right"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex1",
+    "key": "alt+1"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex2",
+    "key": "alt+2"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex3",
+    "key": "alt+3"
+  },
+  {
+    "command": "workbench.action.toggleZenMode",
+    "key": "ctrl+k z"
+  },
+  {
+    "command": "workbench.action.toggleMaximizedPanel",
+    "key": "ctrl+k shift+enter"
+  },
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+k b"
+  },
+  {
+    "command": "workbench.action.terminal.focus",
+    "key": "ctrl+k ctrl+t"
+  },
+  {
+    "command": "editor.action.triggerParameterHints",
+    "key": "ctrl+shift+space",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  {
+    "command": "editor.action.peekDefinition",
+    "key": "alt+f12",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "command": "editor.action.showHover",
+    "key": "ctrl+k ctrl+i",
+    "when": "editorTextFocus"
+  },
+  {
     "command": "projectManager.listGitProjects#sideBarGit",
     "key": "cmd+o"
   },
