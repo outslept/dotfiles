@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker", 
+    "esbenp.prettier-vscode", 
+    
+    "yzhang.markdown-all-in-one", 
+    "davidanson.vscode-markdownlint", 
+    
+    "foxundermoon.shell-format", 
+    "timonwong.shellcheck",
+    
+    "ms-vscode.powershell", 
+    
+    "redhat.vscode-yaml",
+  ]
+}
