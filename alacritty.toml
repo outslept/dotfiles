@@ -1,5 +1,3 @@
-# alacritty.toml
-
 [shell]
 program = "pwsh"
 args = ["-NoLogo", "-NoExit", "-Command", "& {Import-Module $PROFILE}"]
@@ -18,6 +16,9 @@ bold = { family = "CommitMono Nerd Font", style = "Bold" }
 italic = { family = "CommitMono Nerd Font", style = "Italic" }
 bold_italic = { family = "CommitMono Nerd Font", style = "Bold Italic" }
 size = 11.0
+offset = { x = 0, y = 1 }
+glyph_offset = { x = 0, y = 1 }
+builtin_box_drawing = true
 
 [colors.primary]
 background = "#1e1e1e"
@@ -53,7 +54,11 @@ history = 10000
 multiplier = 3
 
 [selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 save_to_clipboard = true
+
+[terminal]
+osc52 = "CopyPaste"
 
 [mouse]
 hide_when_typing = true
@@ -62,29 +67,40 @@ hide_when_typing = true
 bindings = [
     { key = "V", mods = "Control", action = "Paste" },
     { key = "C", mods = "Control", action = "Copy" },
+    { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    { key = "W", mods = "Control|Shift", action = "Quit" },
     { key = "Insert", mods = "Shift", action = "PasteSelection" },
     { key = "Key0", mods = "Control", action = "ResetFontSize" },
     { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
     { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
     { key = "F11", action = "ToggleFullscreen" },
+    # Navigation
+    { key = "PageUp", mods = "Control", action = "ScrollPageUp" },
+    { key = "PageDown", mods = "Control", action = "ScrollPageDown" },
+    { key = "Home", mods = "Control", action = "ScrollToTop" },
+    { key = "End", mods = "Control", action = "ScrollToBottom" },
+    { key = "L", mods = "Control", action = "ClearHistory" },
+    # Vi Mode
+    { key = "Space", mods = "Control", action = "ToggleViMode" },
+    { key = "Space", mods = "Control|Shift", action = "ToggleLineSelection" },
+    { key = "Escape", mode = "Vi", action = "ToggleViMode" },
+    { key = "Y", mode = "Vi", action = "Copy" },
+    { key = "V", mode = "Vi", action = "ToggleNormalSelection" }
 ]
 
 [hints]
 alphabet = "jfkdls;ahgurieowpq"
 
 [[hints.enabled]]
-regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\\s]+"
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[[:alnum:]\\-\\._~:/?#\\[\\]@!$&'\\(\\)\\*\\+,;=]*"
 hyperlinks = true
-command = "xdg-open"
+command = { program = "cmd", args = ["/c", "start", ""] }
 post_processing = true
 mouse = { enabled = true }
 binding = { key = "U", mods = "Control|Shift" }
 
 [env]
 TERM = "xterm-256color"
-
-[working_directory]
-windows = "%USERPROFILE%"
 
 [bell]
 duration = 0
@@ -93,4 +109,5 @@ duration = 0
 render_timer = false
 persistent_logging = false
 log_level = "Warn"
+renderer = "glsl3"
 print_events = false
