@@ -1,50 +1,4 @@
 {
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[graphql]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[plaintext]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[powershell]": {
-    "editor.defaultFormatter": "ms-vscode.powershell"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "breadcrumbs.enabled": true,
-  "breadcrumbs.symbolPath": "last",
-  "breadcrumbs.symbolSortOrder": "position",
-  "chat.editor.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "debug.console.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "debug.console.fontSize": 13,
   "debug.inlineValues": "on",
@@ -56,16 +10,12 @@
   "editor.acceptSuggestionOnCommitCharacter": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
-  },
   "editor.codeLensFontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorSurroundingLines": 8,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.definitionLinkOpensInPeek": true,
-  "editor.folding": false,
   "editor.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
@@ -74,28 +24,18 @@
   "editor.guides.bracketPairs": "active",
   "editor.guides.highlightActiveIndentation": false,
   "editor.guides.indentation": false,
-  "editor.hideCursorInOverviewRuler": true,
-  "editor.hover.sticky": true,
   "editor.inlayHints.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
   "editor.inlineSuggest.enabled": true,
-  "editor.letterSpacing": 0.44,
-  "editor.lightbulb.enabled": "off",
-  "editor.lineHeight": 0,
+  "editor.letterSpacing": 0.7,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
-  "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
   "editor.parameterHints.cycle": false,
   "editor.quickSuggestionsDelay": 10,
   "editor.renderLineHighlight": "none",
-  "editor.roundedSelection": false,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 15,
-  "editor.selectionHighlight": false,
-  "editor.semanticHighlighting.enabled": false,
-  "editor.smoothScrolling": true,
-  "editor.stickyScroll.enabled": true,
   "editor.suggest.insertMode": "replace",
   "editor.suggest.preview": true,
   "editor.suggestFontSize": 14,
@@ -114,13 +54,7 @@
   "errorLens.margin": "20px",
   "errorLens.messageTemplate": "$message - $source",
   "errorLens.severityText": ["ERROR", "WARNING", "HINT", "ERROR"],
-  "errorLens.statusBarColorsEnabled": true,
-  "explorer.compactFolders": true,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.excludeGitIgnore": true,
   "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
@@ -210,80 +144,7 @@
     "vite.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, capacitor.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, ionic.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*",
     "vue.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, capacitor.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, ionic.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*"
   },
-  "extensions.autoCheckUpdates": false,
-  "extensions.autoUpdate": false,
-  "extensions.ignoreRecommendations": false,
   "files.autoSave": "afterDelay",
-  "files.exclude": {
-    "**/.DS_Store": true,
-    "**/.git": true,
-    "**/.hg": true,
-    "**/.next": true,
-    "**/.svn": true,
-    "**/.turbo": true,
-    "**/CVS": true,
-    "**/Thumbs.db": true,
-    "**/build": true,
-    "**/dist": true,
-    "**/node_modules": true
-  },
-  "files.insertFinalNewline": true,
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "git.enableSmartCommit": true,
-  "git.openRepositoryInParentFolders": "always",
-  "gitlens.gitCommands.skipConfirmations": [
-    "fetch:command",
-    "stash-push:command",
-    "switch:command",
-    "push:command"
-  ],
-  "gitlens.graph.minimap.enabled": false,
-  "javascript.format.enable": false,
-  "javascript.suggest.names": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "markdown.preview.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
-  "notebook.output.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
-  "projectManager.git.baseFolders": ["$home/workspace"],
-  "projectManager.sortList": "Recent",
-  "scm.inputFontFamily": "CommitMono Nerd Font, JetBrains Mono",
-  "search.exclude": {
-    "**/.cache": true,
-    "**/.git": true,
-    "**/.github": true,
-    "**/.next": true,
-    "**/.turbo": true,
-    "**/bower_components": true,
-    "**/coverage": true,
-    "**/dist": true,
-    "**/node_modules": true,
-    "**/package-lock.json": true,
-    "**/yarn.lock": true
-  },
-  "security.workspace.trust.untrustedFiles": "open",
-  "sortJSON.orderOverride": [
-    "name",
-    "version",
-    "main",
-    "module",
-    "types",
-    "typings",
-    "files",
-    "publishConfig",
-    "repository",
-    "scripts",
-    "prefix",
-    "description",
-    "body"
-  ],
-  "sortJSON.orderUnderride": [
-    "resolutions",
-    "dependencies",
-    "devDependencies",
-    "peerDependencies",
-    "cSpell.userWords"
-  ],
-  "supermaven.allowGitignore": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.windows": "Alacritty",
   "terminal.integrated.enableMultiLinePasteWarning": "auto",
@@ -311,44 +172,27 @@
     "pwshGit": true
   },
   "terminal.integrated.tabs.enabled": true,
-  "typescript.format.enable": false,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "manual",
-  "update.showReleaseNotes": false,
+  "update.showReleaseNotes": true,
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
-  "window.title": "",
-  "window.zoomLevel": 1,
   "workbench.colorTheme": "Moegi Space",
   "workbench.editor.closeEmptyGroups": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.value": 5,
-  "workbench.editor.showTabs": "single",
-  "workbench.editorAssociations": {
-    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
-  },
   "workbench.enableExperiments": false,
-  "workbench.iconTheme": "ayu",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredDarkColorTheme": "Moegi Black Zen",
   "workbench.preferredLightColorTheme": "Moegi Light",
   "workbench.reduceMotion": "on",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
+  "workbench.startupEditor": "welcomePage",
   "workbench.tree.indent": 12,
   "workbench.tree.renderIndentGuides": "always",
-  "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false,
-  "zenMode.hideActivityBar": true,
-  "zenMode.hideLineNumbers": false,
-  "zenMode.hideStatusBar": true,
-  "zenMode.restore": true,
-  "zenMode.showTabs": "single",
-  "zenMode.silentNotifications": true
+  "workbench.preferredDarkColorTheme": "Moegi Black Zen",
+  "workbench.editor.showTabs": "single"
 }
