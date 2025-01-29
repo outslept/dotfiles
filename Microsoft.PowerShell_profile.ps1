@@ -1,6 +1,3 @@
-### PowerShell Profile Refactor
-### Version 1.03 - Refactored
-
 $debug = $false
 
 if ($debug) {
@@ -22,7 +19,7 @@ if ([bool]([System.Security.Principal.WindowsIdentity]::GetCurrent()).IsSystem) 
 }
 
 # Initial GitHub.com connectivity check with 1 second timeout
-$global:canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
+$global:canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet
 
 # Import Modules and External Profiles
 # Ensure Terminal-Icons module is installed before importing
@@ -191,7 +188,7 @@ function uptime {
             } elseif ($lastBootStr -match '^\d{2}\.\d{2}\.\d{4}') {
                 $dateFormat = 'dd.MM.yyyy'
             }
-            
+
             # check time format
             if ($lastBootStr -match '\bAM\b' -or $lastBootStr -match '\bPM\b') {
                 $timeFormat = 'h:mm:ss tt'
@@ -218,7 +215,7 @@ function uptime {
 
         # Uptime output
         Write-Host ("Uptime: {0} days, {1} hours, {2} minutes, {3} seconds" -f $days, $hours, $minutes, $seconds) -ForegroundColor Blue
-        
+
 
     } catch {
         Write-Error "An error occurred while retrieving system uptime."
@@ -314,12 +311,12 @@ function trash($path) {
 ### Quality of Life Aliases
 
 # Navigation Shortcuts
-function docs { 
+function docs {
     $docs = if(([Environment]::GetFolderPath("MyDocuments"))) {([Environment]::GetFolderPath("MyDocuments"))} else {$HOME + "\Documents"}
     Set-Location -Path $docs
 }
-    
-function dtop { 
+
+function dtop {
     $dtop = if ([Environment]::GetFolderPath("Desktop")) {[Environment]::GetFolderPath("Desktop")} else {$HOME + "\Documents"}
     Set-Location -Path $dtop
 }
@@ -424,7 +421,7 @@ $scriptblock = {
         'npm' = @('install', 'start', 'run', 'test', 'build')
         'deno' = @('run', 'compile', 'bundle', 'test', 'lint', 'fmt', 'cache', 'info', 'doc', 'upgrade')
     }
-    
+
     $command = $commandAst.CommandElements[0].Value
     if ($customCompletions.ContainsKey($command)) {
         $customCompletions[$command] | Where-Object { $_ -like "$wordToComplete*" } | ForEach-Object {
