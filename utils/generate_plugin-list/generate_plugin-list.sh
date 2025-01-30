@@ -1,2 +1,2 @@
 #!/bin/bash
-code --list-extensions | sort > ./plugin-list.txt
+code --list-extensions | sort >./plugin-list.txt

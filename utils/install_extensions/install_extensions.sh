@@ -20,9 +20,9 @@ current_extension=0
 for extension in "${extensions[@]}"; do
     ((current_extension++))
     progress=$((current_extension * 100 / total_extensions))
-    
+
     echo -ne "Installing Extensions: $progress%\r"
-    
+
     install_extension "$extension"
 done
 
