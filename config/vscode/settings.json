@@ -1,22 +1,110 @@
 {
-  "debug.console.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
-  "debug.console.fontSize": 13,
-  "debug.inlineValues": "on",
-  "debug.internalConsoleOptions": "openOnSessionStart",
-  "debug.openDebug": "openOnDebugBreak",
-  "debug.showBreakpointsInOverviewRuler": true,
-  "debug.toolBarLocation": "docked",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[plaintext]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "accessibility.accessibleView.closeOnKeyPress": false,
+  "accessibility.debugWatchVariableAnnouncements": false,
+  "accessibility.verbosity.comments": false,
+  "accessibility.verbosity.debug": false,
+  "accessibility.verbosity.diffEditor": false,
+  "accessibility.verbosity.diffEditorActive": false,
+  "accessibility.verbosity.emptyEditorHint": false,
+  "accessibility.verbosity.hover": false,
+  "accessibility.verbosity.inlineChat": false,
+  "accessibility.verbosity.inlineCompletions": false,
+  "accessibility.verbosity.keybindingsEditor": false,
+  "accessibility.verbosity.notebook": false,
+  "accessibility.verbosity.notification": false,
+  "accessibility.verbosity.panelChat": false,
+  "accessibility.verbosity.replInputHint": false,
+  "accessibility.verbosity.terminal": false,
+  "accessibility.verbosity.walkthrough": false,
+  "breadcrumbs.enabled": false,
+  "chat.editor.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "custom-ui-style.electron": {
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 20,
+      "y": 16
+    }
+  },
+  "custom-ui-style.font.sansSerif": "JetBrains Mono",
+  "custom-ui-style.stylesheet": {
+    ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
+    ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
+    ".monaco-editor .cursors-layer .cursor": "background-image: linear-gradient(135deg, #ffaffc 10%, #DA70D6 100%)",
+    ".monaco-editor .scroll-decoration": "display: none",
+    ".monaco-list-row.focused": "outline: none !important",
+    ".monaco-scrollable-element > .shadow.top": "display: none",
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 60px",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
+    ".notification-toast": "box-shadow: none !important",
+    ".quick-input-list .scrollbar": "display: none",
+    ".quick-input-titlebar": "background: #100B15 !important",
+    ".quick-input-widget": "top: 25vh !important",
+    ".quick-input-widget.show-file-icons": "box-shadow: none !important",
+    ".sidebar": "border: none !important",
+    ".sidebar .title-label": "padding: 0 !important",
+    ".title .monaco-icon-label:after": "margin-right: 0",
+    ".title-actions": "display: none !important",
+    ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important"
+  },
+  "debug.console.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "diffEditor.ignoreTrimWhitespace": true,
-  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "editor.codeLensFontFamily": "CommitMono Nerd Font, JetBrains Mono",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.codeLens": false,
+  "editor.codeLensFontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "editor.colorDecorators": false,
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "block",
   "editor.cursorSurroundingLines": 8,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.definitionLinkOpensInPeek": true,
-  "editor.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
   "editor.formatOnSave": true,
@@ -24,25 +112,55 @@
   "editor.guides.bracketPairs": "active",
   "editor.guides.highlightActiveIndentation": false,
   "editor.guides.indentation": false,
-  "editor.inlayHints.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.hover.enabled": false,
+  "editor.hover.sticky": true,
+  "editor.inlayHints.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
-  "editor.letterSpacing": 0.7,
+  "editor.letterSpacing": 0.44,
+  "editor.lightbulb.enabled": "off",
+  "editor.lineHeight": 0,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
+  "editor.links": false,
+  "editor.matchBrackets": "never",
   "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
-  "editor.parameterHints.cycle": false,
-  "editor.quickSuggestionsDelay": 10,
+  "editor.parameterHints.enabled": false,
+  "editor.quickSuggestions": {
+    "other": "off"
+  },
   "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "none",
+  "editor.roundedSelection": false,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 15,
+  "editor.selectionHighlight": false,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.showFoldingControls": "never",
+  "editor.smoothScrolling": true,
+  "editor.snippetSuggestions": "top",
+  "editor.stickyScroll.enabled": true,
   "editor.suggest.insertMode": "replace",
-  "editor.suggest.preview": true,
   "editor.suggestFontSize": 14,
-  "editor.suggestOnTriggerCharacters": true,
-  "editor.tabSize": 4,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
   "editor.wordWrap": "on",
-  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info"],
+  "emmet.triggerExpansionOnTab": true,
+  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
   "errorLens.excludePatterns": [
     "[\"node_modules\", \"**/node_modules\"]",
     "\"node_modules\"",
@@ -51,10 +169,14 @@
     "**/node_modules"
   ],
   "errorLens.fontStyleItalic": true,
-  "errorLens.margin": "20px",
   "errorLens.messageTemplate": "$message - $source",
   "errorLens.severityText": ["ERROR", "WARNING", "HINT", "ERROR"],
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.decorations.badges": false,
   "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
@@ -144,17 +266,41 @@
     "vite.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, capacitor.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, ionic.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*",
     "vue.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, capacitor.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, ionic.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*"
   },
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": false,
+  "extensions.ignoreRecommendations": false,
   "files.autoSave": "afterDelay",
-  "telemetry.telemetryLevel": "off",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.decorations.enabled": false,
+  "git.enableSmartCommit": true,
+  "git.openRepositoryInParentFolders": "always",
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "switch:command",
+    "push:command"
+  ],
+  "gitlens.graph.minimap.enabled": false,
+  "gitlens.mode.active": "zen",
+  "javascript.format.enable": false,
+  "javascript.suggest.names": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "markdown.preview.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "notebook.output.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "scm.diffDecorations": "none",
+  "scm.inputFontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "security.workspace.trust.untrustedFiles": "open",
+  "sonarlint.focusOnNewCode": true,
+  "supermaven.allowGitignore": true,
   "terminal.integrated.defaultProfile.windows": "Alacritty",
   "terminal.integrated.enableMultiLinePasteWarning": "auto",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "terminal.integrated.env.windows": {
-    "TERM": "xterm-256color"
-  },
-  "terminal.integrated.fontFamily": "CommitMono Nerd Font, JetBrains Mono",
+  "terminal.integrated.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.profiles.windows": {
     "Alacritty": {
@@ -171,28 +317,58 @@
     "pwshCode": true,
     "pwshGit": true
   },
-  "terminal.integrated.tabs.enabled": true,
+  "typescript.format.enable": false,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "manual",
-  "update.showReleaseNotes": true,
+  "update.showReleaseNotes": false,
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
+  "window.customTitleBarVisibility": "never",
+  "window.density.editorTabHeight": "compact",
   "window.menuBarVisibility": "compact",
+  "window.zoomLevel": 1.75,
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorCustomizations": {
+    "editorCursor.background": "#000000",
+    "editorOverviewRuler.addedForeground": "#0000",
+    "editorOverviewRuler.border": "#0000",
+    "editorOverviewRuler.bracketMatchForeground": "#0000",
+    "editorOverviewRuler.deletedForeground": "#0000",
+    "editorOverviewRuler.errorForeground": "#0000",
+    "editorOverviewRuler.findMatchForeground": "#0000",
+    "editorOverviewRuler.infoForeground": "#0000",
+    "editorOverviewRuler.modifiedForeground": "#0000",
+    "editorOverviewRuler.rangeHighlightForeground": "#0000",
+    "editorOverviewRuler.selectionHighlightForeground": "#0000",
+    "editorOverviewRuler.warningForeground": "#0000",
+    "editorOverviewRuler.wordHighlightForeground": "#0000",
+    "editorOverviewRuler.wordHighlightStrongForeground": "#0000"
+  },
   "workbench.colorTheme": "Moegi Space",
   "workbench.editor.closeEmptyGroups": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.limit.enabled": true,
-  "workbench.enableExperiments": false,
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.limit.value": 5,
+  "workbench.editor.showTabs": "single",
+  "workbench.editorAssociations": {
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+  },
+  "workbench.iconTheme": "catppuccin-mocha",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
+  "workbench.preferredDarkColorTheme": "Best Themes - Ethereal Aura",
   "workbench.preferredLightColorTheme": "Moegi Light",
-  "workbench.reduceMotion": "on",
-  "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "welcomePage",
-  "workbench.tree.indent": 12,
-  "workbench.tree.renderIndentGuides": "always",
-  "workbench.preferredDarkColorTheme": "Moegi Black Zen",
-  "workbench.editor.showTabs": "single"
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false,
+  "workbench.tree.enableStickyScroll": true,
+  "workbench.tree.indent": 8,
+  "workbench.tree.renderIndentGuides": "none",
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": true,
+  "zenMode.showTabs": "single",
+  "zenMode.silentNotifications": true
 }
