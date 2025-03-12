@@ -1,42 +1,9 @@
 {
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[graphql]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[plaintext]": {
+  "[css][graphql][html][javascript][json][jsonc][less][markdown][plaintext][scss][typescript][typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[powershell]": {
     "editor.defaultFormatter": "ms-vscode.powershell"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "accessibility.accessibleView.closeOnKeyPress": false,
   "accessibility.debugWatchVariableAnnouncements": false,
@@ -91,9 +58,6 @@
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
-  },
   "editor.codeLens": false,
   "editor.codeLensFontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "editor.colorDecorators": false,
@@ -104,18 +68,27 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.definitionLinkOpensInPeek": true,
   "editor.detectIndentation": false,
+  "editor.find.addExtraSpaceOnTop": false,
+  "editor.folding": false,
   "editor.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
-  "editor.formatOnSave": true,
   "editor.glyphMargin": false,
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.highlightActiveIndentation": false,
   "editor.guides.indentation": false,
   "editor.hideCursorInOverviewRuler": true,
-  "editor.hover.enabled": false,
+  "editor.hover.delay": 300,
+  "editor.hover.enabled": true,
   "editor.hover.sticky": true,
+  "editor.inlayHints.enabled": "on",
   "editor.inlayHints.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "editor.inlayHints.fontSize": 14,
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.letterSpacing": 0.44,
@@ -126,10 +99,9 @@
   "editor.links": false,
   "editor.matchBrackets": "never",
   "editor.minimap.enabled": false,
-  "editor.multiCursorModifier": "ctrlCmd",
   "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
-  "editor.parameterHints.enabled": false,
+  "editor.parameterHints.enabled": true,
   "editor.quickSuggestions": {
     "other": "off"
   },
@@ -142,9 +114,31 @@
   "editor.semanticHighlighting.enabled": true,
   "editor.showFoldingControls": "never",
   "editor.smoothScrolling": true,
-  "editor.snippetSuggestions": "top",
+  "editor.snippetSuggestions": "bottom",
   "editor.stickyScroll.enabled": true,
   "editor.suggest.insertMode": "replace",
+  "editor.suggest.showClasses": true,
+  "editor.suggest.showColors": false,
+  "editor.suggest.showConstants": true,
+  "editor.suggest.showCustomcolors": false,
+  "editor.suggest.showEnumMembers": true,
+  "editor.suggest.showEnums": true,
+  "editor.suggest.showEvents": false,
+  "editor.suggest.showFiles": false,
+  "editor.suggest.showFolders": false,
+  "editor.suggest.showFunctions": true,
+  "editor.suggest.showIssues": false,
+  "editor.suggest.showKeywords": false,
+  "editor.suggest.showMethods": true,
+  "editor.suggest.showOperators": false,
+  "editor.suggest.showProperties": true,
+  "editor.suggest.showReferences": true,
+  "editor.suggest.showTypeParameters": true,
+  "editor.suggest.showUnits": false,
+  "editor.suggest.showUsers": false,
+  "editor.suggest.showValues": true,
+  "editor.suggest.showVariables": true,
+  "editor.suggest.showWords": false,
   "editor.suggestFontSize": 14,
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
@@ -158,6 +152,9 @@
       }
     ]
   },
+  "editor.unicodeHighlight.allowedCharacters": {},
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
   "editor.wordWrap": "on",
   "emmet.triggerExpansionOnTab": true,
   "errorLens.enabledDiagnosticLevels": ["error", "warning"],
@@ -235,7 +232,6 @@
     "Makefile": "*.mk",
     "Pipfile": ".editorconfig, .flake8, .isort.cfg, .python-version, Pipfile, Pipfile.lock, requirements*.in, requirements*.pip, requirements*.txt, tox.ini",
     "README*": "AUTHORS, Authors, BACKERS*, Backers*, CHANGELOG*, CITATION*, CODEOWNERS, CODE_OF_CONDUCT*, CONTRIBUTING*, CONTRIBUTORS, COPYING*, CREDITS, Changelog*, Citation*, Code_Of_Conduct*, Codeowners, Contributing*, Contributors, Copying*, Credits, GOVERNANCE.MD, Governance.md, HISTORY.MD, History.md, LICENSE*, License*, MAINTAINERS, Maintainers, README*, Readme*, SECURITY.MD, SPONSORS*, Security.md, Sponsors*, authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying*, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
-    "Readme*": "AUTHORS, Authors, BACKERS*, Backers*, CHANGELOG*, CITATION*, CODEOWNERS, CODE_OF_CONDUCT*, CONTRIBUTING*, CONTRIBUTORS, COPYING*, CREDITS, Changelog*, Citation*, Code_Of_Conduct*, Codeowners, Contributing*, Contributors, Copying*, Credits, GOVERNANCE.MD, Governance.md, HISTORY.MD, History.md, LICENSE*, License*, MAINTAINERS, Maintainers, README*, Readme*, SECURITY.MD, SPONSORS*, Security.md, Sponsors*, authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying*, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
     "artisan": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, capacitor.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, ionic.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, server.php, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, webpack.mix.js, windi.config.*",
     "astro.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, capacitor.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, i18n.config.*, ionic.config.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, panda.config.*, playwright.config.*, postcss.config.*, puppeteer.config.*, rspack.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, uno.config.*, unocss.config.*, vitest.config.*, vuetify.config.*, webpack.config.*, windi.config.*",
     "composer.json": ".php*.cache, composer.lock, phpunit.xml*, psalm*.xml",
@@ -286,12 +282,20 @@
   "gitlens.graph.minimap.enabled": false,
   "gitlens.mode.active": "zen",
   "javascript.format.enable": false,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.suggest.names": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "markdown.preview.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "notebook.output.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "problems.decorations.enabled": false,
   "scm.diffDecorations": "none",
   "scm.inputFontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "search.decorations.badges": false,
+  "search.decorations.colors": false,
   "security.workspace.trust.untrustedFiles": "open",
   "sonarlint.focusOnNewCode": true,
   "supermaven.allowGitignore": true,
@@ -318,6 +322,11 @@
     "pwshGit": true
   },
   "typescript.format.enable": false,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.enableWindowsBackgroundUpdates": false,
@@ -329,7 +338,6 @@
   "window.density.editorTabHeight": "compact",
   "window.menuBarVisibility": "compact",
   "window.zoomLevel": 1.75,
-  "workbench.activityBar.location": "hidden",
   "workbench.colorCustomizations": {
     "editorCursor.background": "#000000",
     "editorOverviewRuler.addedForeground": "#0000",
@@ -348,7 +356,10 @@
   },
   "workbench.colorTheme": "Moegi Space",
   "workbench.editor.closeEmptyGroups": true,
+  "workbench.editor.decorations.badges": false,
+  "workbench.editor.decorations.colors": false,
   "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromCodeNavigation": false,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 5,
   "workbench.editor.showTabs": "single",
@@ -358,14 +369,14 @@
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredDarkColorTheme": "Best Themes - Ethereal Aura",
+  "workbench.preferredDarkColorTheme": "Best Themes - Github Minimal",
   "workbench.preferredLightColorTheme": "Moegi Light",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.tips.enabled": false,
   "workbench.tree.enableStickyScroll": true,
   "workbench.tree.indent": 8,
   "workbench.tree.renderIndentGuides": "none",
+  "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": false,
   "zenMode.hideStatusBar": true,

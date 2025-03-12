@@ -1,9 +1,5 @@
 [
   {
-    "command": "workbench.action.closeAllEditors",
-    "key": "ctrl+shift+w"
-  },
-  {
     "command": "workbench.action.openEditorAtIndex1",
     "key": "alt+1"
   },
@@ -24,10 +20,6 @@
     "command": "undo_expand_region",
     "key": "ctrl+-",
     "when": "editorTextFocus && editorHasSelection"
-  },
-  {
-    "command": "workbench.action.toggleSidebarVisibility",
-    "key": "ctrl+e"
   },
   {
     "command": "explorer.newFile",
@@ -55,18 +47,6 @@
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
-    "command": "saveAll",
-    "key": "cmd+s"
-  },
-  {
-    "command": "workbench.action.splitEditor",
-    "key": "cmd+d"
-  },
-  {
-    "command": "editor.action.selectAll",
-    "key": "cmd+a"
-  },
-  {
     "command": "workbench.action.terminal.toggleTerminal",
     "key": "ctrl+`"
   },
@@ -79,35 +59,5 @@
     "command": "explorer.newFolder",
     "key": "shift+n",
     "when": "explorerViewletFocus && !inputFocus"
-  },
-  {
-    "command": "workbench.action.toggleSidebarVisibility",
-    "key": "q",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "command": "workbench.action.toggleSidebarVisibility",
-    "key": "escape",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "command": "workbench.action.togglePanel",
-    "key": "escape",
-    "when": "searchViewletVisible"
-  },
-  {
-    "command": "search.focus.nextInputBox",
-    "key": "down",
-    "when": "inputBoxFocus && searchViewletVisible"
-  },
-  {
-    "command": "search.focus.previousInputBox",
-    "key": "up",
-    "when": "inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
-  },
-  {
-    "command": "workbench.action.togglePanel",
-    "key": "escape",
-    "when": "focusedView == workbench.panel.markers.view"
   }
 ]
