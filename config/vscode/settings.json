@@ -1,10 +1,4 @@
 {
-  "[css][graphql][html][javascript][json][jsonc][less][markdown][plaintext][scss][typescript][typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[powershell]": {
-    "editor.defaultFormatter": "ms-vscode.powershell"
-  },
   "accessibility.accessibleView.closeOnKeyPress": false,
   "accessibility.debugWatchVariableAnnouncements": false,
   "accessibility.verbosity.comments": false,
@@ -69,10 +63,9 @@
   "editor.definitionLinkOpensInPeek": true,
   "editor.detectIndentation": false,
   "editor.find.addExtraSpaceOnTop": false,
-  "editor.folding": false,
   "editor.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 20,
   "editor.glyphMargin": false,
   "editor.gotoLocation.multipleDeclarations": "goto",
   "editor.gotoLocation.multipleDefinitions": "goto",
@@ -81,14 +74,13 @@
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": "active",
   "editor.guides.highlightActiveIndentation": false,
-  "editor.guides.indentation": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.hover.delay": 300,
   "editor.hover.enabled": true,
   "editor.hover.sticky": true,
   "editor.inlayHints.enabled": "on",
   "editor.inlayHints.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
-  "editor.inlayHints.fontSize": 14,
+  "editor.inlayHints.fontSize": 16,
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.letterSpacing": 0.44,
@@ -101,7 +93,6 @@
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
-  "editor.parameterHints.enabled": true,
   "editor.quickSuggestions": {
     "other": "off"
   },
@@ -139,7 +130,7 @@
   "editor.suggest.showValues": true,
   "editor.suggest.showVariables": true,
   "editor.suggest.showWords": false,
-  "editor.suggestFontSize": 14,
+  "editor.suggestFontSize": 16,
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.tokenColorCustomizations": {
@@ -281,14 +272,6 @@
   ],
   "gitlens.graph.minimap.enabled": false,
   "gitlens.mode.active": "zen",
-  "javascript.format.enable": false,
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "all",
-  "javascript.inlayHints.parameterTypes.enabled": true,
-  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "javascript.inlayHints.variableTypes.enabled": true,
-  "javascript.suggest.names": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "markdown.preview.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "notebook.output.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
   "problems.decorations.enabled": false,
@@ -305,6 +288,7 @@
     "FIG_NEW_SESSION": "1"
   },
   "terminal.integrated.fontFamily": "Maple Mono, CommitMono Nerd Font, JetBrains Mono",
+  "terminal.integrated.fontSize": 20,
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.profiles.windows": {
     "Alacritty": {
@@ -322,13 +306,6 @@
     "pwshGit": true
   },
   "typescript.format.enable": false,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "typescript.inlayHints.variableTypes.enabled": true,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "manual",
   "update.showReleaseNotes": false,
@@ -337,7 +314,7 @@
   "window.customTitleBarVisibility": "never",
   "window.density.editorTabHeight": "compact",
   "window.menuBarVisibility": "compact",
-  "window.zoomLevel": 1.75,
+  "window.zoomLevel": 1,
   "workbench.colorCustomizations": {
     "editorCursor.background": "#000000",
     "editorOverviewRuler.addedForeground": "#0000",
@@ -358,7 +335,6 @@
   "workbench.editor.closeEmptyGroups": true,
   "workbench.editor.decorations.badges": false,
   "workbench.editor.decorations.colors": false,
-  "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromCodeNavigation": false,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 5,
@@ -366,10 +342,10 @@
   "workbench.editorAssociations": {
     "{git,gitlens}:/**/*.{md,csv,svg}": "default"
   },
-  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.iconTheme": "catppuccin-latte",
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredDarkColorTheme": "Best Themes - Github Minimal",
+  "workbench.preferredDarkColorTheme": "Oscura",
   "workbench.preferredLightColorTheme": "Moegi Light",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
