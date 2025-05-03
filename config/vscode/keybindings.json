@@ -12,6 +12,30 @@
     "key": "alt+3"
   },
   {
+    "command": "workbench.action.openEditorAtIndex4",
+    "key": "alt+4"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex5",
+    "key": "alt+5"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex6",
+    "key": "alt+6"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex7",
+    "key": "alt+7"
+  },
+  {
+    "command": "workbench.action.openEditorAtIndex8",
+    "key": "alt+8"
+  },
+  {
+    "command": "workbench.action.lastEditorInGroup",
+    "key": "alt+9"
+  },
+  {
     "command": "expand_region",
     "key": "ctrl+=",
     "when": "editorTextFocus"
@@ -56,8 +80,35 @@
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
-    "command": "explorer.newFolder",
-    "key": "shift+n",
-    "when": "explorerViewletFocus && !inputFocus"
+    "key": "ctrl+alt+right",
+    "command": "workbench.action.focusRightGroup"
+  },
+  {
+    "key": "ctrl+alt+left",
+    "command": "workbench.action.focusLeftGroup"
+  },
+  {
+    "key": "ctrl+alt+up",
+    "command": "workbench.action.focusAboveGroup"
+  },
+  {
+    "key": "ctrl+alt+down",
+    "command": "workbench.action.focusBelowGroup"
+  },
+  {
+    "key": "ctrl+shift+alt+right",
+    "command": "workbench.action.moveEditorToRightGroup"
+  },
+  {
+    "key": "ctrl+shift+alt+left",
+    "command": "workbench.action.moveEditorToLeftGroup"
+  },
+  {
+    "key": "ctrl+shift+alt+up",
+    "command": "workbench.action.moveEditorToAboveGroup"
+  },
+  {
+    "key": "ctrl+shift+alt+down",
+    "command": "workbench.action.moveEditorToBelowGroup"
   }
 ]
