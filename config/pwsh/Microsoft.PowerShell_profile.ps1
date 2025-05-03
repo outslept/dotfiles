@@ -1,12 +1,9 @@
-#region Initial Setup & Preferences
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 [console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 $PSDefaultParameterValues['*:Encoding'] = 'utf8'
-#endregion
 
-#region Safe Module Import Function
 function Import-ModuleSafely {
     param (
         [string]$ModuleName,
@@ -14,6 +11,8 @@ function Import-ModuleSafely {
         [switch]$Required = $false
     )
     try {
+        if (Get-Module -Name $ModuleName) { return }
+
         if (!(Get-Module -ListAvailable -Name $ModuleName)) {
             Write-Host "Attempting to install module '$ModuleName'..." -ForegroundColor Yellow
             Install-Module -Name $ModuleName -Scope CurrentUser -Force -AllowClobber:$AllowClobber -SkipPublisherCheck -ErrorAction Stop
@@ -30,34 +29,25 @@ function Import-ModuleSafely {
         }
     }
 }
-#endregion
 
-#region Core Module Imports
 $ModulesToLoad = @{
+    # ModuleName     = @{ Required = $true/$false; AllowClobber = $true/$false }
     'posh-git'       = @{ Required = $true;  AllowClobber = $false }
-    'Terminal-Icons' = @{ Required = $true;  AllowClobber = $false }
     'PSFzf'          = @{ Required = $false; AllowClobber = $false }
-    'zoxide'         = @{ Required = $false; AllowClobber = $false }
 }
 
 foreach ($moduleEntry in $ModulesToLoad.GetEnumerator()) {
     Import-ModuleSafely -ModuleName $moduleEntry.Key -Required:$moduleEntry.Value.Required -AllowClobber:$moduleEntry.Value.AllowClobber
 }
-#endregion
 
-#region Oh-My-Posh Initialization
 try {
-    # --- !!! --- REPLACE THIS LINE WITH YOUR MINIMAL OH-MY-POSH THEME PATH/URL --- !!! ---
-    oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\your-minimal-theme.omp.json" | Invoke-Expression
-    # --- !!! --- REPLACE THE LINE ABOVE --- !!! ---
+    oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\sim-web.omp.json" | Invoke-Expression
 }
 catch {
     Write-Warning "Failed to initialize Oh-My-Posh with the specified theme. Error: $_"
     function prompt { "$PWD> " } # Basic fallback prompt
 }
-#endregion
 
-#region PSReadLine Configuration
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -PredictionSource History
@@ -103,15 +93,17 @@ $KeyBindings = @{
 }
 
 foreach ($binding in $KeyBindings.GetEnumerator()) {
-    if ($binding.Key -match '^(Ctrl|Alt)\+') {
-        Set-PSReadLineKeyHandler -Chord $binding.Key -Function $binding.Value -BriefDescription $binding.Value
-    } else {
-        Set-PSReadLineKeyHandler -Key $binding.Key -Function $binding.Value -BriefDescription $binding.Value
+    try {
+        if ($binding.Key -match '^(Ctrl|Alt)\+') {
+            Set-PSReadLineKeyHandler -Chord $binding.Key -Function $binding.Value
+        } else {
+            Set-PSReadLineKeyHandler -Key $binding.Key -Function $binding.Value
+        }
+    } catch {
+        Write-Warning "Failed to set PSReadLine key binding '$($binding.Key)' to '$($binding.Value)'. Error: $_"
     }
 }
-#endregion
 
-#region FZF Configuration & Functions
 $env:FZF_DEFAULT_OPTS = @"
 --height 40% --layout=reverse --border --inline-info
 --preview 'bat --style=numbers --color=always --line-range :500 {}'
@@ -131,6 +123,7 @@ function Search-CodeRg {
     )
     if (-not (Get-Command rg -ErrorAction SilentlyContinue)) { Write-Warning "ripgrep (rg) is not installed or not in PATH."; return }
     if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) { Write-Warning "fzf is not installed or not in PATH."; return }
+    if (-not (Get-Command bat -ErrorAction SilentlyContinue)) { Write-Warning "bat is not installed or not in PATH (needed for preview)."; return }
 
     $rgArgs = @('--color=always', '--line-number')
     if ($FileType) { $rgArgs += "-t$FileType" }
@@ -158,18 +151,18 @@ function Set-LocationFzf {
     if ($dir) { Set-Location -Path $dir }
 }
 Set-Alias -Name cdf -Value Set-LocationFzf -Option AllScope
-#endregion
 
-#region Zoxide Initialization
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
-    Invoke-Expression (& { (zoxide init powershell --hook prompt --no-aliases) })
+    try {
+        Invoke-Expression (& { (zoxide init powershell --hook prompt --no-aliases | Out-String) })
+    } catch {
+        Write-Warning "Failed to initialize zoxide integration. Error: $_"
+    }
 }
 else {
-    Write-Warning "zoxide command not found. Consider installing it."
+    Write-Warning "zoxide command not found. Install it externally (e.g., 'winget install zoxide')."
 }
-#endregion
 
-#region Environment Variables
 $env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
 $env:NVM_HOME = "$env:APPDATA\nvm"
 $env:NVM_SYMLINK = "$env:PROGRAMFILES\nodejs"
@@ -178,19 +171,23 @@ $global:EDITOR = if (Get-Command nvim -ErrorAction SilentlyContinue) { 'nvim' }
                  elseif (Get-Command vim -ErrorAction SilentlyContinue) { 'vim' }
                  elseif (Get-Command code -ErrorAction SilentlyContinue) { 'code' }
                  else { 'notepad' }
-#endregion
 
-#region Aliases
-# Navigation
-Set-Alias -Name ~ -Value Set-Location -ArgumentList ~ -Option AllScope
-Set-Alias -Name .. -Value Set-Location -ArgumentList .. -Option AllScope
-Set-Alias -Name ... -Value Set-Location -ArgumentList ..\.. -Option AllScope
-Set-Alias -Name .... -Value Set-Location -ArgumentList ..\..\.. -Option AllScope
-Set-Alias -Name dt -Value Set-Location -ArgumentList ~\Desktop -Option AllScope -ErrorAction SilentlyContinue
-Set-Alias -Name docs -Value Set-Location -ArgumentList ~\Documents -Option AllScope -ErrorAction SilentlyContinue
-Set-Alias -Name dl -Value Set-Location -ArgumentList ~\Downloads -Option AllScope -ErrorAction SilentlyContinue
+function GoHome { Set-Location ~ }
+function GoUp { Set-Location .. }
+function GoUp2 { Set-Location ..\.. }
+function GoUp3 { Set-Location ..\..\.. }
+function GoDesktop { Set-Location -ErrorAction SilentlyContinue ~\Desktop }
+function GoDocs { Set-Location -ErrorAction SilentlyContinue ~\Documents }
+function GoDownloads { Set-Location -ErrorAction SilentlyContinue ~\Downloads }
 
-# Common Commands
+Set-Alias -Name ~ -Value GoHome -Option AllScope
+Set-Alias -Name .. -Value GoUp -Option AllScope
+Set-Alias -Name ... -Value GoUp2 -Option AllScope
+Set-Alias -Name .... -Value GoUp3 -Option AllScope
+Set-Alias -Name dt -Value GoDesktop -Option AllScope
+Set-Alias -Name docs -Value GoDocs -Option AllScope
+Set-Alias -Name dl -Value GoDownloads -Option AllScope
+
 Set-Alias -Name g -Value git -Option AllScope
 Set-Alias -Name grep -Value Select-String -Option AllScope
 Set-Alias -Name touch -Value New-Item -Option AllScope
@@ -200,30 +197,19 @@ Set-Alias -Name cp -Value Copy-Item -Option AllScope
 Set-Alias -Name cat -Value bat -Option AllScope -ErrorAction SilentlyContinue
 if (-not (Get-Command bat -ErrorAction SilentlyContinue)) { Set-Alias -Name cat -Value Get-Content -Option AllScope }
 Set-Alias -Name vim -Value $global:EDITOR -Option AllScope
-Set-Alias -Name which -Value Get-Command -Option AllScope
 Set-Alias -Name df -Value Get-PSDrive -Option AllScope
 
-# Process Management
 Set-Alias -Name pgrep -Value Get-Process -Option AllScope
 Set-Alias -Name pkill -Value Stop-Process -Option AllScope
 
-# Git Aliases
-Set-Alias -Name gs -Value git -ArgumentList status -Option AllScope
-Set-Alias -Name ga -Value git -ArgumentList add -ArgumentList . -Option AllScope
-
-# System & Network
 Set-Alias -Name ip -Value Get-NetIPConfiguration -Option AllScope
 
-# Clipboard
 Set-Alias -Name cpy -Value Set-Clipboard -Option AllScope
 Set-Alias -Name pst -Value Get-Clipboard -Option AllScope
 
-# Admin Alias
 Set-Alias -Name sudo -Value admin -Option AllScope
 Set-Alias -Name su -Value admin -Option AllScope
-#endregion
 
-#region Custom Functions
 function admin {
     param(
         [Parameter(ValueFromRemainingArguments=$true)]
@@ -233,7 +219,8 @@ function admin {
     $commandString = if ($arguments.Count -gt 0) { $arguments -join ' ' } else { '' }
     try {
         if ($commandString) {
-             Start-Process wt.exe -Verb RunAs -ArgumentList "-p `"PowerShell`" pwsh.exe -NoExit -Command `"$commandString`""
+             $escapedCommand = $commandString.Replace('"', '`"')
+             Start-Process wt.exe -Verb RunAs -ArgumentList "-p `"PowerShell`" pwsh.exe -NoExit -Command `"$escapedCommand`""
         } else {
              Start-Process wt.exe -Verb RunAs -ArgumentList "-p `"PowerShell`""
         }
@@ -297,9 +284,4 @@ Set-Alias -Name uptime -Value Get-Uptime -Option AllScope
 function which($command) {
     (Get-Command $command -ErrorAction SilentlyContinue | Select-Object -First 1).Source
 }
-
-#endregion
-
-#region Finalization
-# No final messages by default
-#endregion
+Set-Alias -Name which -Value which -Option AllScope
