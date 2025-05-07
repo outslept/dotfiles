@@ -17,6 +17,12 @@
   "accessibility.verbosity.terminal": false,
   "accessibility.verbosity.walkthrough": false,
   "breadcrumbs.enabled": false,
+  "cSpell.userWords": [
+    "premajor",
+    "preminor",
+    "prepatch"
+  ],
+  "chat.commandCenter.enabled": false,
   "chat.editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "debug.console.fontFamily": "JetBrainsMono Nerd Font Mono",
   "diffEditor.ignoreTrimWhitespace": true,
@@ -34,7 +40,6 @@
   "editor.detectIndentation": false,
   "editor.find.addExtraSpaceOnTop": false,
   "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "editor.fontLigatures": true,
   "editor.fontSize": 20,
   "editor.glyphMargin": false,
   "editor.gotoLocation.multipleDeclarations": "goto",
@@ -256,19 +261,8 @@
   "security.workspace.trust.untrustedFiles": "open",
   "sonarlint.focusOnNewCode": true,
   "supermaven.allowGitignore": true,
-  "terminal.integrated.enableMultiLinePasteWarning": "auto",
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
   "terminal.integrated.fontSize": 20,
-  "terminal.integrated.gpuAcceleration": "on",
-  "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "icon": "terminal-powershell",
-      "source": "PowerShell"
-    }
-  },
   "terminal.integrated.suggest.builtinCompletions": {
     "pwshCode": true,
     "pwshGit": true
@@ -292,8 +286,7 @@
   "workbench.editorAssociations": {
     "{git,gitlens}:/**/*.{md,csv,svg}": "default"
   },
-  "workbench.iconTheme": "catppuccin-macchiato",
-  "workbench.layoutControl.enabled": false,
+  "workbench.iconTheme": "catppuccin-latte",
   "workbench.list.smoothScrolling": true,
   "workbench.preferredDarkColorTheme": "Oscura",
   "workbench.preferredLightColorTheme": "Oscura Light",

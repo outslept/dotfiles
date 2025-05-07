@@ -110,5 +110,9 @@
   {
     "key": "ctrl+shift+alt+down",
     "command": "workbench.action.moveEditorToBelowGroup"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
   }
 ]
