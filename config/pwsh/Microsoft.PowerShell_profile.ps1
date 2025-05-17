@@ -41,7 +41,9 @@ foreach ($moduleEntry in $ModulesToLoad.GetEnumerator()) {
 }
 
 try {
-    oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\sim-web.omp.json" | Invoke-Expression
+    $themeUrl = "https://raw.githubusercontent.com/outslept/dotfiles/master/config/pwsh/outslept.omp.json"
+    (New-Object System.Net.WebClient).DownloadString($themeUrl) | Set-Content -Path "$env:TEMP\outslept.omp.json"
+    oh-my-posh init pwsh --config "$env:TEMP\outslept.omp.json" | Invoke-Expression
 }
 catch {
     Write-Warning "Failed to initialize Oh-My-Posh with the specified theme. Error: $_"
@@ -285,3 +287,8 @@ function which($command) {
     (Get-Command $command -ErrorAction SilentlyContinue | Select-Object -First 1).Source
 }
 Set-Alias -Name which -Value which -Option AllScope
+
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}

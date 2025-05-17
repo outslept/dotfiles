@@ -22,11 +22,10 @@
           "type": "git",
           "style": "plain",
           "foreground": "#E6E7A3",
-          "template": " ({{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} *{{ end }})",
+          "template": " ({{ .HEAD }}{{ if .Working.Changed }}*{{ end }})",
           "properties": {
             "branch_icon": "",
-            "fetch_status": true,
-            "fetch_upstream_icon": true
+            "fetch_status": true
           }
         },
         {
@@ -36,25 +35,6 @@
           "template": "{{ if ne .Code 0 }} ✘{{ end }}",
           "properties": {
             "always_enabled": true
-          }
-        },
-        {
-          "type": "python",
-          "style": "plain",
-          "foreground": "#4EBE96",
-          "template": " ({{ .Venv }})",
-          "properties": {
-            "fetch_virtual_env": true,
-            "display_mode": "files"
-          }
-        },
-        {
-          "type": "node",
-          "style": "plain",
-          "foreground": "#98C379",
-          "template": " (node {{ if .PackageVersion }}{{ .PackageVersion }}{{ else }}{{ .Version }}{{ end }})",
-          "properties": {
-            "display_mode": "files"
           }
         },
         {
