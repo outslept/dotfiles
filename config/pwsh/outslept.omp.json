@@ -12,17 +12,49 @@
           "foreground": "#E6E6E6",
           "template": "{{ .Path }}",
           "properties": {
-            "style": "full"
+            "style": "folder",
+            "mapped_locations": {
+              "~": "~"
+            }
           }
         },
         {
           "type": "git",
           "style": "plain",
           "foreground": "#E6E7A3",
-          "template": " ({{ .HEAD }})",
+          "template": " ({{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} *{{ end }})",
           "properties": {
             "branch_icon": "",
-            "fetch_status": true
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          }
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#D84F68",
+          "template": "{{ if ne .Code 0 }} ✘{{ end }}",
+          "properties": {
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#4EBE96",
+          "template": " ({{ .Venv }})",
+          "properties": {
+            "fetch_virtual_env": true,
+            "display_mode": "files"
+          }
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#98C379",
+          "template": " (node {{ if .PackageVersion }}{{ .PackageVersion }}{{ else }}{{ .Version }}{{ end }})",
+          "properties": {
+            "display_mode": "files"
           }
         },
         {
