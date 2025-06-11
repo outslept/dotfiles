@@ -29,6 +29,28 @@
           }
         },
         {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#54C0A3",
+          "template": " py:{{ .Version }}"
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#54C0A3",
+          "template": " node:{{ .Version }}"
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#E6E7A3",
+          "template": " {{ .FormattedMs }}",
+          "properties": {
+            "threshold": 2000,
+            "style": "round"
+          }
+        },
+        {
           "type": "status",
           "style": "plain",
           "foreground": "#D84F68",
