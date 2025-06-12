@@ -1,67 +1,40 @@
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 [console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
-$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
-$PSDefaultParameterValues['*:Encoding'] = 'utf8'
 
 function Import-ModuleSafely {
-    param (
-        [string]$ModuleName,
-        [switch]$AllowClobber = $false,
-        [switch]$Required = $false
-    )
-    try {
-        if (Get-Module -Name $ModuleName) { return }
+    param([string]$ModuleName, [switch]$Required)
+    if (Get-Module $ModuleName) { return }
 
-        if (!(Get-Module -ListAvailable -Name $ModuleName)) {
-            Write-Host "Attempting to install module '$ModuleName'..." -ForegroundColor Yellow
-            Install-Module -Name $ModuleName -Scope CurrentUser -Force -AllowClobber:$AllowClobber -SkipPublisherCheck -ErrorAction Stop
-        }
-        Import-Module -Name $ModuleName -DisableNameChecking -ErrorAction Stop
+    if (!(Get-Module -ListAvailable $ModuleName)) {
+        Install-Module $ModuleName -Scope CurrentUser -Force -AllowClobber -SkipPublisherCheck -ErrorAction Stop
     }
-    catch {
-        $errorMessage = "Failed to load or install module '$ModuleName'. Error: $_"
-        if ($Required) {
-            throw $errorMessage
-        }
-        else {
-            Write-Warning $errorMessage
-        }
-    }
+    Import-Module $ModuleName -DisableNameChecking -ErrorAction $(if ($Required) { 'Stop' } else { 'SilentlyContinue' })
 }
 
-$ModulesToLoad = @{
-    # ModuleName     = @{ Required = $true/$false; AllowClobber = $true/$false }
-    'posh-git'       = @{ Required = $true;  AllowClobber = $false }
-    'PSFzf'          = @{ Required = $false; AllowClobber = $false }
-}
+Import-ModuleSafely 'posh-git' -Required
+Import-ModuleSafely 'PSFzf'
 
-foreach ($moduleEntry in $ModulesToLoad.GetEnumerator()) {
-    Import-ModuleSafely -ModuleName $moduleEntry.Key -Required:$moduleEntry.Value.Required -AllowClobber:$moduleEntry.Value.AllowClobber
-}
+$OMP_THEME_URL = "https://raw.githubusercontent.com/outslept/dotfiles/master/config/pwsh/outslept.omp.json"
 
-try {
-    $themeUrl = "https://raw.githubusercontent.com/outslept/dotfiles/master/config/pwsh/outslept.omp.json"
-    (New-Object System.Net.WebClient).DownloadString($themeUrl) | Set-Content -Path "$env:TEMP\outslept.omp.json"
+if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+    (Invoke-WebRequest -Uri $OMP_THEME_URL -UseBasicParsing).Content | Set-Content -Path "$env:TEMP\outslept.omp.json"
     oh-my-posh init pwsh --config "$env:TEMP\outslept.omp.json" | Invoke-Expression
 }
-catch {
-    Write-Warning "Failed to initialize Oh-My-Posh with the specified theme. Error: $_"
-    function prompt { "$PWD> " } # Basic fallback prompt
-}
 
-Set-PSReadLineOption -EditMode Emacs
-Set-PSReadLineOption -BellStyle None
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
-Set-PSReadLineOption -HistoryNoDuplicates
+Set-PSReadLineOption -EditMode Emacs -BellStyle None -PredictionSource History -PredictionViewStyle ListView -HistoryNoDuplicates -MaximumHistoryCount 10000
+
 Set-PSReadLineOption -AddToHistoryHandler {
     param($line)
-    $sensitive = @('password', 'secret', 'token', 'apikey', 'connectionstring')
-    $hasSensitive = $sensitive | Where-Object { $line -match $_ }
-    return ($null -eq $hasSensitive)
+    $sensitivePatterns = @(
+        'password', 'passwd'
+        'secret', 'key', 'token', 'auth'
+        'apikey', 'api_key', 'api-key'
+        'connectionstring', 'connstr', 'dsn'
+        'credential', 'cred', 'login'
+    )
+    return !($sensitivePatterns | Where-Object { $line -match $_ })
 }
-Set-PSReadLineOption -MaximumHistoryCount 10000
 
 Set-PSReadLineOption -Colors @{
     Command = 'Magenta'
@@ -75,220 +48,116 @@ Set-PSReadLineOption -Colors @{
     Comment = 'DarkGray'
 }
 
-$KeyBindings = @{
-    'Tab'             = 'MenuComplete'
-    'UpArrow'         = 'HistorySearchBackward'
-    'DownArrow'       = 'HistorySearchForward'
-    'Ctrl+LeftArrow'  = 'BackwardWord'
+@{
+    'Tab' = 'MenuComplete'
+    'UpArrow' = 'HistorySearchBackward'
+    'DownArrow' = 'HistorySearchForward'
+    'Ctrl+LeftArrow' = 'BackwardWord'
     'Ctrl+RightArrow' = 'ForwardWord'
-    'Ctrl+Backspace'  = 'BackwardKillWord'
-    'Ctrl+Delete'     = 'KillWord'
-    'Ctrl+w'          = 'BackwardKillWord'
-    'Alt+d'           = 'KillWord'
-    'Ctrl+u'          = 'BackwardKillLine'
-    'Ctrl+k'          = 'KillLine'
-    'Ctrl+l'          = 'ClearScreen'
-    'Ctrl+/'          = 'Undo'
-    'Ctrl+d'          = 'DeleteChar'
-    'Ctrl+z'          = 'Undo'
-    'Ctrl+y'          = 'Yank'
+    'Ctrl+Backspace' = 'BackwardKillWord'
+    'Ctrl+Delete' = 'KillWord'
+    'Ctrl+w' = 'BackwardKillWord'
+    'Alt+d' = 'KillWord'
+    'Ctrl+u' = 'BackwardKillLine'
+    'Ctrl+k' = 'KillLine'
+    'Ctrl+l' = 'ClearScreen'
+    'Ctrl+d' = 'DeleteChar'
+    'Ctrl+z' = 'Undo'
+    'Ctrl+y' = 'Yank'
+}.GetEnumerator() | ForEach-Object {
+    Set-PSReadLineKeyHandler -Key $_.Key -Function $_.Value -ErrorAction SilentlyContinue
 }
 
-foreach ($binding in $KeyBindings.GetEnumerator()) {
-    try {
-        if ($binding.Key -match '^(Ctrl|Alt)\+') {
-            Set-PSReadLineKeyHandler -Chord $binding.Key -Function $binding.Value
-        } else {
-            Set-PSReadLineKeyHandler -Key $binding.Key -Function $binding.Value
-        }
-    } catch {
-        Write-Warning "Failed to set PSReadLine key binding '$($binding.Key)' to '$($binding.Value)'. Error: $_"
-    }
+if (Get-Module PSFzf -ErrorAction SilentlyContinue) {
+    $env:FZF_DEFAULT_OPTS = '--height 40% --layout=reverse --border --inline-info --preview "bat --style=numbers --color=always --line-range :500 {}" --color=dark --color=fg:-1,bg:-1,hl:#5fff87,fg+:#ffffff,bg+:#383a42,hl+:#5fff87 --color=info:#afaf87,prompt:#5fff87,pointer:#af5fff,marker:#af5fff,spinner:#af5fff'
+    Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 }
 
-$env:FZF_DEFAULT_OPTS = @"
---height 40% --layout=reverse --border --inline-info
---preview 'bat --style=numbers --color=always --line-range :500 {}'
---color=dark --color=fg:-1,bg:-1,hl:#5fff87,fg+:#ffffff,bg+:#383a42,hl+:#5fff87
---color=info:#afaf87,prompt:#5fff87,pointer:#af5fff,marker:#af5fff,spinner:#af5fff
-"@
-
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
-
-function Search-CodeRg {
-    param(
-        [Parameter(Mandatory)]
-        [string]$Pattern,
-        [string]$Path = ".",
-        [string]$FileType,
-        [switch]$CaseSensitive
-    )
-    if (-not (Get-Command rg -ErrorAction SilentlyContinue)) { Write-Warning "ripgrep (rg) is not installed or not in PATH."; return }
-    if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) { Write-Warning "fzf is not installed or not in PATH."; return }
-    if (-not (Get-Command bat -ErrorAction SilentlyContinue)) { Write-Warning "bat is not installed or not in PATH (needed for preview)."; return }
-
-    $rgArgs = @('--color=always', '--line-number')
-    if ($FileType) { $rgArgs += "-t$FileType" }
-    if (!$CaseSensitive) { $rgArgs += '-i' }
-
-    & rg $rgArgs $Pattern $Path |
-        fzf --ansi `
-            --delimiter : `
-            --preview 'bat --style=numbers --color=always --highlight-line {2} {1}' `
-            --preview-window 'up,60%,border-bottom'
-}
-Set-Alias -Name rgf -Value Search-CodeRg -Option AllScope
-
-function Edit-FileFzf {
-    if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) { Write-Warning "fzf is not installed or not in PATH."; return }
-    if (-not (Get-Command $global:EDITOR -ErrorAction SilentlyContinue)) { Write-Warning "$global:EDITOR is not installed or not in PATH."; return }
-    $file = Get-ChildItem -Recurse -File | Select-Object -ExpandProperty FullName | fzf
-    if ($file) { & $global:EDITOR $file }
-}
-Set-Alias -Name ef -Value Edit-FileFzf -Option AllScope
-
-function Set-LocationFzf {
-    if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) { Write-Warning "fzf is not installed or not in PATH."; return }
-    $dir = Get-ChildItem -Recurse -Directory | Select-Object -ExpandProperty FullName | fzf
-    if ($dir) { Set-Location -Path $dir }
-}
-Set-Alias -Name cdf -Value Set-LocationFzf -Option AllScope
+$global:EDITOR = @('nvim', 'vim', 'code', 'notepad') | Where-Object { Get-Command $_ -ErrorAction SilentlyContinue } | Select-Object -First 1
 
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
-    try {
-        Invoke-Expression (& { (zoxide init powershell --hook prompt --no-aliases | Out-String) })
-    } catch {
-        Write-Warning "Failed to initialize zoxide integration. Error: $_"
-    }
-}
-else {
-    Write-Warning "zoxide command not found. Install it externally (e.g., 'winget install zoxide')."
+    Invoke-Expression (& { (zoxide init powershell --hook prompt --no-aliases | Out-String) })
 }
 
-$env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"
-$env:NVM_HOME = "$env:APPDATA\nvm"
-$env:NVM_SYMLINK = "$env:PROGRAMFILES\nodejs"
-
-$global:EDITOR = if (Get-Command nvim -ErrorAction SilentlyContinue) { 'nvim' }
-                 elseif (Get-Command vim -ErrorAction SilentlyContinue) { 'vim' }
-                 elseif (Get-Command code -ErrorAction SilentlyContinue) { 'code' }
-                 else { 'notepad' }
-
-function GoHome { Set-Location ~ }
-function GoUp { Set-Location .. }
-function GoUp2 { Set-Location ..\.. }
-function GoUp3 { Set-Location ..\..\.. }
-function GoDesktop { Set-Location -ErrorAction SilentlyContinue ~\Desktop }
-function GoDocs { Set-Location -ErrorAction SilentlyContinue ~\Documents }
-function GoDownloads { Set-Location -ErrorAction SilentlyContinue ~\Downloads }
-
-Set-Alias -Name ~ -Value GoHome -Option AllScope
-Set-Alias -Name .. -Value GoUp -Option AllScope
-Set-Alias -Name ... -Value GoUp2 -Option AllScope
-Set-Alias -Name .... -Value GoUp3 -Option AllScope
-Set-Alias -Name dt -Value GoDesktop -Option AllScope
-Set-Alias -Name docs -Value GoDocs -Option AllScope
-Set-Alias -Name dl -Value GoDownloads -Option AllScope
-
-Set-Alias -Name g -Value git -Option AllScope
-Set-Alias -Name grep -Value Select-String -Option AllScope
-Set-Alias -Name touch -Value New-Item -Option AllScope
-Set-Alias -Name rm -Value Remove-Item -Option AllScope
-Set-Alias -Name mv -Value Move-Item -Option AllScope
-Set-Alias -Name cp -Value Copy-Item -Option AllScope
-Set-Alias -Name cat -Value bat -Option AllScope -ErrorAction SilentlyContinue
-if (-not (Get-Command bat -ErrorAction SilentlyContinue)) { Set-Alias -Name cat -Value Get-Content -Option AllScope }
-Set-Alias -Name vim -Value $global:EDITOR -Option AllScope
-Set-Alias -Name df -Value Get-PSDrive -Option AllScope
-
-Set-Alias -Name pgrep -Value Get-Process -Option AllScope
-Set-Alias -Name pkill -Value Stop-Process -Option AllScope
-
-Set-Alias -Name ip -Value Get-NetIPConfiguration -Option AllScope
-
-Set-Alias -Name cpy -Value Set-Clipboard -Option AllScope
-Set-Alias -Name pst -Value Get-Clipboard -Option AllScope
-
-Set-Alias -Name sudo -Value admin -Option AllScope
-Set-Alias -Name su -Value admin -Option AllScope
-
-function admin {
-    param(
-        [Parameter(ValueFromRemainingArguments=$true)]
-        [string[]]$arguments
-    )
-    if (-not (Get-Command wt.exe -ErrorAction SilentlyContinue)) { Write-Error "Windows Terminal (wt.exe) not found."; return }
-    $commandString = if ($arguments.Count -gt 0) { $arguments -join ' ' } else { '' }
-    try {
-        if ($commandString) {
-             $escapedCommand = $commandString.Replace('"', '`"')
-             Start-Process wt.exe -Verb RunAs -ArgumentList "-p `"PowerShell`" pwsh.exe -NoExit -Command `"$escapedCommand`""
-        } else {
-             Start-Process wt.exe -Verb RunAs -ArgumentList "-p `"PowerShell`""
-        }
-    } catch { Write-Error "Failed to start elevated process. Error: $_" }
-}
-
-function Get-DirSize {
-    param([string]$Path = ".")
-    try {
-        $size = Get-ChildItem -Path $Path -Recurse -File -ErrorAction SilentlyContinue |
-            Measure-Object -Property Length -Sum -ErrorAction SilentlyContinue
-        if ($null -eq $size -or $size.Count -eq 0) { return "0 B" }
-        switch($size.Sum) {
-            {$_ -ge 1TB} { "{0:N2} TB" -f ($_ / 1TB); break }
-            {$_ -ge 1GB} { "{0:N2} GB" -f ($_ / 1GB); break }
-            {$_ -ge 1MB} { "{0:N2} MB" -f ($_ / 1MB); break }
-            {$_ -ge 1KB} { "{0:N2} KB" -f ($_ / 1KB); break }
-            default { "$($size.Sum) B" }
-        }
-    } catch { Write-Warning "Could not calculate size for '$Path'. Error: $_"; return "Error" }
-}
-Set-Alias -Name dus -Value Get-DirSize -Option AllScope
-
-function Get-PubIP {
-    try {
-        $services = @("https://ifconfig.me/ip", "https://api.ipify.org", "https://icanhazip.com")
-        foreach ($service in $services) {
-            try { return (Invoke-RestMethod -Uri $service -TimeoutSec 2 -ErrorAction Stop).Trim() } catch { }
-        }
-        Write-Warning "Could not retrieve public IP from multiple services."
-    } catch { Write-Warning "An error occurred while fetching public IP: $_" }
-}
+function ~ { Set-Location ~ }
+function .. { Set-Location .. }
+function ... { Set-Location ..\.. }
+function .... { Set-Location ..\..\.. }
+function dt { Set-Location ~\Desktop }
+function docs { Set-Location ~\Documents }
+function dl { Set-Location ~\Downloads }
 
 function mkcd {
-    param([Parameter(Mandatory)][string]$DirectoryPath)
-    try {
-        $null = New-Item -ItemType Directory -Path $DirectoryPath -Force -ErrorAction Stop
-        Set-Location -Path $DirectoryPath -ErrorAction Stop
-    } catch { Write-Error "Failed to create or change to directory '$DirectoryPath'. Error: $_" }
+    param([Parameter(Mandatory)][string]$Path)
+    New-Item -ItemType Directory -Path $Path -Force | Out-Null
+    Set-Location -Path $Path
 }
 
-function Flush-DnsClientCacheSafe {
-    if (Get-Command Clear-DnsClientCache -ErrorAction SilentlyContinue) {
-        try { Clear-DnsClientCache }
-        catch { Write-Warning "Failed to flush DNS cache (may require admin rights). Error: $_" }
-    } else { Write-Warning "Clear-DnsClientCache command not found." }
+function which($cmd) {
+    (Get-Command $cmd -ErrorAction SilentlyContinue).Source
 }
-Set-Alias -Name flushdns -Value Flush-DnsClientCacheSafe -Option AllScope
 
-function Get-Uptime {
-    try {
-        $os = Get-CimInstance Win32_OperatingSystem
-        $uptime = (Get-Date) - $os.LastBootUpTime
-        $days = $uptime.Days; $hours = $uptime.Hours; $minutes = $uptime.Minutes; $seconds = $uptime.Seconds
-        Write-Host ("Uptime: {0} days, {1} hours, {2} minutes, {3} seconds" -f $days, $hours, $minutes, $seconds)
-        Write-Host ("Last Boot: {0}" -f $os.LastBootUpTime.ToString("yyyy-MM-dd HH:mm:ss")) -ForegroundColor DarkGray
-    } catch { Write-Warning "Could not retrieve uptime information. Error: $_" }
+function admin {
+    param([Parameter(ValueFromRemainingArguments=$true)][string[]]$args)
+    Start-Process wt.exe -Verb RunAs -ArgumentList $(if ($args) { "-p `"PowerShell`" pwsh.exe -NoExit -Command `"$($args -join ' ')`"" } else { "-p `"PowerShell`"" }) -ErrorAction SilentlyContinue
 }
-Set-Alias -Name uptime -Value Get-Uptime -Option AllScope
 
-function which($command) {
-    (Get-Command $command -ErrorAction SilentlyContinue | Select-Object -First 1).Source
+function ll { Get-ChildItem -Force }
+function la { Get-ChildItem -Force -Hidden }
+
+function size {
+    param([string]$Path = ".")
+    $bytes = (Get-ChildItem -Path $Path -Recurse -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum
+    switch($bytes) {
+        {$_ -ge 1TB} { "{0:N2} TB" -f ($_ / 1TB) }
+        {$_ -ge 1GB} { "{0:N2} GB" -f ($_ / 1GB) }
+        {$_ -ge 1MB} { "{0:N2} MB" -f ($_ / 1MB) }
+        {$_ -ge 1KB} { "{0:N2} KB" -f ($_ / 1KB) }
+        default { "$bytes B" }
+    }
 }
-Set-Alias -Name which -Value which -Option AllScope
 
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
+function pubip {
+    foreach ($url in "https://ifconfig.me/ip", "https://api.ipify.org", "https://icanhazip.com") {
+        $ip = Invoke-RestMethod $url -TimeoutSec 3 -ErrorAction SilentlyContinue
+        if ($ip) { return $ip.Trim() }
+    }
+    "Failed to get IP"
+}
+
+function ports {
+    Get-NetTCPConnection | Where-Object State -eq Listen | Select-Object LocalAddress, LocalPort, OwningProcess | Sort-Object LocalPort
+}
+
+function procs {
+    Get-Process | Sort-Object CPU -Descending | Select-Object -First 10 Name, CPU, WorkingSet, Id
+}
+
+function reload { . $PROFILE }
+
+function path { $env:PATH -split ';' | Sort-Object }
+
+function uptime {
+    $boot = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+    $up = (Get-Date) - $boot
+    "$($up.Days)d $($up.Hours)h $($up.Minutes)m"
+}
+
+@{
+    'grep' = 'Select-String'
+    'touch' = 'New-Item'
+    'rm' = 'Remove-Item'
+    'mv' = 'Move-Item'
+    'cp' = 'Copy-Item'
+    'vim' = $global:EDITOR
+    'df' = 'Get-PSDrive'
+    'ps' = 'Get-Process'
+    'kill' = 'Stop-Process'
+    'ip' = 'Get-NetIPConfiguration'
+    'sudo' = 'admin'
+    'su' = 'admin'
+    'cls' = 'Clear-Host'
+    'history' = 'Get-History'
+}.GetEnumerator() | ForEach-Object {
+    Set-Alias -Name $_.Key -Value $_.Value -Option AllScope -ErrorAction SilentlyContinue
 }
