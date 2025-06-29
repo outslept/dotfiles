@@ -111,7 +111,7 @@ thickness = 0.15
 
 [terminal]
 osc52 = "OnlyCopy"
-shell = { program = "pwsh", args = ["-NoLogo", "-NoExit", "-Command", "& {Import-Module $PROFILE}"] }
+shell = { program = "pwsh", args = ["-NoLogo"] }
 
 [mouse]
 hide_when_typing = true
