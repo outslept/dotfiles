@@ -2,6 +2,12 @@ $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 [console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
+$devtoolsModulesPath = "E:\.devtools\pwsh\Modules"
+if (!(Test-Path $devtoolsModulesPath)) {
+    New-Item -ItemType Directory -Path $devtoolsModulesPath -Force | Out-Null
+}
+$env:PSModulePath = "$devtoolsModulesPath;$env:PSModulePath"
+
 function Import-ModuleSafely {
     param([string]$ModuleName, [switch]$Required)
     if (Get-Module $ModuleName) { return }
@@ -15,11 +21,60 @@ function Import-ModuleSafely {
 Import-ModuleSafely 'posh-git' -Required
 Import-ModuleSafely 'PSFzf'
 
-$OMP_THEME_URL = "https://raw.githubusercontent.com/outslept/dotfiles/master/config/pwsh/outslept.omp.json"
+function Get-OMPTheme {
+    $themeDir = "E:\.devtools\pwsh"
+    $themeFile = "$themeDir\outslept.omp.json"
+    $etagFile = "$themeDir\outslept.etag"
+    $url = "https://raw.githubusercontent.com/outslept/dotfiles/master/config/pwsh/outslept.omp.json"
+
+    if (!(Test-Path $themeDir)) {
+        New-Item -ItemType Directory -Path $themeDir -Force | Out-Null
+    }
+
+    $needsUpdate = $true
+    $currentEtag = $null
+
+    if (Test-Path $etagFile) {
+        $savedEtag = Get-Content $etagFile -Raw -ErrorAction SilentlyContinue
+    }
+
+    try {
+        $response = Invoke-WebRequest -Uri $url -Method Head -UseBasicParsing -TimeoutSec 5
+        $currentEtag = $response.Headers.ETag
+
+        if ($savedEtag -and $currentEtag -and $savedEtag.Trim() -eq $currentEtag.Trim() -and (Test-Path $themeFile)) {
+            $needsUpdate = $false
+        }
+    } catch {
+        if (Test-Path $themeFile) {
+            $needsUpdate = $false
+        }
+    }
+
+    if ($needsUpdate) {
+        try {
+            $content = (Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 10).Content
+            Set-Content -Path $themeFile -Value $content -Encoding UTF8
+
+            if ($currentEtag) {
+                Set-Content -Path $etagFile -Value $currentEtag -Encoding UTF8
+            }
+        } catch {
+            Write-Warning "Failed to download OMP theme: $($_.Exception.Message)"
+            if (!(Test-Path $themeFile)) {
+                return $null
+            }
+        }
+    }
+
+    return $themeFile
+}
 
 if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
-    (Invoke-WebRequest -Uri $OMP_THEME_URL -UseBasicParsing).Content | Set-Content -Path "$env:TEMP\outslept.omp.json"
-    oh-my-posh init pwsh --config "$env:TEMP\outslept.omp.json" | Invoke-Expression
+    $themeFile = Get-OMPTheme
+    if ($themeFile) {
+        oh-my-posh init pwsh --config $themeFile | Invoke-Expression
+    }
 }
 
 Set-PSReadLineOption -EditMode Emacs -BellStyle None -PredictionSource History -PredictionViewStyle ListView -HistoryNoDuplicates -MaximumHistoryCount 10000
@@ -69,8 +124,8 @@ Set-PSReadLineOption -Colors @{
 }
 
 if (Get-Module PSFzf -ErrorAction SilentlyContinue) {
-    $env:FZF_DEFAULT_OPTS = '--height 40% --layout=reverse --border --inline-info --preview "bat --style=numbers --color=always --line-range :500 {}" --color=dark --color=fg:-1,bg:-1,hl:#5fff87,fg+:#ffffff,bg+:#383a42,hl+:#5fff87 --color=info:#afaf87,prompt:#5fff87,pointer:#af5fff,marker:#af5fff,spinner:#af5fff'
-    Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+    $env:FZF_DEFAULT_OPTS = '--height 40% --layout=reverse --border --color=dark'
+    Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f'
 }
 
 $global:EDITOR = @('nvim', 'vim', 'code', 'notepad') | Where-Object { Get-Command $_ -ErrorAction SilentlyContinue } | Select-Object -First 1
@@ -82,10 +137,6 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
 function ~ { Set-Location ~ }
 function .. { Set-Location .. }
 function ... { Set-Location ..\.. }
-function .... { Set-Location ..\..\.. }
-function dt { Set-Location ~\Desktop }
-function docs { Set-Location ~\Documents }
-function dl { Set-Location ~\Downloads }
 
 function mkcd {
     param([Parameter(Mandatory)][string]$Path)
@@ -103,19 +154,6 @@ function admin {
 }
 
 function ll { Get-ChildItem -Force }
-function la { Get-ChildItem -Force -Hidden }
-
-function size {
-    param([string]$Path = ".")
-    $bytes = (Get-ChildItem -Path $Path -Recurse -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum
-    switch($bytes) {
-        {$_ -ge 1TB} { "{0:N2} TB" -f ($_ / 1TB) }
-        {$_ -ge 1GB} { "{0:N2} GB" -f ($_ / 1GB) }
-        {$_ -ge 1MB} { "{0:N2} MB" -f ($_ / 1MB) }
-        {$_ -ge 1KB} { "{0:N2} KB" -f ($_ / 1KB) }
-        default { "$bytes B" }
-    }
-}
 
 function pubip {
     foreach ($url in "https://ifconfig.me/ip", "https://api.ipify.org", "https://icanhazip.com") {
@@ -125,23 +163,9 @@ function pubip {
     "Failed to get IP"
 }
 
-function ports {
-    Get-NetTCPConnection | Where-Object State -eq Listen | Select-Object LocalAddress, LocalPort, OwningProcess | Sort-Object LocalPort
-}
-
-function procs {
-    Get-Process | Sort-Object CPU -Descending | Select-Object -First 10 Name, CPU, WorkingSet, Id
-}
-
 function reload { . $PROFILE }
 
 function path { $env:PATH -split ';' | Sort-Object }
-
-function uptime {
-    $boot = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
-    $up = (Get-Date) - $boot
-    "$($up.Days)d $($up.Hours)h $($up.Minutes)m"
-}
 
 @{
     'grep' = 'Select-String'
@@ -150,10 +174,8 @@ function uptime {
     'mv' = 'Move-Item'
     'cp' = 'Copy-Item'
     'vim' = $global:EDITOR
-    'df' = 'Get-PSDrive'
     'ps' = 'Get-Process'
     'kill' = 'Stop-Process'
-    'ip' = 'Get-NetIPConfiguration'
     'sudo' = 'admin'
     'su' = 'admin'
     'cls' = 'Clear-Host'
