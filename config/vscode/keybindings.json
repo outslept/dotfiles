@@ -1,118 +1,36 @@
 [
-  {
-    "command": "workbench.action.openEditorAtIndex1",
-    "key": "alt+1"
-  },
-  {
-    "command": "workbench.action.openEditorAtIndex2",
-    "key": "alt+2"
-  },
-  {
-    "command": "workbench.action.openEditorAtIndex3",
-    "key": "alt+3"
-  },
-  {
-    "command": "workbench.action.openEditorAtIndex4",
-    "key": "alt+4"
-  },
-  {
-    "command": "workbench.action.openEditorAtIndex5",
-    "key": "alt+5"
-  },
-  {
-    "command": "workbench.action.openEditorAtIndex6",
-    "key": "alt+6"
-  },
-  {
-    "command": "workbench.action.openEditorAtIndex7",
-    "key": "alt+7"
-  },
-  {
-    "command": "workbench.action.openEditorAtIndex8",
-    "key": "alt+8"
-  },
-  {
-    "command": "workbench.action.lastEditorInGroup",
-    "key": "alt+9"
-  },
-  {
-    "command": "expand_region",
-    "key": "ctrl+=",
-    "when": "editorTextFocus"
-  },
-  {
-    "command": "undo_expand_region",
-    "key": "ctrl+-",
-    "when": "editorTextFocus && editorHasSelection"
-  },
-  {
-    "command": "explorer.newFile",
-    "key": "a",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "command": "renameFile",
-    "key": "r",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "command": "filesExplorer.copy",
-    "key": "c",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "command": "filesExplorer.paste",
-    "key": "p",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "command": "deleteFile",
-    "key": "d",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "command": "workbench.action.terminal.toggleTerminal",
-    "key": "ctrl+`"
-  },
-  {
-    "command": "explorer.newFolder",
-    "key": "m",
-    "when": "filesExplorerFocus && !inputFocus"
-  },
-  {
-    "key": "ctrl+alt+right",
-    "command": "workbench.action.focusRightGroup"
-  },
-  {
-    "key": "ctrl+alt+left",
-    "command": "workbench.action.focusLeftGroup"
-  },
-  {
-    "key": "ctrl+alt+up",
-    "command": "workbench.action.focusAboveGroup"
-  },
-  {
-    "key": "ctrl+alt+down",
-    "command": "workbench.action.focusBelowGroup"
-  },
-  {
-    "key": "ctrl+shift+alt+right",
-    "command": "workbench.action.moveEditorToRightGroup"
-  },
-  {
-    "key": "ctrl+shift+alt+left",
-    "command": "workbench.action.moveEditorToLeftGroup"
-  },
-  {
-    "key": "ctrl+shift+alt+up",
-    "command": "workbench.action.moveEditorToAboveGroup"
-  },
-  {
-    "key": "ctrl+shift+alt+down",
-    "command": "workbench.action.moveEditorToBelowGroup"
-  },
-  {
-    "key": "ctrl+w",
-    "command": "workbench.action.closeActiveEditor"
-  }
+  { "key": "ctrl+shift+pagedown", "command": "workbench.action.terminal.focusNext" },
+  { "key": "ctrl+shift+pageup", "command": "workbench.action.terminal.focusPrevious" },
+  { "key": "ctrl+alt+s", "command": "workbench.action.terminal.split" },
+  { "key": "ctrl+alt+k", "command": "workbench.action.terminal.kill" },
+  { "key": "ctrl+alt+shift+k", "command": "workbench.action.terminal.killAll" },
+  { "key": "ctrl+alt+t", "command": "workbench.action.terminal.new" },
+  { "key": "ctrl+alt+l", "command": "workbench.action.terminal.clear" },
+  { "key": "ctrl+d", "command": "editor.action.duplicateSelection" },
+  { "key": "alt+1", "command": "workbench.action.openEditorAtIndex1" },
+  { "key": "alt+2", "command": "workbench.action.openEditorAtIndex2" },
+  { "key": "alt+3", "command": "workbench.action.openEditorAtIndex3" },
+  { "key": "alt+4", "command": "workbench.action.openEditorAtIndex4" },
+  { "key": "alt+5", "command": "workbench.action.openEditorAtIndex5" },
+  { "key": "alt+6", "command": "workbench.action.openEditorAtIndex6" },
+  { "key": "alt+7", "command": "workbench.action.openEditorAtIndex7" },
+  { "key": "alt+8", "command": "workbench.action.openEditorAtIndex8" },
+  { "key": "alt+9", "command": "workbench.action.lastEditorInGroup" },
+  { "key": "ctrl+=", "command": "expand_region", "when": "editorTextFocus" },
+  { "key": "ctrl+-", "command": "undo_expand_region", "when": "editorTextFocus && editorHasSelection" },
+  { "key": "a", "command": "explorer.newFile", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "r", "command": "renameFile", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "c", "command": "filesExplorer.copy", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "p", "command": "filesExplorer.paste", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "d", "command": "deleteFile", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "m", "command": "explorer.newFolder", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "ctrl+alt+right", "command": "workbench.action.focusRightGroup" },
+  { "key": "ctrl+alt+left", "command": "workbench.action.focusLeftGroup" },
+  { "key": "ctrl+alt+up", "command": "workbench.action.focusAboveGroup" },
+  { "key": "ctrl+alt+down", "command": "workbench.action.focusBelowGroup" },
+  { "key": "ctrl+shift+alt+right", "command": "workbench.action.moveEditorToRightGroup" },
+  { "key": "ctrl+shift+alt+left", "command": "workbench.action.moveEditorToLeftGroup" },
+  { "key": "ctrl+shift+alt+up", "command": "workbench.action.moveEditorToAboveGroup" },
+  { "key": "ctrl+shift+alt+down", "command": "workbench.action.moveEditorToBelowGroup" },
+  { "key": "ctrl+w", "command": "workbench.action.closeActiveEditor" }
 ]
