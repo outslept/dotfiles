@@ -2,7 +2,7 @@ import subprocess, os, sys, argparse
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--file', '-f', default='../plugin-list.txt')
+parser.add_argument('--file', '-f', default='../config/vscode/plugin-list.txt')
 args = parser.parse_args()
 
 plugin_list = Path(args.file)
