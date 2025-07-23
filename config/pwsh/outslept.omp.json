@@ -29,18 +29,6 @@
           }
         },
         {
-          "type": "python",
-          "style": "plain",
-          "foreground": "#54C0A3",
-          "template": " py:{{ .Version }}"
-        },
-        {
-          "type": "node",
-          "style": "plain",
-          "foreground": "#54C0A3",
-          "template": " node:{{ .Version }}"
-        },
-        {
           "type": "executiontime",
           "style": "plain",
           "foreground": "#E6E7A3",
