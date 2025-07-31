@@ -1,12 +1,10 @@
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
-try {
-    # UTF-8 encoding fix for oh-my-posh Unicode symbols in PowerShell 7.4+
-    # See: https://github.com/PowerShell/PowerShell/issues/20733
-    # WARNING: This affects the entire session, restart terminal to reset
-    [console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
-} catch { }
+# UTF-8 encoding fix for oh-my-posh Unicode symbols in PowerShell 7.4+
+# See: https://github.com/PowerShell/PowerShell/issues/20733
+# WARNING: This affects the entire session, restart terminal to reset
+[console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
 $devtoolsModulesPath = Join-Path $env:USERPROFILE ".devtools\pwsh\Modules"
 $null = New-Item -ItemType Directory -Path $devtoolsModulesPath -Force
@@ -117,43 +115,6 @@ $global:EDITOR = @('nvim', 'vim', 'code', 'notepad') | Where-Object { Get-Comman
 
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
     Invoke-Expression (& { (zoxide init powershell --hook prompt --no-aliases | Out-String) })
-}
-
-function ~ { Set-Location ~ }
-function .. { Set-Location .. }
-function ... { Set-Location ..\.. }
-function ll { Get-ChildItem -Force }
-function reload { . $PROFILE }
-function path { $env:PATH -split ';' | Sort-Object }
-
-function mkcd {
-    param([Parameter(Mandatory)][string]$Path)
-    $null = New-Item -ItemType Directory -Path $Path -Force
-    Set-Location -Path $Path
-}
-
-function which($cmd) {
-    (Get-Command $cmd -ErrorAction SilentlyContinue).Source
-}
-
-function admin {
-    param([Parameter(ValueFromRemainingArguments)][string[]]$args)
-    $wtArgs = if ($args) {
-        "-p `"PowerShell`" pwsh.exe -NoExit -Command `"$($args -join ' ')`""
-    } else {
-        "-p `"PowerShell`""
-    }
-    Start-Process wt.exe -Verb RunAs -ArgumentList $wtArgs
-}
-
-function pubip {
-    foreach ($url in "https://ifconfig.me/ip", "https://api.ipify.org", "https://icanhazip.com") {
-        try {
-            $ip = Invoke-RestMethod $url -TimeoutSec 5
-            if ($ip) { return $ip.ToString().Trim() }
-        } catch { continue }
-    }
-    "Failed to get IP"
 }
 
 @{
