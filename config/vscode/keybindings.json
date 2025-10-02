@@ -15,11 +15,6 @@
   { "key": "ctrl+alt+i", "command": "workbench.action.focusAboveGroup", "when": "editorFocus && !terminalFocus" },
   { "key": "ctrl+alt+k", "command": "workbench.action.focusBelowGroup", "when": "editorFocus && !terminalFocus" },
 
-  { "key": "ctrl+shift+alt+j", "command": "workbench.action.moveEditorToLeftGroup", "when": "editorFocus && !terminalFocus" },
-  { "key": "ctrl+shift+alt+l", "command": "workbench.action.moveEditorToRightGroup", "when": "editorFocus && !terminalFocus" },
-  { "key": "ctrl+shift+alt+i", "command": "workbench.action.moveEditorToAboveGroup", "when": "editorFocus && !terminalFocus" },
-  { "key": "ctrl+shift+alt+k", "command": "workbench.action.moveEditorToBelowGroup", "when": "editorFocus && !terminalFocus" },
-
   { "key": "alt+1", "command": "workbench.action.openEditorAtIndex1", "when": "editorFocus && !terminalFocus" },
   { "key": "alt+2", "command": "workbench.action.openEditorAtIndex2", "when": "editorFocus && !terminalFocus" },
   { "key": "alt+3", "command": "workbench.action.openEditorAtIndex3", "when": "editorFocus && !terminalFocus" },
@@ -32,10 +27,13 @@
 
   { "key": "ctrl+w", "command": "workbench.action.closeActiveEditor", "when": "editorTextFocus" },
 
-  { "key": "ctrl+alt+n", "command": "explorer.newFile", "when": "filesExplorerFocus && !inputFocus" },
-  { "key": "ctrl+alt+shift+n", "command": "explorer.newFolder", "when": "filesExplorerFocus && !inputFocus" },
-  { "key": "ctrl+alt+r", "command": "renameFile", "when": "filesExplorerFocus && !inputFocus" },
-  { "key": "ctrl+alt+c", "command": "filesExplorer.copy", "when": "filesExplorerFocus && !inputFocus" },
-  { "key": "ctrl+alt+v", "command": "filesExplorer.paste", "when": "filesExplorerFocus && !inputFocus" },
-  { "key": "ctrl+alt+d", "command": "deleteFile", "when": "filesExplorerFocus && !inputFocus" }
+  { "key": "ctrl+=", "command": "expand_region", "when": "editorTextFocus" },
+  { "key": "ctrl+-", "command": "undo_expand_region", "when": "editorTextFocus && editorHasSelection" },
+  
+  { "key": "a", "command": "explorer.newFile", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "r", "command": "renameFile", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "c", "command": "filesExplorer.copy", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "v", "command": "filesExplorer.paste", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "d", "command": "deleteFile", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "m", "command": "explorer.newFolder", "when": "filesExplorerFocus && !inputFocus" },
 ]
