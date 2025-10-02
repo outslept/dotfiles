@@ -35,5 +35,5 @@
   { "key": "c", "command": "filesExplorer.copy", "when": "filesExplorerFocus && !inputFocus" },
   { "key": "v", "command": "filesExplorer.paste", "when": "filesExplorerFocus && !inputFocus" },
   { "key": "d", "command": "deleteFile", "when": "filesExplorerFocus && !inputFocus" },
-  { "key": "m", "command": "explorer.newFolder", "when": "filesExplorerFocus && !inputFocus" },
+  { "key": "m", "command": "explorer.newFolder", "when": "filesExplorerFocus && !inputFocus" }
 ]
