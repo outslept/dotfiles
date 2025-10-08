@@ -1,0 +1,21 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "ProjectPanel && not_editing",
+    "use_key_equivalents": true,
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "m": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "c": "project_panel::Copy",
+      "v": "project_panel::Paste",
+      "d": ["project_panel::Trash", { "skip_prompt": false }]
+    }
+  }
+]
