@@ -1,0 +1,34 @@
+#!/usr/bin/env sh
+
+set -eu
+
+if [ -n "${CODESPACES:-}" ] || [ -n "${GITHUB_CODESPACES:-}" ]; then
+  exit 0
+fi
+
+if [ "$(git config --bool commit.gpgsign || echo false)" != "true" ]; then
+  exit 0
+fi
+
+if [ "$(git config gpg.format || echo openpgp)" = "ssh" ]; then
+  exit 0
+fi
+
+if ! command -v gpg >/dev/null 2>&1; then
+  exit 0
+fi
+
+signing_key="$(git config user.signingkey || true)"
+author_email="$(git var GIT_AUTHOR_IDENT | sed -n 's/.*<\([^>]*\)>.*/\1/p')"
+candidate="${signing_key:-$author_email}"
+
+if gpg --list-secret-keys --with-colons --quiet -- "$candidate" 2>/dev/null | grep -q '^sec:'; then
+  exit 0
+fi
+
+printf '%s\n' \
+  "ERROR: commit signing enabled, but no matching OpenPGP secret key found." \
+  "candidate: ${candidate}" \
+  "hint: set 'git config user.signingkey <key-id-or-email>' or adjust 'user.email'." \
+  "to skip: 'git config commit.gpgsign false' (repo-only) or disable this hook." >&2
+exit 1
