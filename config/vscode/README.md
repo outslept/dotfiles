@@ -1,3 +1,7 @@
+<details>
+<summary>current extensions</summary>
+
+```
 antfu.iconify
 antfu.unocss
 ardenivanov.svelte-intellisense
@@ -76,3 +80,48 @@ vue.volar
 yoavbls.pretty-ts-errors
 yummygum.city-lights-icon-vsc
 yzhang.markdown-all-in-one
+```
+
+</details>
+
+## export extensions
+
+bash/zsh
+```sh
+code --list-extensions | sort
+```
+
+powershell
+```powershell
+code --list-extensions | Sort-Object
+```
+
+## install (bash/zsh)
+
+edit the list if needed; then run.
+
+```sh
+exts=(
+  'rust-lang.rust-analyzer'
+  <!-- ... -->
+)
+for e in "${exts[@]}"; do
+  echo "installing $e"
+  code --install-extension "$e"
+done
+```
+
+## install (powershell)
+
+edit the list if needed; then run.
+
+```powershell
+$exts = @(
+  'rust-lang.rust-analyzer',
+ # ...
+)
+foreach ($e in $exts) {
+  Write-Host "installing $e"
+  code --install-extension $e
+}
+```
