@@ -25,14 +25,10 @@ if (Get-Module PSReadLine -ErrorAction SilentlyContinue) {
   }
 
   # Word navigation
-  Set-PSReadLineKeyHandler -Key Alt+b           -Function BackwardWord # ← one word
-  Set-PSReadLineKeyHandler -Key Alt+f           -Function ForwardWord # → one word
   Set-PSReadLineKeyHandler -Key Ctrl+LeftArrow  -Function BackwardWord # Windows-friendly
   Set-PSReadLineKeyHandler -Key Ctrl+RightArrow -Function ForwardWord
 
-  # Word deletion
-  Set-PSReadLineKeyHandler -Key Ctrl+w       -Function BackwardKillWord # delete word to the left
-  Set-PSReadLineKeyHandler -Key Ctrl+Delete  -Function KillWord # delete word to the right
+  # Word deletion ?
 
   # Screen clear
   Set-PSReadLineKeyHandler -Key Ctrl+l -Function ClearScreen
