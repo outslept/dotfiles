@@ -7,6 +7,75 @@
 // from the command palette.
 [
   {
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-=": null,
+      "ctrl-shift-=": null,
+      "ctrl--": null,
+      "ctrl-0": null,
+      "cmd-=": null,
+      "cmd-shift-=": null,
+      "cmd--": null,
+      "cmd-0": null
+    }
+  },
+  {
+    "context": "ApplicationMenu",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-m": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-m": null,
+      "ctrl-`": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-=": "editor::SelectLargerSyntaxNode",
+      "ctrl--": "editor::SelectSmallerSyntaxNode",
+      "ctrl-w": ["pane::CloseActiveItem", { "close_pinned": false }],
+      "ctrl-\\": "pane::SplitRight",
+      "ctrl-shift-\\": "editor::MoveToEnclosingBracket"
+    }
+  },
+  {
+    "context": "Workspace && !Terminal",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-alt-j": "workspace::ActivatePaneLeft",
+      "ctrl-alt-l": "workspace::ActivatePaneRight",
+      "ctrl-alt-i": "workspace::ActivatePaneUp",
+      "ctrl-alt-k": "workspace::ActivatePaneDown",
+      "ctrl-alt--": "pane::GoBack",
+      "ctrl-alt-shift--": "pane::GoForward",
+      "alt-1": ["pane::ActivateItem", 0],
+      "alt-2": ["pane::ActivateItem", 1],
+      "alt-3": ["pane::ActivateItem", 2],
+      "alt-4": ["pane::ActivateItem", 3],
+      "alt-5": ["pane::ActivateItem", 4],
+      "alt-6": ["pane::ActivateItem", 5],
+      "alt-7": ["pane::ActivateItem", 6],
+      "alt-8": ["pane::ActivateItem", 7],
+      "alt-9": "pane::ActivateLastItem"
+    }
+  },
+  {
+    "context": "Terminal",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-shift-l": "terminal::Clear",
+      "ctrl-alt-k": "pane::CloseActiveItem",
+      "ctrl-alt-e": "workspace::ToggleBottomDock"
+    }
+  },
+  {
     "context": "ProjectPanel && not_editing",
     "use_key_equivalents": true,
     "bindings": {
