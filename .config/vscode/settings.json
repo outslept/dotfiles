@@ -34,7 +34,6 @@
   "semanticdiff.defaultDiffViewer": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
-  "terminal.integrated.fontFamily": "CommitMono Nerd Font Mono, CaskaydiaCove Nerd Font Mono, Paper Mono",
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.smoothScrolling": true,
   "typescript.enablePromptUseWorkspaceTsdk": true,
