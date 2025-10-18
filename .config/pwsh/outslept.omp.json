@@ -28,31 +28,6 @@
             }
           },
           "template": "{{ .Path }}"
-        },
-        {
-          "type": "git",
-          "style": "plain",
-          "foreground": "#7daea3",
-          "foreground_templates": [
-            "{{ if or .Working.Changed .Staging.Changed }}#e78a4e{{ end }}",
-            "{{ if and (not .UpstreamGone) (or (gt .Ahead 0) (gt .Behind 0)) }}#d8a657{{ end }}"
-          ],
-          "properties": {
-            "branch_icon": "",
-            "display_status": true,
-            "fetch_status": false,
-            "commit_icon": "@"
-          },
-          "template": " {{ if .Branch }}{{ .Branch }}{{ else }}{{ .Commit.Sha | trunc 7 }}{{ end }}{{ if .Working.Changed }}*{{ end }}{{ if .Staging.Changed }}+{{ end }}{{ if gt .Behind 0 }} ⇣{{ .Behind }}{{ end }}{{ if gt .Ahead 0 }} ⇡{{ .Ahead }}{{ end }}"
-        },
-        {
-          "type": "executiontime",
-          "style": "plain",
-          "foreground": "#d8a657",
-          "properties": {
-            "threshold": 2000
-          },
-          "template": " {{ .FormattedMs }}"
         }
       ]
     }
