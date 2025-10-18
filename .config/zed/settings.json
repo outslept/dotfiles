@@ -7,21 +7,55 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "ui_font_size": 15,
-  "buffer_font_size": 18,
-  "format_on_save": "off",
+  "base_keymap": "VSCode",
+
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark"
+    "dark": "Gruvbox Material"
   },
-  "disable_ai": true,
+
+  "ui_font_size": 15,
+  "buffer_font_size": 18,
+
   "cursor_shape": "block",
   "relative_line_numbers": true,
+
   "tabs": {
     "file_icons": true,
     "git_status": true,
-    "show_close_button": "always",
-    "show_diagnostics": "off"
-  }
+    "show_close_button": "always"
+  },
+
+  "tab_size": 2,
+
+  "project_panel": {
+    "dock": "right",
+    "starts_open": true,
+    "auto_reveal_entries": true,
+    "sticky_scroll": true
+  },
+
+  "outline_panel": {
+    "dock": "right",
+    "expand_outlines_with_depth": 100
+  },
+
+  "use_smartcase_search": true,
+
+  "format_on_save": "off",
+  "use_on_type_format": false,
+  "remove_trailing_whitespace_on_save": false,
+  "ensure_final_newline_on_save": false,
+
+  "terminal": {
+    "dock": "bottom",
+    "cursor_shape": "block",
+    "line_height": "standard",
+    "max_scroll_history_lines": 10000,
+    "copy_on_select": false,
+    "keep_selection_on_copy": true
+  },
+
+  "disable_ai": true
 }
