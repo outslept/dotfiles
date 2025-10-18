@@ -2,7 +2,7 @@
 try { Import-Module PSReadLine -ErrorAction SilentlyContinue } catch {}
 
 if (Get-Module PSReadLine -ErrorAction SilentlyContinue) {
-  # - Emacd mode: familiar Ctrl+A/E/K/U, etc.
+  # - Emacs mode: familiar Ctrl+A/E/K/U, etc.
   # - No bell
   # - History-based predictions (ListView)
   # - No duplicate history entries
