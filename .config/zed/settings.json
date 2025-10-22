@@ -7,6 +7,30 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_update": false,
+  "confirm_quit": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "status_bar": {
+    "cursor_position_button": true,
+    "active_language_button": true
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": false
+    }
+  },
+
   "base_keymap": "VSCode",
 
   "theme": {
@@ -15,8 +39,8 @@
     "dark": "Gruvbox Material"
   },
 
-  "ui_font_size": 15,
-  "buffer_font_size": 18,
+  "ui_font_size": 16,
+  "buffer_font_size": 22,
 
   "cursor_shape": "block",
   "relative_line_numbers": true,
@@ -49,6 +73,7 @@
   "ensure_final_newline_on_save": false,
 
   "terminal": {
+    "button": true,
     "dock": "bottom",
     "cursor_shape": "block",
     "line_height": "standard",
