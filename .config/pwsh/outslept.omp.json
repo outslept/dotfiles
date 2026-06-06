@@ -12,15 +12,13 @@
           "style": "plain",
           "template": "λ ",
           "foreground": "#928374",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}#ea6962{{ end }}"
-          ]
+          "foreground_templates": ["{{ if gt .Code 0 }}#ea6962{{ end }}"]
         },
         {
           "type": "path",
           "style": "plain",
           "foreground": "#d4be98",
-          "properties": {
+          "options": {
             "style": "agnoster_short",
             "max_depth": 2,
             "mapped_locations": {
