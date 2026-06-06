@@ -9,78 +9,75 @@
 {
   "auto_update": false,
   "confirm_quit": true,
-  "diagnostics": {
-    "inline": {
-      "enabled": true
-    }
-  },
-  "tab_bar": {
-    "show": true
-  },
-  "status_bar": {
-    "cursor_position_button": true,
-    "active_language_button": true
-  },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "git": {
-    "inline_blame": {
-      "show_commit_summary": false
-    }
-  },
 
   "base_keymap": "VSCode",
+  "cursor_shape": "block",
+
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+
+  "agent": {
+    "enabled": false,
+    "button": false,
+  },
+
+  "calls": {
+    "mute_on_join": true,
+  },
 
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Material"
+    "dark": "Gruvbox Dark",
   },
 
   "ui_font_size": 16,
   "buffer_font_size": 18,
 
-  "cursor_shape": "block",
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
 
   "tabs": {
     "file_icons": true,
     "git_status": true,
-    "show_close_button": "always"
   },
 
   "tab_size": 2,
+  "preferred_line_length": 100,
 
   "project_panel": {
     "dock": "right",
+    "default_width": 280,
     "starts_open": true,
-    "auto_reveal_entries": true,
-    "sticky_scroll": true
+    "sticky_scroll": true,
   },
 
   "outline_panel": {
     "dock": "right",
-    "expand_outlines_with_depth": 100
+    "default_width": 300,
+  },
+
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": false,
+    },
   },
 
   "use_smartcase_search": true,
 
-  "format_on_save": "off",
-  "use_on_type_format": false,
-  "remove_trailing_whitespace_on_save": false,
-  "ensure_final_newline_on_save": false,
-
-  "terminal": {
-    "button": true,
-    "dock": "bottom",
-    "cursor_shape": "block",
-    "line_height": "standard",
-    "max_scroll_history_lines": 10000,
-    "copy_on_select": false,
-    "keep_selection_on_copy": true
+  "inlay_hints": {
+    "enabled": true,
   },
 
-  "disable_ai": true
+  "indent_guides": {
+    "enabled": true,
+  },
+
+  "terminal": {
+    "dock": "bottom",
+    "default_height": 400,
+    "blinking": "off",
+  },
 }
