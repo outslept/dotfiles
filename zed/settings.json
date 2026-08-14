@@ -1,52 +1,41 @@
 {
   "auto_update": false,
   "confirm_quit": true,
-
   "base_keymap": "VSCode",
   "cursor_shape": "block",
   "cursor_blink": false,
-
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-
   "agent": {
     "enabled": false,
     "button": false
   },
-
   "calls": {
     "mute_on_join": true
   },
-
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light",
     "dark": "Gruvbox Dark"
   },
-
   "ui_font_size": 16,
   "buffer_font_size": 18,
   "buffer_line_height": "comfortable",
-
-  "relative_line_numbers": "enabled",
-
+  "relative_line_numbers": true,
   "preview_tabs": {
     "enabled": false
   },
-
   "tabs": {
     "file_icons": true,
     "git_status": true
   },
-
   "tab_size": 2,
   "preferred_line_length": 100,
   "remove_trailing_whitespace_on_save": true,
   "format_on_save": "on",
   "formatter": "language_server",
-
   "project_panel": {
     "dock": "right",
     "default_width": 280,
@@ -54,14 +43,12 @@
     "sticky_scroll": true,
     "git_status": true
   },
-
   "outline_panel": {
     "dock": "right",
     "default_width": 300,
     "auto_reveal_entries": true,
     "auto_fold_dirs": true
   },
-
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
@@ -70,21 +57,18 @@
       "delay_ms": 300
     }
   },
-
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
     "show_other_hints": true
   },
-
   "indent_guides": {
     "enabled": true,
     "line_width": 1,
     "coloring": "fixed",
     "background_coloring": "disabled"
   },
-
   "scrollbar": {
     "show": "auto",
     "cursors": true,
@@ -94,14 +78,11 @@
     "selected_symbol": true,
     "diagnostics": "all"
   },
-
   "multi_cursor_modifier": "cmd_or_ctrl",
   "vertical_scroll_margin": 5,
-
   "edit_predictions": {
     "mode": "subtle"
   },
-
   "file_scan_exclusions": [
     "**/.git",
     "**/.svn",
@@ -110,7 +91,6 @@
     "**/.DS_Store",
     "**/Thumbs.db"
   ],
-
   "languages": {
     "Go": {
       "tab_size": 4,
@@ -134,7 +114,6 @@
       "tab_size": 2
     }
   },
-
   "terminal": {
     "dock": "bottom",
     "default_height": 400,
