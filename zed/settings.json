@@ -1,4 +1,16 @@
 {
+  "cli_default_open_behavior": "existing_window",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "auto_update": false,
   "confirm_quit": true,
   "base_keymap": "VSCode",
@@ -9,6 +21,7 @@
     "metrics": false
   },
   "agent": {
+    "dock": "right",
     "enabled": false,
     "button": false
   },
@@ -16,9 +29,9 @@
     "mute_on_join": true
   },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark"
+    "dark": "Rich Vesper"
   },
   "ui_font_size": 16,
   "buffer_font_size": 18,
