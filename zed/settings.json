@@ -1,83 +1,144 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "auto_update": false,
   "confirm_quit": true,
 
   "base_keymap": "VSCode",
   "cursor_shape": "block",
+  "cursor_blink": false,
 
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
 
   "agent": {
     "enabled": false,
-    "button": false,
+    "button": false
   },
 
   "calls": {
-    "mute_on_join": true,
+    "mute_on_join": true
   },
 
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark",
+    "dark": "Gruvbox Dark"
   },
 
   "ui_font_size": 16,
   "buffer_font_size": 18,
+  "buffer_line_height": "comfortable",
 
   "relative_line_numbers": "enabled",
 
+  "preview_tabs": {
+    "enabled": false
+  },
+
   "tabs": {
     "file_icons": true,
-    "git_status": true,
+    "git_status": true
   },
 
   "tab_size": 2,
   "preferred_line_length": 100,
+  "remove_trailing_whitespace_on_save": true,
+  "format_on_save": "on",
+  "formatter": "language_server",
 
   "project_panel": {
     "dock": "right",
     "default_width": 280,
     "starts_open": true,
     "sticky_scroll": true,
+    "git_status": true
   },
 
   "outline_panel": {
     "dock": "right",
     "default_width": 300,
+    "auto_reveal_entries": true,
+    "auto_fold_dirs": true
   },
 
   "git": {
+    "git_gutter": "tracked_files",
     "inline_blame": {
       "enabled": true,
       "show_commit_summary": false,
-    },
+      "delay_ms": 300
+    }
   },
-
-  "use_smartcase_search": true,
 
   "inlay_hints": {
     "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
   },
 
   "indent_guides": {
     "enabled": true,
+    "line_width": 1,
+    "coloring": "fixed",
+    "background_coloring": "disabled"
+  },
+
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": true,
+    "search_results": true,
+    "selected_text": true,
+    "selected_symbol": true,
+    "diagnostics": "all"
+  },
+
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "vertical_scroll_margin": 5,
+
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/node_modules",
+    "**/.DS_Store",
+    "**/Thumbs.db"
+  ],
+
+  "languages": {
+    "Go": {
+      "tab_size": 4,
+      "hard_tabs": true,
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "Make": {
+      "hard_tabs": true
+    },
+    "Markdown": {
+      "tab_size": 2,
+      "soft_wrap": "preferred_line_length"
+    },
+    "JSON": {
+      "tab_size": 2,
+      "format_on_save": "off"
+    },
+    "YAML": {
+      "tab_size": 2
+    }
   },
 
   "terminal": {
     "dock": "bottom",
     "default_height": 400,
     "blinking": "off",
-  },
+    "copy_on_select": true
+  }
 }
