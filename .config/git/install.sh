@@ -1,43 +1,11 @@
 #!/usr/bin/env sh
-set -e
+set -eu
 
-while IFS="$(printf '\t')" read -r name value; do
-  [ -z "$name" ] && continue
-  git config --global "alias.$name" "$value"
-done <<'EOF'
-st	status
-s	status -s
-br	branch
-cm	commit
-co	checkout
-re	restore
-sw	switch
-pick	cherry-pick
-undo	reset --soft HEAD~1
-uncommit	reset --soft HEAD^
-amend	commit --amend
-nuke	reset --hard
-discard	checkout -- .
-unstage	reset HEAD --
-revertfile	checkout --
-purge	clean -fd
-undo-first	update-ref -d HEAD
-cob	checkout -b
-trim	!f() { git branch | grep -v "main" | grep -v "master" | grep -v "^*" | xargs git branch -D; git remote prune origin; }; f
-lg	log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
-last	log -1 HEAD --stat
-ls	log --oneline
-smartlog	log --graph --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%C(cyan)%s%n%Creset'
-sl	!git smartlog
-me	!git smartlog --author='$(git config user.name)'
-log-commit	log -1 --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%n%C(bold cyan)%s%n%n%C(cyan)%b%n%Creset'
-logcm	!git log-commit
-authors-list	shortlog -e -s -n
-authors-count	shortlog -s -n
-aliases	!f() { git config --global -l | grep alias | sort; }; f
-find	!f() { git ls-files | grep "$1"; }; f
-today	!git log --since=midnight --author="$(git config user.name)" --oneline
-standup	!git log --since="yesterday" --author="$(git config user.name)" --pretty=format:"%Cred%h%Creset - %s"
-EOF
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+git config --global include.path "$DIR/git-aliases.ini"
+git config core.hooksPath "$DIR/hooks"
+
+chmod +x "$DIR/hooks/"* 2>/dev/null || true
 
 echo "done."
