@@ -1,2 +1,7 @@
+git:
+  diffRenderers:
+    - name: 'delta'
+      command: 'delta --dark --paging=never'
+      colorArg: 'always'
 gui:
   language: 'en'
