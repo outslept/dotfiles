@@ -31,12 +31,12 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Rich Vesper"
+    "dark": "Vercel Dark"
   },
   "ui_font_size": 16,
   "buffer_font_size": 18,
   "buffer_line_height": "comfortable",
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "preview_tabs": {
     "enabled": false
   },
@@ -72,8 +72,8 @@
   },
   "inlay_hints": {
     "enabled": true,
-    "show_type_hints": true,
-    "show_parameter_hints": true,
+    "show_type_hints": false,
+    "show_parameter_hints": false,
     "show_other_hints": true
   },
   "indent_guides": {
@@ -117,7 +117,7 @@
     },
     "Markdown": {
       "tab_size": 2,
-      "soft_wrap": "preferred_line_length"
+      "soft_wrap": "prefer_line"
     },
     "JSON": {
       "tab_size": 2,
