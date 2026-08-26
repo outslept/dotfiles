@@ -1,134 +1,83 @@
 {
   "cli_default_open_behavior": "existing_window",
-  "icon_theme": {
-    "mode": "dark",
-    "light": "Zed (Default)",
-    "dark": "Zed (Default)"
-  },
-  "collaboration_panel": {
-    "dock": "left"
-  },
-  "git_panel": {
-    "dock": "left"
-  },
   "auto_update": false,
   "confirm_quit": true,
   "base_keymap": "VSCode",
-  "cursor_shape": "block",
-  "cursor_blink": false,
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "agent": {
-    "dock": "right",
-    "enabled": false,
-    "button": false
-  },
-  "calls": {
-    "mute_on_join": true
-  },
+
   "theme": {
     "mode": "dark",
-    "light": "Gruvbox Light",
-    "dark": "Vercel Dark"
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night"
   },
-  "ui_font_size": 16,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Latte"
+  },
   "buffer_font_size": 18,
-  "buffer_line_height": "comfortable",
+  "cursor_shape": "block",
+  "cursor_blink": false,
+  "reduce_motion": "on",
   "relative_line_numbers": "enabled",
-  "preview_tabs": {
-    "enabled": false
-  },
-  "tabs": {
-    "file_icons": true,
-    "git_status": true
-  },
+  "vertical_scroll_margin": 5,
+  "multi_cursor_modifier": "cmd_or_ctrl",
   "tab_size": 2,
   "preferred_line_length": 100,
-  "remove_trailing_whitespace_on_save": true,
-  "format_on_save": "on",
-  "formatter": "language_server",
-  "project_panel": {
-    "dock": "right",
-    "default_width": 280,
-    "starts_open": true,
-    "sticky_scroll": true,
-    "git_status": true
+
+  "use_on_type_format": false,
+  "lsp_document_colors": "none",
+  "telemetry": { "diagnostics": false, "metrics": false },
+  "edit_predictions": { "mode": "subtle" },
+
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false
   },
-  "outline_panel": {
-    "dock": "right",
-    "default_width": 300,
-    "auto_reveal_entries": true,
-    "auto_fold_dirs": true
+  "title_bar": {
+    "show_user_picture": false,
+    "show_onboarding_banner": false
   },
-  "git": {
-    "git_gutter": "tracked_files",
-    "inline_blame": {
-      "enabled": true,
-      "show_commit_summary": false,
-      "delay_ms": 300
-    }
-  },
+
+  "git_panel": { "dock": "right" },
+  "outline_panel": { "dock": "right" },
+  "collaboration_panel": { "dock": "right" },
+  "project_panel": { "default_width": 280 },
+  "agent": { "dock": "right", "enabled": false, "button": false },
+
+  "git": { "inline_blame": { "delay_ms": 300 } },
+  "tabs": { "file_icons": true, "git_status": true },
+  "preview_tabs": { "enabled": false },
+  "close_on_file_delete": true,
+
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": false,
-    "show_parameter_hints": false,
-    "show_other_hints": true
+    "show_parameter_hints": false
   },
-  "indent_guides": {
-    "enabled": true,
-    "line_width": 1,
-    "coloring": "fixed",
-    "background_coloring": "disabled"
-  },
-  "scrollbar": {
-    "show": "auto",
-    "cursors": true,
-    "git_diff": true,
-    "search_results": true,
-    "selected_text": true,
-    "selected_symbol": true,
-    "diagnostics": "all"
-  },
-  "multi_cursor_modifier": "cmd_or_ctrl",
-  "vertical_scroll_margin": 5,
-  "edit_predictions": {
-    "mode": "subtle"
-  },
+  "use_smartcase_search": true,
+
   "file_scan_exclusions": [
-    "**/.git",
-    "**/.svn",
-    "**/.hg",
-    "**/node_modules",
-    "**/.DS_Store",
-    "**/Thumbs.db"
+    "**/.git", "**/.svn", "**/.hg", "**/.jj", "**/CVS",
+    "**/.DS_Store", "**/Thumbs.db", "**/.classpath", "**/.settings",
+    "**/node_modules"
   ],
+
   "languages": {
     "Go": {
       "tab_size": 4,
       "hard_tabs": true,
-      "code_actions_on_format": {
-        "source.organizeImports": true
-      }
+      "code_actions_on_format": { "source.organizeImports": true }
     },
-    "Make": {
-      "hard_tabs": true
-    },
-    "Markdown": {
-      "tab_size": 2,
-      "soft_wrap": "prefer_line"
-    },
-    "JSON": {
-      "tab_size": 2,
-      "format_on_save": "off"
-    },
-    "YAML": {
-      "tab_size": 2
-    }
+    "Make": { "hard_tabs": true },
+    "Markdown": { "soft_wrap": "editor_width" },
+    "JSON": { "format_on_save": "off" }
   },
+
+  "calls": { "mute_on_join": true },
+
   "terminal": {
-    "dock": "bottom",
     "default_height": 400,
     "blinking": "off",
     "copy_on_select": true
