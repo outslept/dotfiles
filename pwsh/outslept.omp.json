@@ -1,31 +1,71 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": 3,
+  "version": 4,
   "final_space": true,
+  "palette": {
+    "silver": "#a3a3a3",
+    "gray": "#737373",
+    "purple": "#9d72ff",
+    "green": "#4ecc84",
+    "yellow": "#ffdd74",
+    "red": "#fe7292"
+  },
   "blocks": [
     {
       "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "type": "text",
+          "type": "session",
           "style": "plain",
-          "template": "λ ",
-          "foreground": "#928374",
-          "foreground_templates": ["{{ if gt .Code 0 }}#ea6962{{ end }}"]
+          "foreground": "p:yellow",
+          "template": "{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }} {{ end }}"
         },
         {
           "type": "path",
           "style": "plain",
-          "foreground": "#d4be98",
+          "foreground": "p:silver",
           "options": {
             "style": "agnoster_short",
-            "max_depth": 2,
-            "mapped_locations": {
-              "~": "~"
-            }
+            "max_depth": 3
           },
-          "template": "{{ .Path }}"
+          "template": "{{ .Path }} "
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:gray",
+          "options": {
+            "branch_icon": "",
+            "fetch_status": true
+          },
+          "template": "git:({{ if or .Working.Changed .Staging.Changed }}<p:yellow>{{ .HEAD }}</>{{ else }}<p:green>{{ .HEAD }}</>{{ end }}{{ if .BranchStatus }} <p:purple>{{ .BranchStatus }}</>{{ end }}{{ if .Staging.Changed }} <p:green>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <p:red>{{ .Working.String }}</>{{ end }}) "
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "p:gray",
+          "options": {
+            "threshold": 2000,
+            "style": "roundrock"
+          },
+          "template": "{{ .FormattedMs }}"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:gray",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:red{{ end }}"
+          ],
+          "template": "λ"
         }
       ]
     }
