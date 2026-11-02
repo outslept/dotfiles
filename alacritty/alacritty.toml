@@ -2,7 +2,61 @@
 TERM = "xterm-256color"
 
 [terminal]
-shekll = { programm = "pwsh", args = ["-NoLogo"] }
+shell = { program = "pwsh", args = ["-NoLogo"] }
+
+[window]
+padding = { x = 24, y = 24 }
+dynamic_padding = true
+decorations_theme_variant = "Dark"
 
 [font]
-normal = { family = "CommitMono Nerd Font" }
+normal = { family = "CommitMono Nerd Font", style = "Regular" }
+size = 16.0
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+[colors.primary]
+background = "#0a0a0a"
+foreground = "#fafafa"
+
+[colors.cursor]
+text = "#0a0a0a"
+cursor = "#4fa5ff"
+
+[colors.selection]
+text = "CellForeground"
+background = "#19273d"
+
+[colors.normal]
+black   = "#171717"
+red     = "#ff4043"
+green   = "#4cc652"
+yellow  = "#ffd44d"
+blue    = "#4fa5ff"
+magenta = "#e23cb4"
+cyan    = "#53cafe"
+white   = "#a3a3a3"
+
+[colors.bright]
+black   = "#737373"
+red     = "#fe7292"
+green   = "#4ecc84"
+yellow  = "#ffdd74"
+blue    = "#4fa5ff"
+magenta = "#9d72ff"
+cyan    = "#53cafe"
+white   = "#fafafa"
+
+[keyboard]
+bindings = [
+  { key = "=",            mods = "Control", action = "None" },
+  { key = "+",            mods = "Control", action = "None" },
+  { key = "-",            mods = "Control", action = "None" },
+  { key = "0",            mods = "Control", action = "None" },
+  { key = "NumpadAdd",      mods = "Control", action = "None" },
+  { key = "NumpadSubtract", mods = "Control", action = "None" },
+]
