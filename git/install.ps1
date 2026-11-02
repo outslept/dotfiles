@@ -1,9 +1,7 @@
 $ErrorActionPreference = "Stop"
-$dir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$iniPath = $dir.Replace('\', '/') + "/git-aliases.ini"
-$hooksPath = $dir.Replace('\', '/') + "/hooks"
+$dir = $PSScriptRoot.Replace('\', '/')
 
-git config --global include.path "$iniPath"
-git config core.hooksPath "$hooksPath"
+git config --global --replace-all include.path "$dir/git-aliases.ini"
+git config --global core.hooksPath "$dir/hooks"
 
 Write-Host "done."
