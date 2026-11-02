@@ -1,10 +1,3 @@
-// Zed keymap
-//
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
 [
   {
     "use_key_equivalents": true,
@@ -16,75 +9,149 @@
       "cmd-=": null,
       "cmd-shift-=": null,
       "cmd--": null,
-      "cmd-0": null
-    }
-  },
-  {
-    "context": "ApplicationMenu",
-    "use_key_equivalents": true,
-    "bindings": {
-      "cmd-m": null
+      "cmd-0": null,
+      "cmd-m": null,
+      "f4": null
     }
   },
   {
     "context": "Workspace",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-m": null,
-      "ctrl-`": "terminal_panel::Toggle"
+      "alt-t": null,
+      "f5": null,
+      "ctrl-shift-d": null,
+      "ctrl-shift-/": null,
+      "ctrl-alt-s": "workspace::SaveWithoutFormat",
+      "shift shift": "file_finder::Toggle",
+      "ctrl-alt-z": "workspace::ToggleCenteredLayout"
     }
   },
   {
-    "context": "Editor",
+    "context": "!Terminal",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-=": "editor::SelectLargerSyntaxNode",
-      "ctrl--": "editor::SelectSmallerSyntaxNode",
-      "ctrl-w": ["pane::CloseActiveItem", { "close_pinned": false }],
-      "ctrl-\\": "pane::SplitRight",
-      "ctrl-shift-\\": "editor::MoveToEnclosingBracket"
+      "ctrl-shift-c": null
+    }
+  },
+  {
+    "context": "Pane",
+    "use_key_equivalents": true,
+    "bindings": {
+      "alt-9": "pane::ActivateLastItem",
+      "alt-0": "pane::AlternateFile",
+      "ctrl-k \\": "pane::JoinAll"
     }
   },
   {
     "context": "Workspace && !Terminal",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-alt-j": "workspace::ActivatePaneLeft",
-      "ctrl-alt-l": "workspace::ActivatePaneRight",
       "ctrl-alt-i": "workspace::ActivatePaneUp",
       "ctrl-alt-k": "workspace::ActivatePaneDown",
+      "ctrl-alt-j": "workspace::ActivatePaneLeft",
+      "ctrl-alt-l": "workspace::ActivatePaneRight",
+      "ctrl-alt-shift-i": "workspace::SwapPaneUp",
+      "ctrl-alt-shift-k": "workspace::SwapPaneDown",
+      "ctrl-alt-shift-j": "workspace::SwapPaneLeft",
+      "ctrl-alt-shift-l": "workspace::SwapPaneRight",
       "ctrl-alt--": "pane::GoBack",
-      "ctrl-alt-shift--": "pane::GoForward",
-      "alt-1": ["pane::ActivateItem", 0],
-      "alt-2": ["pane::ActivateItem", 1],
-      "alt-3": ["pane::ActivateItem", 2],
-      "alt-4": ["pane::ActivateItem", 3],
-      "alt-5": ["pane::ActivateItem", 4],
-      "alt-6": ["pane::ActivateItem", 5],
-      "alt-7": ["pane::ActivateItem", 6],
-      "alt-8": ["pane::ActivateItem", 7],
-      "alt-9": "pane::ActivateLastItem"
+      "ctrl-alt-shift--": "pane::GoForward"
+    }
+  },
+  {
+    "context": "Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      "f9": null,
+      "shift-f9": null,
+      "ctrl-;": null,
+      "ctrl-=": "editor::SelectLargerSyntaxNode",
+      "ctrl--": "editor::SelectSmallerSyntaxNode",
+      "ctrl-alt-\\": "pane::SplitDown",
+      "ctrl-alt-,": "editor::SelectInsideDelimiters",
+      "ctrl-alt-.": "editor::SelectAroundDelimiters",
+      "ctrl-alt-shift-.": "editor::UnwrapSyntaxNode",
+      "alt-o": "editor::SwapSelectionEnds",
+      "ctrl-alt-o": "editor::OpenSelectedFilename",
+      "ctrl-alt-d": "editor::DiffClipboardWithSelection",
+      "ctrl-alt-shift-r": "editor::RestartLanguageServer",
+      "alt-t o": "editor::SortLinesCaseInsensitive",
+      "alt-t d": "editor::UniqueLinesCaseInsensitive",
+      "alt-t r": "editor::ReverseLines",
+      "alt-t w": "editor::Rewrap",
+      "alt-t u": "editor::ConvertToUpperCase",
+      "alt-t l": "editor::ConvertToLowerCase",
+      "alt-t t": "editor::ConvertToTitleCase",
+      "alt-t c": "editor::ConvertToLowerCamelCase",
+      "alt-t s": "editor::ConvertToSnakeCase",
+      "alt-t i": "editor::InsertUuidV4",
+      "ctrl-shift-alt-l": "editor::SplitSelectionIntoLines",
+      "ctrl-f2": "editor::ToggleBookmark",
+      "ctrl-shift-f2": "editor::GoToPreviousBookmark",
+      "ctrl-alt-f2": "editor::GoToNextBookmark",
+      "alt-g g": "git_graph::Open",
+      "alt-g h": "git::FileHistory",
+      "alt-g d": "git::OpenFileDiff",
+      "alt-g s": "git::StashAll",
+      "alt-g p": "git::StashPop",
+      "alt-g l": "editor::ToggleGitBlameInline"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-shift-.": null,
+      "ctrl-enter": "editor::NewlineBelow",
+      "ctrl-alt-enter": "editor::NewlineBelow"
+    }
+  },
+  {
+    "context": "FileFinder || (FileFinder > Picker > Editor)",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-enter": "file_finder::OpenWithoutDismiss"
     }
   },
   {
     "context": "Terminal",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-shift-l": "terminal::Clear",
+      "alt-t": null,
+      "ctrl-i": null,
+      "ctrl-shift-.": null,
       "ctrl-alt-k": "pane::CloseActiveItem",
       "ctrl-alt-e": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-backspace": null,
+      "ctrl-delete": null
     }
   },
   {
     "context": "ProjectPanel && not_editing",
     "use_key_equivalents": true,
     "bindings": {
+      "escape": "project_panel::ToggleFocus",
       "a": "project_panel::NewFile",
       "m": "project_panel::NewDirectory",
       "r": "project_panel::Rename",
       "c": "project_panel::Copy",
+      "x": "project_panel::Cut",
       "v": "project_panel::Paste",
-      "d": ["project_panel::Trash", { "skip_prompt": false }]
+      "d": ["project_panel::Trash", { "skip_prompt": false }],
+      "shift-d": ["project_panel::Delete", { "skip_prompt": false }],
+      "enter": "project_panel::Open",
+      "/": "project_panel::NewSearchInDirectory",
+      "h": "project_panel::CollapseSelectedEntry",
+      "l": "project_panel::ExpandSelectedEntry",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious"
     }
   }
 ]
