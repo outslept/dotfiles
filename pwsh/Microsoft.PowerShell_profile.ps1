@@ -1,26 +1,46 @@
-# UTF-8 encoding fix for oh-my-posh Unicode symbols in PowerShell 7.4+
-# See: https://github.com/PowerShell/PowerShell/issues/20733
-# WARNING: This affects the entire session, restart terminal to reset
-[console]::InputEncoding  = [System.Text.UTF8Encoding]::new()
-[console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
+[console]::InputEncoding = [console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
-$Base = $PSScriptRoot
-try { $t = (Get-Item -LiteralPath $PSCommandPath -ErrorAction Stop).Target } catch { $t = $null }
-if ($t) { $Base = Split-Path -Parent $t }
-if (-not $Base -and $MyInvocation.MyCommand.Path) { $Base = Split-Path -Parent $MyInvocation.MyCommand.Path }
+$Item = Get-Item -LiteralPath $PSCommandPath
+$Base = Split-Path -Parent ($Item.Target ?? $Item.FullName)
 
-$modules = Join-Path $Base 'modules.ps1'
-if (Test-Path $modules) { . $modules }
+$Vendor = Join-Path $Base 'Modules'
+if ((Test-Path $Vendor) -and ($env:PSModulePath -split [IO.Path]::PathSeparator) -notcontains $Vendor) {
+    $env:PSModulePath = "$Vendor$([IO.Path]::PathSeparator)$env:PSModulePath"
+}
+
+if (Get-Module PSReadLine) {
+    Set-PSReadLineOption -EditMode Emacs `
+                         -BellStyle None `
+                         -PredictionSource History `
+                         -PredictionViewStyle ListView `
+                         -HistoryNoDuplicates `
+                         -MaximumHistoryCount 5000 `
+                         -AddToHistoryHandler {
+        param($line)
+        $line -notmatch '\b(password|passwd|secret|token|api[_-]?key|connectionstring|connstr|dsn|credential|cred|login)\b'
+    }
+
+    Set-PSReadLineKeyHandler -Key Ctrl+LeftArrow  -Function BackwardWord
+    Set-PSReadLineKeyHandler -Key Ctrl+RightArrow -Function ForwardWord
+    Set-PSReadLineKeyHandler -Key Ctrl+Backspace  -Function BackwardKillWord
+    Set-PSReadLineKeyHandler -Key Ctrl+Delete     -Function KillWord
+}
+
+Import-Module PSFzf -ErrorAction SilentlyContinue
+if (Get-Module PSFzf) {
+    $env:FZF_DEFAULT_OPTS ??= '--height 40% --layout=reverse --border --color=dark'
+    Set-PsFzfOption -PSReadlineChordHistory 'Ctrl+r'
+}
+
+if (Get-Command git -ErrorAction SilentlyContinue) {
+    Import-Module posh-git -ErrorAction SilentlyContinue
+}
 
 if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
     $cfg = Join-Path $Base 'outslept.omp.json'
-    if (Test-Path $cfg) { oh-my-posh init pwsh --config $cfg | Invoke-Expression }
-    else { oh-my-posh init pwsh | Invoke-Expression }
+    oh-my-posh init pwsh --config (Test-Path $cfg ? $cfg : $null) | Invoke-Expression
 }
 
-$keys = Join-Path $Base 'keys.ps1'
-if (Test-Path $keys) { . $keys }
-
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
-    Invoke-Expression (& { (zoxide init powershell --hook pwd --no-aliases | Out-String) })
+    zoxide init powershell --no-aliases | Out-String | Invoke-Expression
 }
